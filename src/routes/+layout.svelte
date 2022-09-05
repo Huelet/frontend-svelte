@@ -44,4 +44,20 @@
 	:global(p, h1, h2, h3, h4, h5, h6, a, li, ul, ol, button, input, textarea) {
 		font-family: var(--font-text);
 	}
+
+	:global(.row) {
+		display: flex;
+		flex-direction: row;
+	}
+
+	:global(.column) {
+		display: flex;
+		flex-direction: column;
+	}
+
+	:global(.center) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 </style>
