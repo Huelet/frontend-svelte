@@ -19,7 +19,7 @@
 		--accent-300-dark: #8421f8;
 		--accent-400-dark: #7600ff;
 		--accent-500-dark: #8421f8;
-		--accent-600-dark: #8421f8;
+		--accent-600-dark: #6300d6;
 		--accent-700-dark: #49009d;
 		--accent-800-dark: #3b047b;
 		--font: 'Red Hat Display', sans-serif;
@@ -59,5 +59,40 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	:global(.button) {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		color: var(--text-primary-dark);
+		font-size: 18px;
+		height: 50px;
+		margin-top: 10px;
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+		outline: 0;
+		width: auto;
+	}
+
+	:global(.button.primary) {
+		background-color: var(--accent-primary-dark);
+		border-radius: 12px;
+	}
+
+	:global(.button.secondary) {
+		background-color: transparent;
+		border: 1px solid var(--accent-primary-dark);
+		border-radius: 5px;
+	}
+
+	:global(.button.primary:hover) {
+		background-color: var(--accent-600-dark);
+	}
+
+	:global(.button.secondary:hover) {
+		background-color: rgba(0, 0, 0, 0.1);
 	}
 </style>
