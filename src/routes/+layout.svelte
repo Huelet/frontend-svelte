@@ -39,6 +39,7 @@
 		width: 100vw;
 		background-color: var(--background-dark);
 		font-family: var(--font);
+		color: var(--text-primary-dark);
 	}
 	:global(p, h1, h2, h3, h4, h5, h6, a, li, ul, ol, button, input, textarea) {
 		font-family: var(--font-text);
