@@ -19,8 +19,8 @@
 			Huelet is the free and open-source video platform for everyone. Sign up and immediately start
 			posting videos, gain an audience, and grow your community!
 		</p>
-		<div class="button primary">Join Our Community</div>
-		<div class="button secondary">I already have an account</div>
+		<a href="https://dsc.gg/huelet"><div class="button primary">Join Our Community</div></a>
+		<a href="/auth/in"><div class="button secondary">I already have an account</div></a>
 	</div>
 </main>
 
@@ -32,6 +32,15 @@
 		height: 100vh;
 		width: 100vw;
 	}
+
+	a {
+		text-decoration: none;
+	}
+
+	a:visited {
+		color: var(--text-primary-dark);
+	}
+
 	.hero {
 		padding: 1rem;
 	}
