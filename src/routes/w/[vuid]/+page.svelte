@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import Header from '../../../components/header.svelte';
 
 	export let vuid: string;
 	export let video: object;
@@ -22,4 +23,5 @@
 		});
 </script>
 
+<Header />
 <div>{$page.params.vuid}</div>
