@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Logo from './logo.svelte';
 
-	export let query: string;
+	let query: string;
 </script>
 
 <div class="header-global row center">
