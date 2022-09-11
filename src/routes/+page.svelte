@@ -45,12 +45,6 @@
 		padding: 1rem;
 	}
 
-	.hero-text {
-		font-size: 2rem;
-		font-weight: 700;
-		margin-left: 1rem;
-	}
-
 	@media (min-width: 768px) {
 		.hero {
 			padding: 2rem;
