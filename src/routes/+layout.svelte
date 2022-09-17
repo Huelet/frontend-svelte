@@ -45,6 +45,10 @@
 		font-family: var(--font-text);
 	}
 
+	:global(.cursor) {
+		cursor: pointer;
+	}
+
 	:global(.row) {
 		display: flex;
 		flex-direction: row;
