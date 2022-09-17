@@ -46,7 +46,7 @@
 			quality: {
 				default: 720,
 				options: [144, 240, 360, 480, 720, 1080, 1440, 2160],
-				forced: true,
+				forced: true
 			},
 			markers: {
 				enabled: intervals ? true : false,
@@ -67,14 +67,13 @@
 			webm_h264: string;
 		};
 	};
-	export let thumbnail: string;
 	export let intervals: MarkersPoints[] | any = null;
 </script>
 
 <div bind:this={location}>
 	<!-- this will be added in the future -->
 	<!-- svelte-ignore a11y-media-has-caption -->
-	<video data-poster={thumbnail}>
+	<video>
 		<source src={sources.hd.mp4_h264} type="video/mp4" />
 	</video>
 </div>
