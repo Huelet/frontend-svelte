@@ -61,6 +61,7 @@
 
 <style>
 	.header-global {
+		position: fixed;
 		width: 100vw;
 		height: 32px;
 		background-color: #1a1b1e;
