@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 
-	let ref: HTMLElement;
-	let portal: HTMLElement;
+	let ref: any;
+	let portal: any;
 
 	onMount(() => {
 		if (typeof document !== 'undefined') {
@@ -20,14 +20,6 @@
 	});
 </script>
 
-<div class="portal-clone">
-	<div bind:this={ref}>
-		<slot />
-	</div>
+<div bind:this={ref}>
+	<slot />
 </div>
-
-<style>
-	.portal-clone {
-		display: none;
-	}
-</style>
