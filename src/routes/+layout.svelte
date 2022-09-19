@@ -65,6 +65,24 @@
 		align-items: center;
 	}
 
+	:global(.full) {
+		width: 100%;
+		height: 100%;
+	}
+
+	:global(.full-width) {
+		width: 100%;
+	}
+
+	:global(.full-height) {
+		height: 100%;
+	}
+
+	:global(.full.page) {
+		height: 100vh;
+		width: 100vw;
+	}
+
 	:global(.button) {
 		display: flex;
 		flex-direction: row;
