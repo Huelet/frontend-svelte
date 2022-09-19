@@ -6,7 +6,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"start": "node build/index.js",
+		"start": "node dist/index.js",
 		"postinstall": "svelte-kit sync",
 		"package": "svelte-package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
