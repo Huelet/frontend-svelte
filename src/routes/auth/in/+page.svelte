@@ -4,9 +4,9 @@
 
 	let username: string;
 	let password: string;
-	let errorToast: boolean = false;
-	let error: string = '';
-	let loading: boolean = false;
+	let errorToast = false;
+	let error = '';
+	let loading = false;
 	let success: boolean | null = null;
 
 	const requestLogin = async () => {

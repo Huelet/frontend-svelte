@@ -13,7 +13,6 @@
 
 <main>
 	<div class="fyp-container">
-
 		<div class="fyp-videos">
 			<div class="fyp-videos-grid">
 				{#if videoList}

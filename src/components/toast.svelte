@@ -2,8 +2,8 @@
 	import Portal from './portal.svelte';
 
 	export let heading: string;
-	export let body: string = '';
-	export let open: boolean = false;
+	export let body = '';
+	export let open = false;
 	export let onClose: () => void;
 	export let location: 'top' | 'bottom-right' = 'bottom-right';
 	export let type: 'success' | 'error' | 'warning' | 'neutral' = 'neutral';

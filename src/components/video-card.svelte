@@ -4,7 +4,7 @@
 	import '@fontsource/red-hat-display/300.css';
 	import '@fontsource/red-hat-display/500.css';
 
-	export let vuid: string = '';
+	export let vuid = '';
 	export let video: any = {};
 	let videoData: any;
 	let creatorData: any;

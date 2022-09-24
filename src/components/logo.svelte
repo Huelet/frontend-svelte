@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let dimensions: number = 64;
+	export let dimensions = 64;
 </script>
 
 <img

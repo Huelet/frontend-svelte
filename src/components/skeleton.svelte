@@ -1,7 +1,7 @@
 <script lang="ts">
-	export let circle: boolean = false;
-	export let width: number = 100;
-	export let height: number = 20;
+	export let circle = false;
+	export let width = 100;
+	export let height = 20;
 
 	let styles: string;
 

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Divider from './divider.svelte';
 
-	export let title: string = '';
-	export let sub: string = '';
-	export let padding: number = 7;
-	export let full: boolean = false;
-	export let cursor: boolean = false;
+	export let title = '';
+	export let sub = '';
+	export let padding = 7;
+	export let full = false;
+	export let cursor = false;
 </script>
 
 <div class={`${full ? 'full-page-wrapper' : null} ${cursor ? 'cursor' : null}`}>

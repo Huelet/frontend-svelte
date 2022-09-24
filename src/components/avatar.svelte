@@ -1,10 +1,10 @@
 <script lang="ts">
-	export let username: string = '';
-	export let userID: string = '';
-	export let url: string = '';
-	export let dimensions: number = 64;
-	export let forceAltText: string = '';
-	export let styles: string = '';
+	export let username = '';
+	export let userID = '';
+	export let url = '';
+	export let dimensions = 64;
+	export let forceAltText = '';
+	export let styles = '';
 
 	if (url === '') {
 		if (userID === '') {
