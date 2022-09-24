@@ -42,12 +42,14 @@
 				</h3></span
 			>
 		</div>
-		<div class="fyp-tags">
-			{#each ['Trending', 'For You', 'New', 'Music', 'Podcasts', 'Shows', 'Movies', 'Books', 'News'] as tag}
-				<div class="fyp-tag-item center cursor">
-					<h3 class="fyp-tag-descriptor">{tag}</h3>
-				</div>
-			{/each}
+		<div class="center">
+			<div class="fyp-tags">
+				{#each ['Trending', 'For You', 'New', 'Music', 'Podcasts', 'Shows', 'Movies', 'Books', 'News'] as tag}
+					<div class="fyp-tag-item center cursor">
+						<h3 class="fyp-tag-descriptor">{tag}</h3>
+					</div>
+				{/each}
+			</div>
 		</div>
 		<slot />
 	</div>
@@ -73,9 +75,8 @@
 		flex-direction: row;
 		justify-content: space-between;
 		overflow-x: auto;
-		width: 100%;
+		width: 90%;
 		background-color: #343333;
-		margin: 0 0 0 2vw;
 		padding: 0.5em 0 0.5em 0;
 		border-radius: 0.5em;
 	}
