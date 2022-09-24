@@ -117,4 +117,15 @@
 	:global(.button.secondary:hover) {
 		background-color: rgba(0, 0, 0, 0.1);
 	}
+
+	:global(::-webkit-scrollbar) {
+		width: 5px;
+		height: 8px;
+		background: transparent;
+	}
+
+	:global(::-webkit-scrollbar-thumb) {
+		background: #4b4b4b;
+		border-radius: 2px;
+	}
 </style>
