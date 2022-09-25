@@ -65,9 +65,11 @@
 		<div class="center">
 			<div class="fyp-tags">
 				{#each ['Trending', 'For You', 'New', 'Music', 'Podcasts', 'Shows', 'Movies', 'Books', 'News'] as tag}
-					<div class="fyp-tag-item center cursor">
-						<h3 class="fyp-tag-descriptor">{tag}</h3>
-					</div>
+					<a href={`/explore/${tag.toLowerCase().replaceAll(' ', '')}`} class="tag">
+						<div class="fyp-tag-item center cursor">
+							<h3 class="fyp-tag-descriptor">{tag}</h3>
+						</div>
+					</a>
 				{/each}
 			</div>
 		</div>
@@ -168,7 +170,7 @@
 		border-radius: 0.5em;
 	}
 
-	.fyp-tags > .fyp-tag-item {
+	.fyp-tags > * > .fyp-tag-item {
 		width: 80px;
 		background-color: #646464;
 		padding: 0.5em;
@@ -176,7 +178,7 @@
 		border-radius: 0.25em;
 	}
 
-	.fyp-tags > .fyp-tag-item > .fyp-tag-descriptor {
+	.fyp-tags > * > .fyp-tag-item > .fyp-tag-descriptor {
 		font-size: 1.25em;
 		font-weight: 300;
 		color: #fff;
@@ -198,6 +200,14 @@
 		height: 50vh;
 	}
 
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	a:visited {
+		color: inherit;
+	}
 	h1,
 	h3 {
 		font-family: var(--font-text);
