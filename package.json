@@ -41,6 +41,7 @@
 	"dependencies": {
 		"@fontsource/red-hat-display": "^4.5.10",
 		"@fontsource/red-hat-text": "^4.5.10",
+		"luxon": "^3.0.4",
 		"normalize.css": "^8.0.1",
 		"sass": "^1.54.9"
 	}
