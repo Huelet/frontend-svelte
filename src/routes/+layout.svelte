@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '@fontsource/red-hat-display';
 	import '@fontsource/red-hat-text';
+	import 'normalize.css';
 </script>
 
 <slot />
