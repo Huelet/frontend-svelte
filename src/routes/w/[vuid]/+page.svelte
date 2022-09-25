@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import Player from '../../../components/player.svelte';
 	import Header from '../../../components/header.svelte';
+	import Skeleton from '../../../components/skeleton.svelte';
 
 	export let vuid: string;
 	export let video: any;
@@ -23,18 +24,21 @@
 		});
 </script>
 
-<Header />
 <div>
-	<Player
-		sources={{
-			hd: {
-				mp4_h264: typeof video !== 'undefined' ? video.url : null,
-				webm_h264: typeof video !== 'undefined' ? video.url_webm : null
-			},
-			sd: {
-				mp4_h264: typeof video !== 'undefined' ? video.url : null,
-				webm_h264: typeof video !== 'undefined' ? video.url_webm : null
-			}
-		}}
-	/>
+	{#if video}
+		<Player
+			sources={{
+				hd: {
+					mp4_h264: video.url,
+					webm_h264: video.url_webm
+				},
+				sd: {
+					mp4_h264: video.url,
+					webm_h264: video.url_webm
+				}
+			}}
+		/>
+	{:else}
+		<Skeleton width={36} height={350} />
+	{/if}
 </div>
