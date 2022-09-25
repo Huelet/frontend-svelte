@@ -41,7 +41,7 @@
 		if (res.ok) {
 			success = true;
 
-			window.location.href = '/';
+			window.location.href = '/foryou';
 		} else {
 			success = false;
 			error = (await res.json()).response;
