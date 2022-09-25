@@ -38,10 +38,38 @@
 			})
 		});
 
+		const data = await res.json();
+
 		if (res.ok) {
 			success = true;
 
-			window.location.href = '/foryou';
+			fetch('https://api.huelet.net/auth/token', {
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${data.token}`
+				}
+			})
+				.then((res) => res.json())
+				.then((data) => {
+					fetch(`https://api.huelet.net/auth/user?username=${data.username}`, {
+						headers: {
+							'Content-Type': 'application/json',
+							Authorization: `Bearer ${data.token}`
+						}
+					})
+						.then((res) => res.json())
+						.then((data) => {
+							localStorage.setItem('userId', data.data.uid);
+							localStorage.setItem(`user-${data.data.uid}`, JSON.stringify(data.data));
+							localStorage.setItem(
+								'timeAtAuth',
+								JSON.stringify({
+									time: (Date.now() / 1000) | 0
+								})
+							);
+							location.assign('/explore');
+						});
+				});
 		} else {
 			success = false;
 			error = (await res.json()).response;
