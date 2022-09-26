@@ -46,6 +46,10 @@
 		font-family: var(--font-text);
 	}
 
+	:global(.hidden) {
+		display: none;
+	}
+
 	:global(.cursor) {
 		cursor: pointer;
 	}
