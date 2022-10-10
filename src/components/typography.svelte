@@ -1,15 +1,14 @@
 <script lang="ts">
 	import type { Size, FontPreset } from '../types/components';
+    import "@fontsource/red-hat-display/variable.css";
+    import "@fontsource/red-hat-display/variable-italic.css";
+    import "@fontsource/red-hat-text/variable.css";
+    import "@fontsource/red-hat-text/variable-italic.css";
 
 	export let preset: FontPreset | undefined = undefined;
 	export let weight: number | undefined = undefined;
 	export let size: Size | undefined = undefined;
 	export let color: string | undefined = undefined;
-
-    if (weight !== undefined) {
-        import(`@fontsource/red-hat-display/${weight}.css`);
-        import(`@fontsource/red-hat-text/${weight}.css`);
-    }
 </script>
 
 {#if !preset}
