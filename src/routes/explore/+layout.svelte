@@ -3,6 +3,7 @@
 	import Header from '../../components/header.svelte';
 	import Divider from '../../components/divider.svelte';
 	import Avatar from '../../components/avatar.svelte';
+	import Drawer from '../../components/drawer.svelte';
 	import { onMount } from 'svelte';
 
 	let timeOfDay: string;
@@ -10,6 +11,8 @@
 	let locationData: any;
 	let user: any;
 	let following: any[] = [];
+
+	let drawer: boolean;
 
 	const now = new Date();
 	const hour = now.getHours();
@@ -51,6 +54,9 @@
 <main>
 	<Header />
 	<div class="page-content">
+		<Drawer open={drawer} onClose={() => {
+			drawer = false;
+		}} title="hello lmao" />
 		<div class="hello row">
 			<Logo />
 			<span class="column">
