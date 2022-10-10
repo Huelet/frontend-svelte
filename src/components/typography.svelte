@@ -5,6 +5,11 @@
 	export let weight: number | undefined = undefined;
 	export let size: Size | undefined = undefined;
 	export let color: string | undefined = undefined;
+
+    if (weight !== undefined) {
+        import(`@fontsource/red-hat-display/${weight}.css`);
+        import(`@fontsource/red-hat-text/${weight}.css`);
+    }
 </script>
 
 {#if !preset}
@@ -42,14 +47,6 @@
 		padding: 0;
 		border: 0;
 	}
-    
-    .chonky-100 {
-        font-weight: 100;
-    }
-
-    .chonky-200 {
-        font-weight: 200;
-    }
 
     .chonky-300 {
         font-weight: 300;
@@ -73,6 +70,10 @@
 
     .chonky-800 {
         font-weight: 800;
+    }
+
+    .chonky-900 {
+        font-weight: 900;
     }
 
     .chonky-xs {
