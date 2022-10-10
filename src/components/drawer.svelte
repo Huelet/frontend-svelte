@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Portal from './portal.svelte';
 	import Typography from './typography.svelte';
 
@@ -8,6 +9,18 @@
 	export let color: string | undefined = undefined;
 	export let width: number | undefined = undefined;
 	export let withBlur: boolean | undefined = undefined;
+
+	onMount(() => {
+		if (open) {
+			document.querySelectorAll('main').forEach((mainElement) => {
+				mainElement.classList.add('with-drawer');
+			});
+		} else {
+			document.querySelectorAll('main').forEach((mainElement) => {
+				mainElement.classList.remove('with-drawer');
+			});
+		}
+	});
 </script>
 
 {#if open}
@@ -62,7 +75,7 @@
 {/if}
 
 <style>
-	:global(main) {
+	:global(main.drawer-open) {
 		overflow: hidden;
 		filter: blur(1em);
 	}
