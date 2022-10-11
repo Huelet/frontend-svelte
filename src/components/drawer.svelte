@@ -25,7 +25,7 @@
 
 {#if open}
 	<Portal>
-		<div class="drawer">
+		<div class="drawer{open ? ' null' : '-invisible'}">
 			<div class="drawer__content-with-title">
 				{#if title}
 					<div class="title">
@@ -97,6 +97,8 @@
 		background: #181718;
 
 		filter: blur(0) !important;
+
+		animation: slideIn 0.3s ease-in-out;
 	}
 
 	.drawer__content {
@@ -133,5 +135,14 @@
 		background: #2f2f2f;
 		margin-top: 1em;
 		margin-bottom: 1em;
+	}
+
+	@keyframes slideIn {
+		0% {
+			transform: translateX(-25vw);
+		}
+		100% {
+			transform: translateX(0vw);
+		}
 	}
 </style>
