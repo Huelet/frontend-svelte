@@ -75,7 +75,7 @@
 {/if}
 
 <style>
-	:global(main.drawer-open) {
+	:global(main.with-drawer) {
 		overflow: hidden;
 		filter: blur(1em);
 	}
