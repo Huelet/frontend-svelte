@@ -54,12 +54,6 @@
 <main>
 	<Header />
 	<div class="page-content">
-		<Drawer open={drawer} onClose={() => {
-			drawer = false;
-		}} title="hello lmao" />
-		<div class="button primary" on:click={() => {
-			drawer = true;
-		}}>Open Drawer</div>
 		<div class="hello row">
 			<Logo />
 			<span class="column">
