@@ -70,6 +70,16 @@
 		align-items: center;
 	}
 
+	:global(.center-horizontally) {
+		display: flex;
+		justify-content: center;
+	}
+
+	:global(.center-vertically) {
+		display: flex;
+		align-items: center;
+	}
+
 	:global(.full) {
 		width: 100%;
 		height: 100%;
