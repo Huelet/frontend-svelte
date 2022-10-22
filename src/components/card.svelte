@@ -6,9 +6,12 @@
 	export let padding = 7;
 	export let full = false;
 	export let cursor = false;
+
+	let className: string = '';
+	export { className as class };
 </script>
 
-<div class={`${full ? 'full-page-wrapper' : null} ${cursor ? 'cursor' : null}`}>
+<div class={`${full ? 'full-page-wrapper' : null} ${cursor ? 'cursor' : null} ${className}`}>
 	<div class={`card-outer ${full ? 'full-card' : null}`} style={`padding: ${padding}em`}>
 		{#if title}
 			<div>

@@ -1,4 +1,9 @@
-<div class="divider" />
+<script lang="ts">
+	let className: string = '';
+	export { className as class };
+</script>
+
+<div class="divider {className}" />
 
 <style>
 	.divider {

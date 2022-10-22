@@ -8,6 +8,8 @@
 	export let video: any = {};
 	let videoData: any;
 	let creatorData: any;
+	let className: string = '';
+	export { className as class };
 
 	if (video) {
 		videoData = video;
@@ -37,7 +39,7 @@
 </script>
 
 <a href={`/w/${videoData?.vuid}`}>
-	<div class="video-card column cursor">
+	<div class="video-card column cursor {className}">
 		{#if videoData?.thumbnail}
 			<div
 				class="thumbnail center column"

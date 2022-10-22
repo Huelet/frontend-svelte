@@ -3,6 +3,8 @@
 
 	let ref: any;
 	let portal: any;
+	let className: string = '';
+	export { className as class };
 
 	onMount(() => {
 		if (typeof document !== 'undefined') {
@@ -20,6 +22,6 @@
 	});
 </script>
 
-<div bind:this={ref}>
+<div bind:this={ref} class={className}>
 	<slot />
 </div>

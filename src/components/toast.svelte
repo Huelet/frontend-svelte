@@ -9,6 +9,9 @@
 	export let type: 'success' | 'error' | 'warning' | 'neutral' = 'neutral';
 	export let duration: number | undefined = undefined;
 
+	let className: string = '';
+	export { className as class };
+
 	if (typeof duration === 'number') {
 		setTimeout(() => {
 			open = false;
@@ -23,7 +26,7 @@
 				open ? 'toast-open' : 'toast-closed'
 			} ${type === 'success' ? 'toast-success' : null} ${type === 'error' ? 'toast-error' : null} ${
 				type === 'warning' ? 'toast-warning' : null
-			} ${type === 'neutral' ? 'toast-neutral' : null}`}
+			} ${type === 'neutral' ? 'toast-neutral' : null} ${className}`}
 		>
 			<div class="close-icon-container">
 				<div class="close-icon">

@@ -10,6 +10,9 @@
 	export let width: number | undefined = undefined;
 	export let withBlur: boolean | undefined = undefined;
 
+	let className: string = '';
+	export { className as class };
+
 	onMount(() => {
 		if (open) {
 			document.querySelectorAll('main').forEach((mainElement) => {
@@ -25,7 +28,7 @@
 
 {#if open}
 	<Portal>
-		<div class="drawer{open ? ' null' : '-invisible'}">
+		<div class="drawer{open ? ' null' : '-invisible'} {className}">
 			<div class="drawer__content-with-title">
 				{#if title}
 					<div class="title">

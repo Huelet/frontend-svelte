@@ -1,4 +1,9 @@
-<div class="chip">
+<script lang="ts">
+	let className: string = '';
+	export { className as class };
+</script>
+
+<div class="chip {className}">
 	<slot />
 </div>
 
@@ -12,7 +17,7 @@
 		padding: 0.5em 1em;
 		border-radius: 5rem;
 
-        background: var(--accent-primary-dark);
+		background: var(--accent-primary-dark);
 
 		cursor: pointer;
 		box-sizing: border-box;

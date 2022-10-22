@@ -2,9 +2,11 @@
 	import Logo from './logo.svelte';
 
 	let query: string;
+	let className: string = '';
+	export { className as class };
 </script>
 
-<div class="header-global row center">
+<div class="header-global row center {className}">
 	<a href="/"><Logo dimensions={32} /></a>
 	<div class="row center">
 		<input type="text" placeholder="Search" bind:value={query} class="search" />

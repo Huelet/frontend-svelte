@@ -5,6 +5,8 @@
 
 	let player: any;
 	let location: any;
+	let className: string = '';
+	export { className as class };
 
 	onMount(async () => {
 		player = new Plyr(location.firstChild, {
@@ -70,7 +72,7 @@
 	export let intervals: MarkersPoints[] | any = null;
 </script>
 
-<div bind:this={location}>
+<div bind:this={location} class={className}>
 	<!-- this will be added in the future -->
 	<!-- svelte-ignore a11y-media-has-caption -->
 	<video>

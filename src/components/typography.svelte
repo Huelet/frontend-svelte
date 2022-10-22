@@ -13,28 +13,32 @@
 	let Element: string = 'p';
 	let font: string = 'Red Hat Display';
 
-    if (size === "xl") {
-        Element = "h1";
-    } else if (size === "lg") {
-        Element = "h2";
-    } else if (size === "xs") {
-        Element = "small";
-        font = "Red Hat Text";
-    } else if (size === "sm" || size === "md") {
-        font = "Red Hat Text";
-    }
+	let className: string = '';
+	export { className as class };
+
+	if (size === 'xl') {
+		Element = 'h1';
+	} else if (size === 'lg') {
+		Element = 'h2';
+	} else if (size === 'xs') {
+		Element = 'small';
+		font = 'Red Hat Text';
+	} else if (size === 'sm' || size === 'md') {
+		font = 'Red Hat Text';
+	}
 </script>
 
 {#if !preset}
 	<span
 		class="typography-reset-global {size === 'lg' || 'xl'
 			? 'typography-use-lg'
-			: 'typography-use-sm'}"
+			: 'typography-use-sm'} {className}"
 	>
 		<svelte:element
 			this={Element}
 			class="
             text chonky-{weight || '400'} chonky-{size || 'md'}
+			{className}
         "
 			style="
             color: {color || '#ffffff'};
