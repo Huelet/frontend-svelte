@@ -14,7 +14,13 @@ const config = {
 	kit: {
 		adapter: adapter({
 			out: 'dist'
-		})
+		}),
+		csrf: true,
+		trailingSlash: 'always',
+		serviceWorker: {
+			register: true,
+			files: (filepath) => !/\.DS_Store/.test(filepath)
+		}
 	}
 };
 
