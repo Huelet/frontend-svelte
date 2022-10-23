@@ -1,4 +1,4 @@
-<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" {...$$restProps}>
 	<path d="M9 10V12H7V10H9Z" />
 	<path
 		fill-rule="evenodd"

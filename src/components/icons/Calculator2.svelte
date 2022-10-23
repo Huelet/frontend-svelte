@@ -1,4 +1,4 @@
-<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" {...$$restProps}>
 	<path
 		d="M4 4C4 3.44772 4.44772 3 5 3H11C11.5523 3 12 3.44772 12 4V6C12 6.55228 11.5523 7 11 7H5C4.44772 7 4 6.55228 4 6V4Z"
 	/>

@@ -1,4 +1,4 @@
-<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" {...$$restProps}>
 	<rect x="1" y="1" width="14" height="14" rx="2" stroke="black" stroke-width="2" />
 	<circle cx="5" cy="5" r="2" />
 	<path
