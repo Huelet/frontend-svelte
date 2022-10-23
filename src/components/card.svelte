@@ -7,7 +7,7 @@
 	export let full = false;
 	export let cursor = false;
 
-	let className: string = '';
+	let className = '';
 	export { className as class };
 </script>
 

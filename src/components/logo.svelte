@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let dimensions = 64;
 
-	let className: string = '';
+	let className = '';
 	export { className as class };
 </script>
 

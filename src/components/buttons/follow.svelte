@@ -3,8 +3,8 @@
 
 	export let username: string;
 
-	let loading: boolean = false;
-	let justFollowed: boolean = false;
+	let loading = false;
+	let justFollowed = false;
 	let user: any;
 
 	const follow = (event: any) => {

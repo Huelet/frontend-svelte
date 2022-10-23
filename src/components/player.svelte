@@ -5,7 +5,7 @@
 
 	let player: any;
 	let location: any;
-	let className: string = '';
+	let className = '';
 	export { className as class };
 
 	onMount(async () => {

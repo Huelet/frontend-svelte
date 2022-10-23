@@ -10,7 +10,7 @@
 	export let type: 'success' | 'error' | 'warning' | 'neutral' = 'neutral';
 	export let duration: number | undefined = undefined;
 
-	let className: string = '';
+	let className = '';
 	export { className as class };
 
 	if (typeof duration === 'number') {

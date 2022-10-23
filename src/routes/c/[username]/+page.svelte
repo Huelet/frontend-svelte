@@ -12,7 +12,7 @@
 
 	let user: any;
 	let username: string = $page.params.username.replace('@', '');
-	let loading: boolean = true;
+	let loading = true;
 
 	fetch(`https://api.huelet.net/auth/user?username=${username}`)
 		.then((res) => res.json())

@@ -4,7 +4,7 @@
 	import Logo from './logo.svelte';
 
 	let query: string;
-	let className: string = '';
+	let className = '';
 	export { className as class };
 </script>
 

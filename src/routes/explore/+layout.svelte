@@ -2,8 +2,6 @@
 	import Logo from '../../components/logo.svelte';
 	import Header from '../../components/header.svelte';
 	import Divider from '../../components/divider.svelte';
-	import Avatar from '../../components/avatar.svelte';
-	import Drawer from '../../components/drawer.svelte';
 	import { onMount } from 'svelte';
 	import { News, Refresh, Stocks } from '../../components/icons';
 
@@ -12,8 +10,6 @@
 	let locationData: any;
 	let user: any;
 	let following: any[] = [];
-
-	let drawer: boolean;
 
 	const now = new Date();
 	const hour = now.getHours();

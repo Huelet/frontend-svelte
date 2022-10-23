@@ -10,10 +10,10 @@
 	export let size: Size | undefined = undefined;
 	export let color: string | undefined = undefined;
 
-	let Element: string = 'p';
-	let font: string = 'Red Hat Display';
+	let Element = 'p';
+	let font = 'Red Hat Display';
 
-	let className: string = '';
+	let className = '';
 	export { className as class };
 
 	if (size === 'xl') {
@@ -30,7 +30,7 @@
 
 {#if !preset}
 	<span
-		class="typography-reset-global {size === 'lg' || 'xl'
+		class="typography-reset-global {size === ('lg' || 'xl')
 			? 'typography-use-lg'
 			: 'typography-use-sm'} {className}"
 	>

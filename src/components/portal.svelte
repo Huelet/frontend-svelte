@@ -3,7 +3,7 @@
 
 	let ref: any;
 	let portal: any;
-	let className: string = '';
+	let className = '';
 	export { className as class };
 
 	onMount(() => {

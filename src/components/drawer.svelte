@@ -11,7 +11,7 @@
 	export let width: number | undefined = undefined;
 	export let withBlur: boolean | undefined = undefined;
 
-	let className: string = '';
+	let className = '';
 	export { className as class };
 
 	onMount(() => {
