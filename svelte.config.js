@@ -15,7 +15,7 @@ const config = {
 		adapter: adapter({
 			out: 'dist'
 		}),
-		csrf: true,
+		csrf: { checkOrigin: true },
 		trailingSlash: 'always',
 		serviceWorker: {
 			register: true,
