@@ -5,7 +5,7 @@
 		width="5"
 		height="5"
 		rx="2"
-		stroke="black"
+		
 		stroke-width="2"
 		stroke-linecap="round"
 		stroke-linejoin="round"
@@ -16,7 +16,7 @@
 		width="5"
 		height="5"
 		rx="2"
-		stroke="black"
+		
 		stroke-width="2"
 		stroke-linecap="round"
 		stroke-linejoin="round"
@@ -27,7 +27,7 @@
 		width="5"
 		height="5"
 		rx="2"
-		stroke="black"
+		
 		stroke-width="2"
 		stroke-linecap="round"
 		stroke-linejoin="round"

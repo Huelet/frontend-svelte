@@ -2,7 +2,7 @@
 	<rect x="7" width="2" height="10" rx="1" />
 	<path
 		d="M5 8L8 11L11 8"
-		stroke="black"
+		
 		stroke-width="2"
 		stroke-linecap="round"
 		stroke-linejoin="round"
