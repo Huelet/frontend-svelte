@@ -31,9 +31,9 @@
 
 <Root>
 	{#if user?.header}
-		<img src={user.header} alt="header" />
+		<img src={user?.header} alt="header" class="header" />
 	{:else}
-		<div class="header default" />
+		<img src={user?.avatar} alt="header" class="header" />
 	{/if}
 	<Card padding={0} class="user-card">
 		<main class="row">
@@ -98,8 +98,6 @@
 	:global(.root) {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 	}
 
 	:global(root > .user-card > .card-outer) {
@@ -121,15 +119,6 @@
 
 	section {
 		display: flex;
-	}
-
-	.header {
-		width: 100%;
-		height: 300px;
-	}
-
-	.header.default {
-		background-color: var(--accent-primary-dark);
 	}
 
 	.avatar-container {
@@ -154,5 +143,11 @@
 		place-items: center;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		grid-gap: 1em;
+	}
+
+	.header {
+		width: 100%;
+		height: 15em;
+		object-fit: cover;
 	}
 </style>
