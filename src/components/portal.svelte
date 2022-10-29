@@ -2,6 +2,7 @@
 	import { onMount, onDestroy } from 'svelte';
 
 	export let target: string = 'body';
+	export let element: string = 'div';
 
 	let ref: any;
 	let portal: any;
@@ -30,6 +31,6 @@
 	});
 </script>
 
-<div bind:this={ref} class={className}>
+<svelte:element this={element} bind:this={ref} class={className}>
 	<slot />
-</div>
+</svelte:element>
