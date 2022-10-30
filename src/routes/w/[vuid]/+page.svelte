@@ -54,7 +54,7 @@
 			<section class="meta">
 				<div class="meta-items">
 					{#if creator}
-						<a href="/c/{creator?.username}" class="row">
+						<a href="/c/@{creator?.username}" class="row">
 							<div class="meta__item center">
 								<Avatar url={creator.avatar} forceAltText="{creator.username}'s avatar" />
 							</div>
