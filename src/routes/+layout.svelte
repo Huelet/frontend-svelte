@@ -9,7 +9,7 @@
 		showSpinner: false,
 		minimum: 0.1,
 		easing: 'linear',
-		parent: '#main',
+		parent: '#main'
 	});
 
 	$: {
@@ -49,6 +49,10 @@
 		margin: 0;
 	}
 
+	::global(*::before, *::after) {
+		box-sizing: border-box;
+	}
+
 	:global(body, html) {
 		padding: 0;
 		margin: 0;
@@ -56,6 +60,23 @@
 		width: 100vw;
 		background-color: var(--background-dark);
 		color: var(--text-primary-dark);
+	}
+
+	:global(body, html, #main) {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+
+		height: 100vh;
+		width: 100vw;
+
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	:global(::selection) {
+		background: rgba(148, 34, 255, 50%);
+		color: #fff;
 	}
 
 	:global(.hidden) {
