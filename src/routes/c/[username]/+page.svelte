@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { PageData } from './$types';
 	import { page } from '$app/stores';
 	import { DateTime } from 'luxon';
 	import Typography from '../../../components/typography.svelte';
@@ -14,18 +15,9 @@
 	let username: string = $page.params.username.replace('@', '');
 	let loading = true;
 
-	fetch(`https://api.huelet.net/auth/user?username=${username}`)
-		.then((res) => res.json())
-		.then((response: any) => {
-			user = response.data;
-			fetch(`https://api.huelet.net/videos/search/fromcreator?creatorId=${user.uid}`)
-				.then((res) => res.json())
-				.then((response: any) => {
-					user.videos = response.data;
-					loading = false;
-				});
-		});
+	export let data: PageData;
 
+	$: user = data.user;
 	$: loading = typeof user?.videos === 'undefined';
 </script>
 
@@ -70,20 +62,32 @@
 						{/if}
 					</span>
 					<span class="row">
-						<AvatarIcon fill="white" />
-						<Typography size={'sm'}>{user?.pronouns.join('/')}</Typography>
+						{#if loading}
+							<Skeleton width={100} height={15} />
+						{:else}
+							<AvatarIcon fill="white" />
+							<Typography size={'sm'}>{user.pronouns?.join('/') || "Any pronouns"}</Typography>
+						{/if}
 					</span>
 					<span class="row">
-						<Location fill="white" />
-						<Typography size={'sm'}>{user?.location}</Typography>
+						{#if loading}
+							<Skeleton width={100} height={15} />
+						{:else}
+							<Location fill="white" />
+							<Typography size={'sm'}>{user?.location}</Typography>
+						{/if}
 					</span>
 					<span class="row">
-						<Calendar fill="white" />
-						<Typography size={'sm'}>
-							Joined {typeof user === 'undefined'
-								? 'loading...'
-								: DateTime.fromMillis(Math.round(user?.createdAt * 1000)).toRelative()}
-						</Typography>
+						{#if loading}
+							<Skeleton width={100} height={15} />
+						{:else}
+							<Calendar fill="white" />
+							<Typography size={'sm'}>
+								Joined {typeof user === 'undefined'
+									? 'loading...'
+									: DateTime.fromMillis(Math.round(user?.createdAt * 1000)).toRelative()}
+							</Typography>
+						{/if}
 					</span>
 				</div>
 			</section>
