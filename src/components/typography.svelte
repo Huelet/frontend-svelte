@@ -9,6 +9,9 @@
 	export let weight: number | undefined = undefined;
 	export let size: Size | undefined = undefined;
 	export let color: string | undefined = undefined;
+	export let fontSize: number | undefined = undefined;
+
+	if (size && fontSize) throw new Error('Cannot specify both size and fontSize');
 
 	let Element = 'p';
 	let font = 'Red Hat Display';
@@ -43,6 +46,7 @@
 			style="
             color: {color || '#ffffff'};
             font-family: {font}, sans-serif;
+			{fontSize ? `font-size: ${fontSize}em` : null}
         "
 		>
 			<slot />
