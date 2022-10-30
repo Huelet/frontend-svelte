@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Skeleton from './skeleton.svelte';
 	import Avatar from './avatar.svelte';
+	import Typography from './typography.svelte';
 	import '@fontsource/red-hat-display/300.css';
 	import '@fontsource/red-hat-display/500.css';
 	import { Check } from './icons';
@@ -60,19 +61,21 @@
 					width={64}
 					height={64}
 				/>
-				<h1>We couldn't load this thumbnail</h1>
+				<Typography size="lg">We couldn't load this thumbnail</Typography>
 			</div>
 		{/if}
 		<div class="video-info">
 			{#if videoData}
-				<h1 class="video-title">{videoData.title}</h1>
+				<Typography class="video-title" weight={600} fontSize={2}>{videoData.title}</Typography>
 			{:else}
 				<Skeleton width={50} />
 			{/if}
 			{#if videoData}
-				<h2 class="viewcount">{videoData.views} views</h2>
+				<Typography class="viewcount" fontSize={1.5} color="#b3b3b3"
+					>{videoData.views} views</Typography
+				>
 			{:else}
-				<h2 class="viewcount">Loading views...</h2>
+				<Typography class="viewcount" fontSize={1.5} color="#b3b3b3">Loading views...</Typography>
 			{/if}
 			<a href={`/c/@${creatorData?.username}`}>
 				<div class="row">
@@ -87,7 +90,7 @@
 						/>
 						<div class="creator">
 							<span class="row">
-								<h2 class="creator-name">{creatorData?.username}</h2>
+								<Typography class="creator-name">{creatorData?.username}</Typography>
 
 								{#if creatorData?.approved}
 									<a href="https://docs.huelet.net/users/verified">
@@ -95,11 +98,11 @@
 									</a>
 								{/if}</span
 							>
-							<h4 class="creator-bio--truncated">
+							<Typography class="creator-bio--truncated" fontSize={0.8} weight={300}>
 								{creatorData?.bio?.length > 50
 									? creatorData.bio.substring(0, 50) + '...'
 									: creatorData?.bio}
-							</h4>
+							</Typography>
 						</div>
 					{:else}
 						<Avatar
@@ -138,11 +141,6 @@
 	}
 
 	.video-card > .video-info > .video-title {
-		font-family: 'Red Hat Display', sans-serif;
-		font-weight: 600;
-		font-size: 2em;
-		color: white;
-
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -163,9 +161,6 @@
 	}
 
 	.video-card > .video-info > a > * > .creator > h4.creator-bio--truncated {
-		font-family: 'Red Hat Display', sans-serif;
-		font-weight: 300;
-		font-size: 0.8em;
 		width: 200px;
 
 		white-space: nowrap;

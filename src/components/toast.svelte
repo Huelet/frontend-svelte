@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Portal from './portal.svelte';
 	import { Close } from './icons';
+	import Typography from './typography.svelte';
 
 	export let heading: string;
 	export let body = '';
@@ -39,13 +40,13 @@
 					<slot name="icon" />
 				</div>
 				<div class="column main-content">
-					<h3 class="heading">
+					<Typography class="heading" fontSize={1.5} weight={600}>
 						{heading}
-					</h3>
+					</Typography>
 					{#if typeof body === 'string'}
-						<p class="body-text">
+						<Typography class="body-text">
 							{body}
-						</p>
+						</Typography>
 					{:else}
 						<div class="body-content">
 							<slot />

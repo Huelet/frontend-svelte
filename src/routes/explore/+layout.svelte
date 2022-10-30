@@ -2,6 +2,7 @@
 	import Logo from '../../components/logo.svelte';
 	import Header from '../../components/header.svelte';
 	import Divider from '../../components/divider.svelte';
+	import Typography from '../../components/typography.svelte';
 	import { onMount } from 'svelte';
 	import { News, Refresh, Stocks } from '../../components/icons';
 
@@ -54,12 +55,12 @@
 		<div class="hello row">
 			<Logo />
 			<span class="column">
-				<h1>
+				<Typography fontSize={1.95} weight={500} element="h1">
 					Good {timeOfDay}!
-				</h1>
-				<h3>
+				</Typography>
+				<Typography>
 					It's {!weather ? 'Rainy' : weather} in {!locationData ? 'Seattle' : locationData.city}.
-				</h3></span
+				</Typography></span
 			>
 		</div>
 		<div class="center">
@@ -67,7 +68,7 @@
 				{#each ['Trending', 'For You', 'New', 'Music', 'Podcasts', 'Shows', 'Movies', 'Books', 'News'] as tag}
 					<a href={`/explore/${tag.toLowerCase().replaceAll(' ', '')}`} class="tag">
 						<div class="fyp-tag-item center cursor">
-							<h3 class="fyp-tag-descriptor">{tag}</h3>
+							<Typography class="fyp-tag-descriptor" size="lg">{tag}</Typography>
 						</div>
 					</a>
 				{/each}
@@ -117,10 +118,7 @@
 		border-radius: 0.25em;
 	}
 
-	.fyp-tags > * > .fyp-tag-item > .fyp-tag-descriptor {
-		font-size: 1.25em;
-		font-weight: 300;
-		color: #fff;
+	.fyp-tag-descriptor {
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -146,20 +144,6 @@
 
 	a:visited {
 		color: inherit;
-	}
-	h1,
-	h3 {
-		font-family: var(--font-text);
-		margin: 0;
-		padding: 0;
-	}
-
-	h1 {
-		font-size: 1.95em;
-	}
-
-	h3 {
-		font-size: 1em;
 	}
 
 	@media (max-width: 600px) {

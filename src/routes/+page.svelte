@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Logo from '../components/logo.svelte';
+	import Typography from '../components/typography.svelte';
 	import '@fontsource/red-hat-display/700.css';
 </script>
 
@@ -12,13 +13,13 @@
 				}}><Logo dimensions={128} /></span
 			>
 			<span class="column">
-				<h1 class="hero-text-big">The Video Platform for Humans.</h1>
+				<Typography weight={800} fontSize={2}>The Video Platform for Humans.</Typography>
 			</span>
 		</div>
-		<p>
+		<Typography>
 			Huelet is the free and open-source video platform for everyone. Sign up and immediately start
 			posting videos, gain an audience, and grow your community!
-		</p>
+		</Typography>
 		<a href="https://dsc.gg/huelet"><div class="button primary">Join Our Community</div></a>
 		<a href="/auth/in"><div class="button secondary">I already have an account</div></a>
 	</div>

@@ -9,6 +9,7 @@
 	import Skeleton from '../../../components/skeleton.svelte';
 	import Follow from '../../../components/buttons/follow.svelte';
 	import Chip from '../../../components/chip.svelte';
+	import Typography from '../../../components/typography.svelte';
 	import { WarningFilled, ChevronDown } from '../../../components/icons';
 
 	let description = false;
@@ -47,7 +48,7 @@
 		</div>
 		<div class="details">
 			{#if video}
-				<h1 class="title details">{video.title}</h1>
+				<Typography fontSize={3} weight={800}>{video.title}</Typography>
 			{:else}
 				<Skeleton width={15} />
 			{/if}
@@ -59,11 +60,13 @@
 								<Avatar url={creator.avatar} forceAltText="{creator.username}'s avatar" />
 							</div>
 							<div class="meta__item center">
-								<h2 class="meta__item-creator-username">@{creator.username}</h2>
-								<p>
+								<Typography class="meta__item-creator-username" fontSize={1.17} weight={500}
+									>@{creator.username}</Typography
+								>
+								<Typography>
 									{creator.followers.length}{' '}
 									{creator.followers.length === 1 ? 'follower' : 'followers'}
-								</p>
+								</Typography>
 								<Follow username={creator.username} />
 							</div>
 						</a>
@@ -161,12 +164,6 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-gap: 0.5em;
-	}
-
-	.title.details {
-		font-size: 3em;
-		margin: 0;
-		padding: 0;
 	}
 
 	.description {

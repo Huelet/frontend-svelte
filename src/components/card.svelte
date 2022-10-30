@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Divider from './divider.svelte';
+	import Typography from './typography.svelte';
 
 	export let title = '';
 	export let sub = '';
@@ -15,9 +16,11 @@
 	<div class={`card-outer ${full ? 'full-card' : null}`} style={`padding: ${padding}em`}>
 		{#if title}
 			<div>
-				<h1 class="card-title">{title}</h1>
+				<Typography class="card-title" fontSize={3} weight={800} element="h1">
+					{title}
+				</Typography>
 				{#if sub}
-					<h2 class="card-sub">{sub}</h2>
+					<Typography class="card-sub" fontSize={1.5}>{sub}</Typography>
 				{/if}
 				<Divider />
 			</div>
