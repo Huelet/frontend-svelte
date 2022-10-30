@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { PageData } from './$types';
 	import { page } from '$app/stores';
 	import { DateTime } from 'luxon';
 	import type { Error } from '../../../types/error';
@@ -16,40 +17,10 @@
 	let creator: any;
 	let error: Error | null = null;
 
-	vuid = $page.params.vuid;
+	export let data: PageData;
 
-	fetch(`https://api.huelet.net/videos/lookup/${vuid}`)
-		.then((res) => {
-			if (res.status === 404) {
-				error = {
-					title: 'Not Found',
-					message: "This video doesn't exist. Please double-check the URL.",
-					severity: 'error',
-					fatal: true
-				};
-				return;
-			}
-			if (res.status === 429) {
-				error = {
-					title: 'Too Many Requests',
-					message: 'This resource has been rate limited',
-					severity: 'warning'
-				};
-				return;
-			} else return res.json();
-		})
-		.then((response: any) => {
-			video = response.data;
-			fetch(`https://api.huelet.net/auth/user?uid=${video.authorId}`)
-				.then((res) => res.json())
-				.then((response: any) => {
-					creator = response.data;
-				});
-		})
-		.catch((err) => {
-			error = { title: 'An unknown error occured', message: err, severity: 'error', fatal: true };
-			console.error(err);
-		});
+	$: video = data.video;
+	$: creator = data.creator;
 </script>
 
 <div class="content">
