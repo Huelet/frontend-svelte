@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { Size, FontPreset } from '../types/components';
-	import '@fontsource/red-hat-display/variable.css';
-	import '@fontsource/red-hat-display/variable-italic.css';
-	import '@fontsource/red-hat-text/variable.css';
-	import '@fontsource/red-hat-text/variable-italic.css';
+	import '@fontsource/red-hat-display/variable-full.css';
+	import '@fontsource/red-hat-display/variable-full-italic.css';
+	import '@fontsource/red-hat-text/variable-full.css';
+	import '@fontsource/red-hat-text/variable-full-italic.css';
 
 	export let preset: FontPreset | undefined = undefined;
 	export let weight: number | undefined = undefined;
@@ -15,7 +15,7 @@
 	if (size && fontSize) throw new Error('Cannot specify both size and fontSize');
 	if (size && element !== 'p') throw new Error('Cannot specify size with non-default element');
 
-	let font = 'Red Hat Display';
+	let font = 'Red Hat DisplayVariable';
 
 	let className = '';
 	export { className as class };
@@ -26,9 +26,9 @@
 		element = 'h2';
 	} else if (size === 'xs') {
 		element = 'small';
-		font = 'Red Hat Text';
+		font = 'Red Hat TextVariable';
 	} else if (size === 'sm' || size === 'md') {
-		font = 'Red Hat Text';
+		font = 'Red Hat TexVariablet';
 	}
 </script>
 
