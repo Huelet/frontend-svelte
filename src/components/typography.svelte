@@ -10,21 +10,22 @@
 	export let size: Size | undefined = undefined;
 	export let color: string | undefined = undefined;
 	export let fontSize: number | undefined = undefined;
+	export let element: string = 'p';
 
 	if (size && fontSize) throw new Error('Cannot specify both size and fontSize');
+	if (size && element !== 'p') throw new Error('Cannot specify size with non-default element');
 
-	let Element = 'p';
 	let font = 'Red Hat Display';
 
 	let className = '';
 	export { className as class };
 
 	if (size === 'xl') {
-		Element = 'h1';
+		element = 'h1';
 	} else if (size === 'lg') {
-		Element = 'h2';
+		element = 'h2';
 	} else if (size === 'xs') {
-		Element = 'small';
+		element = 'small';
 		font = 'Red Hat Text';
 	} else if (size === 'sm' || size === 'md') {
 		font = 'Red Hat Text';
@@ -38,7 +39,7 @@
 			: 'typography-use-sm'} {className}"
 	>
 		<svelte:element
-			this={Element}
+			this={element}
 			class="
             text chonky-{weight || '400'} chonky-{size || 'md'}
 			{className}
