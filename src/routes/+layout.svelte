@@ -1,6 +1,4 @@
 <script lang="ts">
-	import '@fontsource/red-hat-display';
-	import '@fontsource/red-hat-text';
 	import { navigating } from '$app/stores';
 	import NProgress from 'nprogress';
 
@@ -43,8 +41,6 @@
 		--accent-600-dark: #6300d6;
 		--accent-700-dark: #49009d;
 		--accent-800-dark: #3b047b;
-		--font: 'Red Hat Display', sans-serif;
-		--font-text: 'Red Hat Text', sans-serif;
 	}
 
 	::global(*) {
@@ -59,11 +55,7 @@
 		height: 100vh;
 		width: 100vw;
 		background-color: var(--background-dark);
-		font-family: var(--font);
 		color: var(--text-primary-dark);
-	}
-	:global(p, a, li, ul, ol, button, input, textarea) {
-		font-family: var(--font-text);
 	}
 
 	:global(.hidden) {
@@ -125,7 +117,6 @@
 		align-items: center;
 		cursor: pointer;
 		color: var(--text-primary-dark);
-		font-size: 18px;
 		height: 50px;
 		margin-top: 10px;
 		padding-left: 1.5em;
