@@ -28,7 +28,7 @@
 		element = 'small';
 		font = 'Red Hat TextVariable';
 	} else if (size === 'sm' || size === 'md') {
-		font = 'Red Hat TexVariablet';
+		font = 'Red Hat TextVariable';
 	}
 </script>
 
