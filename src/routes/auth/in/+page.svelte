@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import Toast from '../../../components/toast.svelte';
 	import Card from '../../../components/card.svelte';
 
@@ -43,6 +44,8 @@
 		if (res.ok) {
 			success = true;
 
+			localStorage.setItem(`token`, data.token);
+
 			fetch('https://api.huelet.net/auth/token', {
 				headers: {
 					'Content-Type': 'application/json',
@@ -59,15 +62,14 @@
 					})
 						.then((res) => res.json())
 						.then((data) => {
-							localStorage.setItem('userId', data.data.uid);
-							localStorage.setItem(`user-${data.data.uid}`, JSON.stringify(data.data));
+							localStorage.setItem(`user`, JSON.stringify(data.data));
 							localStorage.setItem(
 								'timeAtAuth',
 								JSON.stringify({
 									time: (Date.now() / 1000) | 0
 								})
 							);
-							location.assign('/explore');
+							location.assign($page.url.searchParams.get('redir') || '/explore');
 						});
 				});
 		} else {
