@@ -1,7 +1,27 @@
 <script lang="ts">
 	import '@fontsource/red-hat-display';
 	import '@fontsource/red-hat-text';
+	import { navigating } from '$app/stores';
+	import NProgress from 'nprogress';
+
 	import 'normalize.css';
+	import '../styles/progress.css';
+
+	NProgress.configure({
+		showSpinner: false,
+		minimum: 0.1,
+		easing: 'linear',
+		parent: '#main',
+	});
+
+	$: {
+		if ($navigating) {
+			NProgress.start();
+		}
+		if (!$navigating) {
+			NProgress.done();
+		}
+	}
 </script>
 
 <slot />
