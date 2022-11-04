@@ -10,6 +10,7 @@
 	export let size: Size | undefined = undefined;
 	export let color: string | undefined = undefined;
 	export let fontSize: number | undefined = undefined;
+	export let truncated: boolean | undefined = undefined;
 	export let element: string = 'p';
 
 	if (size && fontSize) throw new Error('Cannot specify both size and fontSize');
@@ -36,7 +37,7 @@
 	<span
 		class="typography-reset-global {size === ('lg' || 'xl')
 			? 'typography-use-lg'
-			: 'typography-use-sm'} {className}"
+			: 'typography-use-sm'} truncated-{truncated} {className}"
 	>
 		<svelte:element
 			this={element}
@@ -114,5 +115,17 @@
 
 	.chonky-xl {
 		font-size: 1.5em;
+	}
+
+	.truncated-true {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.truncated-false {
+		overflow: visible;
+		text-overflow: clip;
+		white-space: normal;
 	}
 </style>
