@@ -66,7 +66,7 @@
 		{/if}
 		<div class="video-info">
 			{#if videoData}
-				<Typography class="video-title" weight={600} fontSize={2}>{videoData.title}</Typography>
+				<Typography truncated={true} weight={600} fontSize={2}>{videoData.title}</Typography>
 			{:else}
 				<Skeleton width={50} />
 			{/if}
@@ -98,11 +98,13 @@
 									</a>
 								{/if}</span
 							>
-							<Typography class="creator-bio--truncated" fontSize={0.8} weight={300}>
-								{creatorData?.bio?.length > 50
-									? creatorData.bio.substring(0, 50) + '...'
-									: creatorData?.bio}
-							</Typography>
+							<div class="creator-bio">
+								<Typography truncated={true} fontSize={0.8} weight={300}>
+									{creatorData?.bio?.length > 50
+										? creatorData.bio.substring(0, 50) + '...'
+										: creatorData?.bio}
+								</Typography>
+							</div>
 						</div>
 					{:else}
 						<Avatar
@@ -140,12 +142,6 @@
 		padding: 0.3em;
 	}
 
-	.video-card > .video-info > .video-title {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
 	.video-card > .video-info > .viewcount {
 		font-family: 'Red Hat Display', sans-serif;
 		font-weight: 400;
@@ -160,12 +156,8 @@
 		color: rgb(255, 255, 255);
 	}
 
-	.video-card > .video-info > a > * > .creator > h4.creator-bio--truncated {
+	.video-card > .video-info > a > * > .creator > .creator-bio--truncated {
 		width: 200px;
-
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 
 	.thumbnail {

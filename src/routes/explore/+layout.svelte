@@ -68,7 +68,7 @@
 				{#each ['Trending', 'For You', 'New', 'Music', 'Podcasts', 'Shows', 'Movies', 'Books', 'News'] as tag}
 					<a href={`/explore/${tag.toLowerCase().replaceAll(' ', '')}`} class="tag">
 						<div class="fyp-tag-item center cursor">
-							<Typography class="fyp-tag-descriptor" size="lg">{tag}</Typography>
+							<Typography truncated={true} size="lg">{tag}</Typography>
 						</div>
 					</a>
 				{/each}
@@ -116,12 +116,6 @@
 		padding: 0.5em;
 		margin: 0 0.5em 0 0.5em;
 		border-radius: 0.25em;
-	}
-
-	.fyp-tag-descriptor {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 
 	.sidebar {
