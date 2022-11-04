@@ -12,8 +12,11 @@
 	export { className as class };
 </script>
 
-<div class={`${full ? 'full-page-wrapper' : null} ${cursor ? 'cursor' : null} ${className}`}>
-	<div class={`card-outer ${full ? 'full-card' : null}`} style={`padding: ${padding}em`}>
+<div class={`${full ? 'full-page-wrapper' : null} ${cursor ? 'cursor' : null}`}>
+	<div
+		class={`card-outer ${full ? 'full-card' : null} ${className}`}
+		style={`padding: ${padding}em`}
+	>
 		{#if title}
 			<div>
 				<Typography class="card-title" fontSize={3} weight={800} element="h1">
