@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
+	import '@fontsource/red-hat-display/400.css';
 	import NProgress from 'nprogress';
 
 	import 'normalize.css';
@@ -60,6 +61,7 @@
 		width: 100vw;
 		background-color: var(--background-dark);
 		color: var(--text-primary-dark);
+		font-family: 'Red Hat Display', sans-serif;
 	}
 
 	:global(body, html, #main) {
