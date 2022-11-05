@@ -44,6 +44,8 @@
 		if (res.ok) {
 			success = true;
 
+			localStorage.setItem('huelet:auth:token', data.token);
+
 			fetch(`https://api.huelet.net/auth/user?username=${username}`, {
 				headers: {
 					'Content-Type': 'application/json',
@@ -52,7 +54,6 @@
 			})
 				.then((res) => res.json())
 				.then((data) => {
-					localStorage.setItem('huelet:auth:token', data.token);
 					localStorage.setItem('huelet:auth:user', JSON.stringify(data.data));
 					localStorage.setItem(
 						'huelet:auth:time',
