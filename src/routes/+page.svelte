@@ -1,7 +1,14 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Logo from '../components/logo.svelte';
 	import Typography from '../components/typography.svelte';
 	import '@fontsource/red-hat-display/700.css';
+
+	onMount(() => {
+		if (localStorage.getItem('huelet:auth:token') !== null) {
+			location.assign('/explore/');
+		}
+	});
 </script>
 
 <main>
