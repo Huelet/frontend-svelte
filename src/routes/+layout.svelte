@@ -5,6 +5,7 @@
 
 	import 'normalize.css';
 	import '../styles/progress.css';
+	import { onMount } from 'svelte';
 
 	NProgress.configure({
 		showSpinner: false,
@@ -21,6 +22,24 @@
 			NProgress.done();
 		}
 	}
+
+	onMount(() => {
+		switch (localStorage.getItem('huelet:auth:time') === null) {
+			case false:
+				const timeAtAuth = JSON.parse(localStorage.getItem('huelet:auth:time') as string);
+				const timeNow = new Date().getTime();
+
+				if (timeNow > timeAtAuth.time + 86400000) {
+					localStorage.removeItem('huelet:auth:token');
+					localStorage.removeItem('huelet:auth:user');
+					localStorage.removeItem('huelet:auth:time');
+				}
+				break;
+
+			default:
+				break;
+		}
+	});
 </script>
 
 <slot />
