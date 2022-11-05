@@ -1,15 +1,21 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { Search, Bell } from './icons';
 	import VideoCamera from './icons/VideoCamera.svelte';
 	import Logo from './logo.svelte';
 
+	let loggedIn: boolean = false;
 	let query: string;
 	let className = '';
 	export { className as class };
+
+	onMount(() => {
+		localStorage.getItem('huelet:auth:token') !== null ? (loggedIn = true) : (loggedIn = false);
+	});
 </script>
 
 <div class="header-global row center {className}">
-	<a href="/"><Logo dimensions={32} /></a>
+	<a href={loggedIn ? '/explore' : '/'}><Logo dimensions={32} /></a>
 	<div class="row center">
 		<input type="text" placeholder="Search" bind:value={query} class="search" />
 		<div class="search-button button primary">
