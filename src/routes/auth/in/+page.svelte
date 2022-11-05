@@ -58,7 +58,7 @@
 					localStorage.setItem(
 						'huelet:auth:time',
 						JSON.stringify({
-							time: (Date.now() * 1000) | 0
+							time: Date.now() | 0
 						})
 					);
 					location.assign($page.url.searchParams.get('redir') || '/explore');
