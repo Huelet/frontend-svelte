@@ -23,23 +23,25 @@
 		}
 	}
 
-	onMount(() => {
-		switch (localStorage.getItem('huelet:auth:time') === null) {
-			case false:
-				const timeAtAuth = JSON.parse(localStorage.getItem('huelet:auth:time') as string);
-				const timeNow = new Date().getTime();
+	// someone figure this out because i dont care enough
 
-				if (timeNow > timeAtAuth.time + 86400000) {
-					localStorage.removeItem('huelet:auth:token');
-					localStorage.removeItem('huelet:auth:user');
-					localStorage.removeItem('huelet:auth:time');
-				}
-				break;
+	// onMount(() => {
+	// 	switch (localStorage.getItem('huelet:auth:time') === null) {
+	// 		case false:
+	// 			const timeAtAuth = JSON.parse(localStorage.getItem('huelet:auth:time') as string);
+	// 			const timeNow = Date.now();
 
-			default:
-				break;
-		}
-	});
+	// 			if (timeNow > timeAtAuth.time + 86400000) {
+	// 				localStorage.removeItem('huelet:auth:token');
+	// 				localStorage.removeItem('huelet:auth:user');
+	// 				localStorage.removeItem('huelet:auth:time');
+	// 			}
+	// 			break;
+
+	// 		default:
+	// 			break;
+	// 	}
+	// });
 </script>
 
 <slot />
