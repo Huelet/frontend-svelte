@@ -46,7 +46,7 @@
 
 			localStorage.setItem(`token`, data.token);
 
-			fetch('https://api.huelet.net/auth/token', {
+			fetch(`https://api.huelet.net/auth/user?username=${username}`, {
 				headers: {
 					'Content-Type': 'application/json',
 					Authorization: `Bearer ${data.token}`
@@ -54,23 +54,14 @@
 			})
 				.then((res) => res.json())
 				.then((data) => {
-					fetch(`https://api.huelet.net/auth/user?username=${data.username}`, {
-						headers: {
-							'Content-Type': 'application/json',
-							Authorization: `Bearer ${data.token}`
-						}
-					})
-						.then((res) => res.json())
-						.then((data) => {
-							localStorage.setItem(`user`, JSON.stringify(data.data));
-							localStorage.setItem(
-								'timeAtAuth',
-								JSON.stringify({
-									time: (Date.now() / 1000) | 0
-								})
-							);
-							location.assign($page.url.searchParams.get('redir') || '/explore');
-						});
+					localStorage.setItem(`user`, JSON.stringify(data.data));
+					localStorage.setItem(
+						'timeAtAuth',
+						JSON.stringify({
+							time: (Date.now() / 1000) | 0
+						})
+					);
+					location.assign($page.url.searchParams.get('redir') || '/explore');
 				});
 		} else {
 			success = false;
