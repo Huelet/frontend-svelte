@@ -37,12 +37,13 @@
 	<span
 		class="typography-reset-global {size === ('lg' || 'xl')
 			? 'typography-use-lg'
-			: 'typography-use-sm'} truncated-{truncated} {className}"
+			: 'typography-use-sm'} {className}"
 	>
 		<svelte:element
 			this={element}
 			class="
             text chonky-{weight || '400'} chonky-{size || 'md'}
+			truncated-{truncated}
 			{className}
         "
 			style="
