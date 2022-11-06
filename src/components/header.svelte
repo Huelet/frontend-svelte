@@ -1,16 +1,47 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Search, Bell } from './icons';
-	import VideoCamera from './icons/VideoCamera.svelte';
+	import { DateTime } from 'luxon';
+	import {
+		Search,
+		Bell,
+		VideoCamera,
+		Settings,
+		Send,
+		PaintBrush,
+		Subtitles,
+		Accessibility,
+		Help,
+		Notepad,
+		All
+	} from './icons';
 	import Logo from './logo.svelte';
+	import Avatar from './avatar.svelte';
+	import Portal from './portal.svelte';
+	import Typography from './typography.svelte';
 
 	let loggedIn: boolean = false;
+	let user: any = null;
 	let query: string;
 	let className = '';
 	export { className as class };
 
+	let menu: boolean = false;
+	let menuTargetId: string = `menu-target-${Math.random().toString(36).substr(2, 9)}`;
+	let targetLocation: DOMRect | null = null;
+	let menuLocation: { top: number; left: number } = { top: 0, left: 0 };
+
 	onMount(() => {
 		localStorage.getItem('huelet:auth:token') !== null ? (loggedIn = true) : (loggedIn = false);
+
+		loggedIn
+			? (user = JSON.parse(localStorage.getItem('huelet:auth:user') as string))
+			: (user = null);
+
+		targetLocation = document.querySelector(`#${menuTargetId}`)?.getBoundingClientRect() as DOMRect;
+		menuLocation = {
+			top: targetLocation?.top + 32 || 32,
+			left: targetLocation?.left - 200 || 100
+		};
 	});
 </script>
 
@@ -29,6 +60,119 @@
 		<a href="https://dash.huelet.net">
 			<VideoCamera fill="white" width={28} height={28} />
 		</a>
+		<span class="avatar-menu-toggle" on:click={() => (menu = !menu)} id={menuTargetId}>
+			<Avatar
+				url={user?.avatar ||
+					`https://cdn.huelet.net/assets/avatars/1916688602623198526477735532393069233691739314463003${Math.round(
+						Math.random() * 15
+					)}.png`}
+				forceAltText="{user?.username}'s avatar"
+				dimensions={32}
+			/>
+		</span>
+		{#if menu}
+			<Portal>
+				<div
+					class="avatar-menu"
+					style="
+					top: {menuLocation?.top}px;
+					left: {menuLocation?.left}px;
+				"
+				>
+					<div class="avatar-menu__inner">
+						<div class="avatar-menu__label">
+							<Typography color="rgb(144, 146, 150)" size="lg" weight={700}>
+								Hello, {user?.username}
+							</Typography>
+							<Typography color="rgb(144, 146, 150)" size="sm" weight={400}>
+								It's {DateTime.local().toLocaleString(DateTime.TIME_SIMPLE)}
+							</Typography>
+						</div>
+						<div class="avatar-menu__label">
+							<Typography color="rgb(144, 146, 150)" size="sm" weight={600}>
+								Your account
+							</Typography>
+						</div>
+						<a href="/auth/settings/">
+							<div class="avatar-menu__item-container">
+								<div class="avatar-menu__item">
+									<div class="avatar-menu__item--icon">
+										<Settings fill="white" />
+									</div>
+									<Typography>Settings</Typography>
+								</div>
+							</div>
+						</a>
+						<a href="/auth/invite/">
+							<div class="avatar-menu__item-container">
+								<div class="avatar-menu__item">
+									<div class="avatar-menu__item--icon">
+										<Send fill="white" />
+									</div>
+									<Typography>Invite</Typography>
+								</div>
+							</div>
+						</a>
+						<a href="/auth/settings/view/">
+							<div class="avatar-menu__item-container">
+								<div class="avatar-menu__item">
+									<div class="avatar-menu__item--icon">
+										<PaintBrush fill="white" />
+									</div>
+									<Typography>Customization</Typography>
+								</div>
+							</div>
+						</a>
+						<a href="/auth/settings/accessibility">
+							<div class="avatar-menu__item-container">
+								<div class="avatar-menu__item">
+									<div class="avatar-menu__item--icon">
+										<Accessibility fill="white" />
+									</div>
+									<Typography>Accessibility</Typography>
+								</div>
+							</div>
+						</a>
+						<div class="avatar-menu__label">
+							<Typography color="rgb(144, 146, 150)" size="sm" weight={600}>Help</Typography>
+						</div>
+						<a href="https://docs.huelet.net">
+							<div class="avatar-menu__item-container">
+								<div class="avatar-menu__item">
+									<div class="avatar-menu__item--icon">
+										<Help fill="white" />
+									</div>
+									<Typography>Help Center</Typography>
+								</div>
+							</div>
+						</a>
+						<a href="/s/report">
+							<div class="avatar-menu__item-container">
+								<div class="avatar-menu__item">
+									<div class="avatar-menu__item--icon">
+										<Notepad fill="white" />
+									</div>
+									<Typography>Report a problem</Typography>
+								</div>
+							</div>
+						</a>
+						<div class="avatar-menu__label">
+							<Typography color="rgb(144, 146, 150)" size="sm" weight={600}>Your Data</Typography>
+						</div>
+						<a href="/auth/settings/data/">
+							<div class="avatar-menu__item-container">
+								<div class="avatar-menu__item">
+									<div class="avatar-menu__item--icon">
+										<All fill="white" />
+									</div>
+									<Typography>Your data in Huelet</Typography>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</Portal>
+		{/if}
 	</div>
 </div>
 
@@ -55,6 +199,88 @@
 		padding: 0.2em !important;
 		border-radius: 50%;
 		margin-top: 0 !important;
+	}
+
+	.avatar-menu-toggle {
+		display: inline-flex;
+
+		height: 32px;
+
+		cursor: pointer;
+	}
+
+	.avatar-menu {
+		position: absolute;
+
+		width: 200px;
+
+		background-color: rgb(37, 38, 43);
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+		border: 1px solid rgb(55, 58, 64);
+		border-radius: 4px;
+
+		padding: 0.25em;
+
+		animation: avatar-menu-toggle 100ms linear;
+	}
+
+	.avatar-menu__inner {
+		display: flex;
+		flex-direction: column;
+
+		outline: 0px;
+	}
+
+	.avatar-menu__label {
+		padding: calc(5px) 12px;
+	}
+
+	.avatar-menu__item-container {
+		width: 100%;
+
+		border-radius: 4px;
+
+		cursor: pointer;
+	}
+
+	.avatar-menu__item {
+		display: flex;
+		align-items: center;
+
+		width: 50%;
+		padding: 0.25em 0.5em;
+
+		border-radius: 4px;
+
+		cursor: pointer;
+	}
+
+	.avatar-menu__item--icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		margin: 0 10px 0 0;
+	}
+
+	.avatar-menu__item-container:hover {
+		background-color: rgba(92, 95, 102, 0.35);
+	}
+
+	a {
+		color: white;
+		text-decoration: none;
+	}
+
+	@keyframes avatar-menu-toggle {
+		0% {
+			opacity: 0;
+			transform: scale(0.9);
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 
 	@media (max-width: 600px) {
