@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
 	import Portal from '../../../../../components/portal.svelte';
+	import { Close } from '../../../../../components/icons';
 
 	let backgroundColor: string;
 	let styles: string;
@@ -24,6 +25,9 @@
 
 <Portal class="portal full page center">
 	<div class="full page center header-viewer" style="background-color: {backgroundColor}e1">
+		<div class="close cursor" on:click={() => history.back()}>
+			<Close fill="white" />
+		</div>
 		<div class="header" style={styles} />
 	</div>
 </Portal>
@@ -39,7 +43,14 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-    }
+	}
+
+	.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 1rem;
+	}
 
 	.header {
 		background-size: cover;
