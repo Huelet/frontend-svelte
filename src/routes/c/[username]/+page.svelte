@@ -48,7 +48,7 @@
 					{:else}
 						<Typography size={'xl'} weight={900}>@{user?.username}</Typography>
 					{/if}
-					<!-- <span class="row">
+					<span class="row">
 						{#if loading}
 							<Skeleton width={100} height={15} />
 						{:else}
@@ -59,7 +59,7 @@
 								</p></Typography
 							>
 						{/if}
-					</span> -->
+					</span>
 					<span class="row">
 						{#if loading}
 							<Skeleton width={100} height={15} />
