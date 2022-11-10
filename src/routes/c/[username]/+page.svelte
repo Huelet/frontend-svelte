@@ -8,7 +8,6 @@
 	import Skeleton from '../../../components/skeleton.svelte';
 	import Follow from '../../../components/buttons/follow.svelte';
 	import Root from '../../../components/root.svelte';
-	import VideoCard from '../../../components/video-card.svelte';
 	import { Notepad, Avatar as AvatarIcon, Calendar, Location } from '../../../components/icons';
 
 	let user: any;
@@ -27,7 +26,7 @@
 	{:else}
 		<img src={user?.avatar} alt="header" class="header" />
 	{/if}
-	<Card padding={0} class="user-card">
+	<Card padding={0}>
 		<main class="row">
 			<section class="row">
 				<div class="avatar-container">
@@ -49,7 +48,7 @@
 					{:else}
 						<Typography size={'xl'} weight={900}>@{user?.username}</Typography>
 					{/if}
-					<span class="row">
+					<!-- <span class="row">
 						{#if loading}
 							<Skeleton width={100} height={15} />
 						{:else}
@@ -60,13 +59,13 @@
 								</p></Typography
 							>
 						{/if}
-					</span>
+					</span> -->
 					<span class="row">
 						{#if loading}
 							<Skeleton width={100} height={15} />
 						{:else}
 							<AvatarIcon fill="white" />
-							<Typography size={'sm'}>{user.pronouns?.join('/') || "Any pronouns"}</Typography>
+							<Typography size={'sm'}>{user.pronouns?.join('/') || 'Any pronouns'}</Typography>
 						{/if}
 					</span>
 					<span class="row">
@@ -104,13 +103,13 @@
 		flex-direction: column;
 	}
 
-	:global(root > .user-card > .card-outer) {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+	:global(.card-outer) {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center !important;
 
-		width: 99vw;
-		height: 15em;
+		width: 99vw !important;
+		height: 15em !important;
 	}
 
 	main {
