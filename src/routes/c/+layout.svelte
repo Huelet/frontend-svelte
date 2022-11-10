@@ -37,19 +37,21 @@
 
 <Root>
 	<slot />
-	{#if user?.header}
-		<div
-			title="header"
-			class="header"
-			style="background-image: url({user?.header});{headerPhotoStyles || ''}"
-		/>
-	{:else}
-		<div
-			title="header"
-			class="header"
-			style="background-image: url({user?.avatar});{headerPhotoStyles || ''}"
-		/>
-	{/if}
+	<a href="./header/">
+		{#if user?.header}
+			<div
+				title="header"
+				class="header"
+				style="background-image: url({user?.header});{headerPhotoStyles || ''}"
+			/>
+		{:else}
+			<div
+				title="header"
+				class="header"
+				style="background-image: url({user?.avatar});{headerPhotoStyles || ''}"
+			/>
+		{/if}
+	</a>
 	<div class="user-header center-vertically row" style={userHeaderStyles}>
 		<div class="user-header__username">
 			<Typography size="xl" weight={700} color="#ffffff">
@@ -67,13 +69,15 @@
 					{#if loading}
 						<Skeleton circle={true} width={100} height={64} />
 					{:else}
-						{#key user?.avatar}
-							<Avatar
-								url={user?.avatar}
-								forceAltText="{username}'s profile image"
-								dimensions={128}
-							/>
-						{/key}
+						<a href="./avatar/1/">
+							{#key user?.avatar}
+								<Avatar
+									url={user?.avatar}
+									forceAltText="{username}'s profile image"
+									dimensions={128}
+								/>
+							{/key}
+						</a>
 					{/if}
 				</div>
 				<div class="column center-horizontally">
