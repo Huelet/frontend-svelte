@@ -78,7 +78,6 @@
 	:global(body, html) {
 		padding: 0;
 		margin: 0;
-		height: 100vh;
 		width: 100vw;
 		background-color: var(--background-dark);
 		color: var(--text-primary-dark);
@@ -90,7 +89,6 @@
 		padding: 0;
 		margin: 0;
 
-		height: 100vh;
 		width: 100vw;
 
 		-webkit-font-smoothing: antialiased;
