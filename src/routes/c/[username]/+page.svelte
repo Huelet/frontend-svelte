@@ -9,19 +9,26 @@
 	import Skeleton from '../../../components/skeleton.svelte';
 	import Follow from '../../../components/buttons/follow.svelte';
 	import Root from '../../../components/root.svelte';
+	import VideoCard from '../../../components/video-card.svelte';
 	import { Notepad, Avatar as AvatarIcon, Calendar, Location } from '../../../components/icons';
 
 	let user: any;
 	let username: string = $page.params.username.replace('@', '');
-	let headerStyles: string;
+	let headerPhotoStyles: string;
+	let userHeaderStyles: string;
 	let loading = true;
 
 	export let data: PageData;
 
 	onMount(async () => {
-		window.addEventListener('scroll', () => {
-			headerStyles = `background-size: ${(100 + window.scrollY / 5)}%;`;
-		});
+		const handleScroll = () => {
+			console.log('scroll');
+
+			headerPhotoStyles = `background-size: ${100 + window.scrollY / 5}%;`;
+			// userHeaderStyles = `opacity: ${window.scrollY};`;
+		};
+
+		window.addEventListener('scroll', handleScroll, false);
 	});
 
 	$: user = data.user;
@@ -33,15 +40,25 @@
 		<div
 			title="header"
 			class="header"
-			style="background-image: url({user?.header});{headerStyles}"
+			style="background-image: url({user?.header});{headerPhotoStyles || ''}"
 		/>
 	{:else}
 		<div
 			title="header"
 			class="header"
-			style="background-image: url({user?.avatar});{headerStyles}"
+			style="background-image: url({user?.avatar});{headerPhotoStyles || ''}"
 		/>
 	{/if}
+	<div class="user-header center-vertically row" style={userHeaderStyles}>
+		<div class="user-header__username">
+			<Typography size="xl" weight={700} color="#ffffff">
+				@{username}
+			</Typography>
+		</div>
+		<div class="user-header__follow">
+			<Follow {username} />
+		</div>
+	</div>
 	<Card padding={0}>
 		<main class="row">
 			<section class="row">
@@ -138,6 +155,32 @@
 
 	section {
 		display: flex;
+	}
+
+	.user-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		position: fixed;
+		top: 0;
+
+		backdrop-filter: blur(25px) brightness(0.5);
+		background-color: rgba(24, 23, 24, 0.69);
+		border: 1px solid rgba(255, 255, 255, 0.125);
+
+		width: 100%;
+		height: 3em;
+	}
+
+	.user-header__username {
+		padding: 0;
+		margin: 0 0 0 1em;
+	}
+
+	.user-header__follow {
+		padding: 0;
+		margin: 0 1em 0 0;
 	}
 
 	.avatar-container {
