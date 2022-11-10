@@ -5,10 +5,8 @@ export const load: PageLoad = async ({ fetch, params }) => {
 
 	username = username.toLowerCase().replace('@', '');
 
-	let user: any | undefined;
-
 	const creatorFetch = await fetch(`https://api.huelet.net/auth/user?username=${username}`);
-	user = (await creatorFetch.json()).data;
+	const user = (await creatorFetch.json()).data;
 	const userVideosFetch = await fetch(
 		`https://api.huelet.net/videos/search/fromcreator?creatorId=${user.uid}`
 	);
