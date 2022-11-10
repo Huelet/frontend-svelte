@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { DateTime } from 'luxon';
 	import Typography from '../../../components/typography.svelte';
@@ -12,9 +13,16 @@
 
 	let user: any;
 	let username: string = $page.params.username.replace('@', '');
+	let headerStyles: string;
 	let loading = true;
 
 	export let data: PageData;
+
+	onMount(async () => {
+		window.addEventListener('scroll', () => {
+			headerStyles = `background-size: ${(100 + window.scrollY / 5)}%;`;
+		});
+	});
 
 	$: user = data.user;
 	$: loading = typeof user?.videos === 'undefined';
@@ -22,9 +30,17 @@
 
 <Root>
 	{#if user?.header}
-		<img src={user?.header} alt="header" class="header" />
+		<div
+			title="header"
+			class="header"
+			style="background-image: url({user?.header});{headerStyles}"
+		/>
 	{:else}
-		<img src={user?.avatar} alt="header" class="header" />
+		<div
+			title="header"
+			class="header"
+			style="background-image: url({user?.avatar});{headerStyles}"
+		/>
 	{/if}
 	<Card padding={0}>
 		<main class="row">
@@ -151,6 +167,10 @@
 	.header {
 		width: 100%;
 		height: 15em;
+
 		object-fit: cover;
+		background-size: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 </style>
