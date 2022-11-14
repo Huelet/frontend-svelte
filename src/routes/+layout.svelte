@@ -44,6 +44,17 @@
 	// });
 </script>
 
+<svelte:head>
+	<script src="https://js.stripe.com/v3/" defer></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const stripe = Stripe(
+				'pk_live_51IuiqfHEYvOcf3Hr4RBmWORXBNDj6chcmx4rRhNu6Z1BTJfIBLZbCho2q57w8JKss7I9VwBKk2w02yja57XxvPmX00LJLH3kKF'
+			);
+		});
+	</script>
+</svelte:head>
+
 <slot />
 
 <style>
