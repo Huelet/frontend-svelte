@@ -8,11 +8,11 @@
 		Settings,
 		Send,
 		PaintBrush,
-		Subtitles,
 		Accessibility,
 		Help,
 		Notepad,
-		All
+		All,
+		GridAlt
 	} from './icons';
 	import Logo from './logo.svelte';
 	import Avatar from './avatar.svelte';
@@ -59,6 +59,9 @@
 		</a>
 		<a href="https://dash.huelet.net">
 			<VideoCamera fill="white" width={28} height={28} />
+		</a>
+		<a href="/collection">
+			<GridAlt fill="white" width={28} height={28} />
 		</a>
 		<span class="avatar-menu-toggle" on:click={() => (menu = !menu)} id={menuTargetId}>
 			<Avatar
