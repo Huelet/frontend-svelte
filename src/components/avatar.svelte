@@ -31,6 +31,16 @@
 
 <span
 	style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+	on:contextmenu={(event) => {
+		event.preventDefault();
+
+		const link = document.createElement('a');
+		document.querySelector('#main')?.append(link);
+		link.href = url;
+		link.download = `avatar-${Math.random().toString(36).substr(2, 9)}.png`;
+		link.click();
+		link.remove();
+	}}
 >
 	<span
 		style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
