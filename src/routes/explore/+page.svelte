@@ -5,7 +5,7 @@
 
 	export let data: PageData;
 
-	let videoList: any[] = data.videoList;
+	let videoList: any[] | undefined = data.videoList;
 </script>
 
 <main>
