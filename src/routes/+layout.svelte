@@ -107,8 +107,12 @@
 	}
 
 	:global(::selection) {
-		background: rgba(148, 34, 255, 50%);
+		background: var(--accent-primary-dark);
 		color: #fff;
+	}
+
+	:global(img) {
+		user-select: none;
 	}
 
 	:global(.hidden) {
