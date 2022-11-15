@@ -32,18 +32,22 @@
 				</IconButton>
 			</div>
 			<div class="icon-grid__item">
-				<IconButton onPress={() => location.assign('/collection/liked/')}>
-					<svg height="16" width="16" viewBox="0 0 16 16" fill="white"
-						><path
-							d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"
-						/></svg
-					>
-				</IconButton>
+				<a href="/collection/liked/">
+					<IconButton>
+						<svg height="16" width="16" viewBox="0 0 16 16" fill="white">
+							<path
+								d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"
+							/>
+						</svg>
+					</IconButton>
+				</a>
 			</div>
 			<div class="icon-grid__item">
-				<IconButton onPress={() => location.assign('/collection/forlater/')}>
-					<Video fill="white" />
-				</IconButton>
+				<a href="/collection/forlater/">
+					<IconButton>
+						<Video fill="white" />
+					</IconButton>
+				</a>
 			</div>
 		</div>
 	</div>
