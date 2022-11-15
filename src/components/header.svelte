@@ -3,7 +3,6 @@
 	import { DateTime } from 'luxon';
 	import {
 		Search,
-		Bell,
 		VideoCamera,
 		Settings,
 		Send,
@@ -12,7 +11,8 @@
 		Help,
 		Notepad,
 		All,
-		GridAlt
+		GridAlt,
+		Inbox
 	} from './icons';
 	import Logo from './logo.svelte';
 	import Avatar from './avatar.svelte';
@@ -55,7 +55,7 @@
 	</div>
 	<div class="actions row center">
 		<a href="https://dash.huelet.net">
-			<Bell fill="white" width={28} height={28} />
+			<Inbox fill="white" width={28} height={28} />
 		</a>
 		<a href="https://dash.huelet.net">
 			<VideoCamera fill="white" width={28} height={28} />
