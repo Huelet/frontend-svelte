@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Typography from '../../components/typography.svelte';
 	import Header from '../../components/header.svelte';
-	import Root from '../../components/root.svelte';
 	import IconButton from '../../components/icon-button.svelte';
 	import Modal from '../../components/modal.svelte';
 	import { Add, Video } from '../../components/icons';
@@ -19,38 +18,36 @@
 	}
 </script>
 
-<Root>
-	<Header />
-	<div class="body full page">
-		<div class="side-bar">
-			<Typography size="xl" weight={600} class="center">Your Collection</Typography>
-			<div class="center">
-				<div class="divider center" />
+<Header />
+<div class="body full page">
+	<div class="side-bar">
+		<Typography size="xl" weight={600} class="center">Your Collection</Typography>
+		<div class="center">
+			<div class="divider center" />
+		</div>
+		<div class="icon-grid center full-width">
+			<div class="icon-grid__item">
+				<IconButton onPress={() => (createPlaylistModalOpen = true)}>
+					<Add fill="white" />
+				</IconButton>
 			</div>
-			<div class="icon-grid center full-width">
-				<div class="icon-grid__item">
-					<IconButton onPress={() => (createPlaylistModalOpen = true)}>
-						<Add fill="white" />
-					</IconButton>
-				</div>
-				<div class="icon-grid__item">
-					<IconButton onPress={() => location.assign('/collection/liked/')}>
-						<svg height="16" width="16" viewBox="0 0 16 16" fill="white"
-							><path
-								d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"
-							/></svg
-						>
-					</IconButton>
-				</div>
-				<div class="icon-grid__item">
-					<IconButton onPress={() => location.assign('/collection/forlater/')}>
-						<Video fill="white" />
-					</IconButton>
-				</div>
+			<div class="icon-grid__item">
+				<IconButton onPress={() => location.assign('/collection/liked/')}>
+					<svg height="16" width="16" viewBox="0 0 16 16" fill="white"
+						><path
+							d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"
+						/></svg
+					>
+				</IconButton>
+			</div>
+			<div class="icon-grid__item">
+				<IconButton onPress={() => location.assign('/collection/forlater/')}>
+					<Video fill="white" />
+				</IconButton>
 			</div>
 		</div>
 	</div>
-</Root>
+</div>
 
 <Modal open={createPlaylistModalOpen} onClose={() => (createPlaylistModalOpen = false)}>
 	<Typography size="xl" weight={600} class="center">Create Playlist</Typography>
