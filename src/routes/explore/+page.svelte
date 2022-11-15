@@ -1,14 +1,11 @@
 <script lang="ts">
+	import type { PageData } from './$types';
 	import VideoCard from '../../components/video-card.svelte';
 	import '@fontsource/red-hat-display/300.css';
 
-	let videoList: any[];
+	export let data: PageData;
 
-	fetch('https://api.huelet.net/videos/get?bulk=true')
-		.then((response) => response.json())
-		.then((videos) => {
-			videoList = videos.data;
-		});
+	let videoList: any[] = data.videoList;
 </script>
 
 <main>
