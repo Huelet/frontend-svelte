@@ -101,6 +101,9 @@
 	a {
 		text-decoration: none;
 		color: inherit;
+
+		width: max-content;
+		height: max-content;
 	}
 
 	a:visited {
