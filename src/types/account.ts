@@ -20,7 +20,7 @@ interface User {
 	phoneNumber: number;
 	password: string;
 	bio: string;
-	pfp: string;
+	avatar: string;
 	pfpColor: string;
 	location: string;
 	private: boolean;
