@@ -51,6 +51,7 @@
 			</div>
 		</div>
 	</div>
+	<slot />
 </div>
 
 <Modal open={createPlaylistModalOpen} onClose={() => (createPlaylistModalOpen = false)}>
