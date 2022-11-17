@@ -10,11 +10,15 @@ https://developer.microsoft.com/en-us/fluentui#/controls/web/callout#best-practi
 	export let location: 'top' | 'bottom' | 'left' | 'right' = 'top';
 
 	let calloutId: string = `callout-${Math.random().toString(36).substr(2, 9)}`;
-	let targetLocation: DOMRect = new DOMRect(0, 0, 0, 0);
+	let targetLocation: DOMRect | null = null;
+	let menuLocation: { top: number; left: number } = { top: 0, left: 0 };
 
 	onMount(() => {
-		targetLocation = (document.querySelector(`#${calloutId}`)?.getBoundingClientRect() as DOMRect);
-		console.log(targetLocation);
+		targetLocation = document.querySelector(`#${calloutId}`)?.getBoundingClientRect() as DOMRect;
+		menuLocation = {
+			top: targetLocation?.top + 32 || 32,
+			left: targetLocation?.left - 200 || 100
+		};
 	});
 
 	let className: string = '';
@@ -30,7 +34,7 @@ https://developer.microsoft.com/en-us/fluentui#/controls/web/callout#best-practi
 		class="callout {open ? 'open' : 'closed'} {withArrow
 			? 'with-arrow'
 			: ''} {location} {className}"
-		style="top: {targetLocation?.top + gap || 15}px; left: {targetLocation?.left + gap || 15}px;"
+		style="top: {menuLocation?.top + gap || 15}px; left: {menuLocation?.left + gap || 15}px;"
 	>
 		{#if withArrow}
 			<div
