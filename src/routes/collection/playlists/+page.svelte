@@ -1,1 +1,44 @@
-<main></main>
+<script lang="ts">
+	import PlaylistCard from '../../../components/playlist-card.svelte';
+	import type { Playlist } from '../../../types/playlist';
+	import { onMount } from 'svelte';
+
+	let playlists: Playlist[] = [];
+
+	onMount(async () => {
+		const user = JSON.parse(localStorage.getItem('huelet:auth:user') as string);
+
+		const resp = await fetch(
+			`https://api.huelet.net/users/interact/playlists/fromuser?target=${user.uid}`
+		);
+		playlists = (await resp.json()).data;
+	});
+</script>
+
+<main>
+	<div class="playlists-grid">
+		{#each playlists as playlist}
+			<PlaylistCard {playlist} />
+		{/each}
+	</div>
+</main>
+
+<style>
+	main {
+		padding-top: 32px;
+	}
+
+	main,
+	.playlists-grid {
+		width: 100%;
+		height: 100%;
+
+		padding: 1em;
+	}
+
+	.playlists-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		grid-gap: 1em;
+	}
+</style>
