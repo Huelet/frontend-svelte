@@ -16,6 +16,34 @@
 		let files = target.files;
 		newPlaylistImageBlobUrl = URL.createObjectURL(files[0]);
 	}
+
+	const createPlaylist = async () => {
+		const user = JSON.parse(localStorage.getItem('huelet:auth:user') as string);
+
+		const formData = new FormData();
+		formData.append(
+			'playlist',
+			JSON.stringify({
+				name: newPlaylistTitle,
+				description: newPlaylistDescription
+			})
+		);
+		formData.append('image', newPlaylistImage);
+
+		const resp = await fetch(`https://api.huelet.net/users/interact/playlists?userID=${user.uid}`, {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem('huelet:auth:token')}`
+			},
+			body: formData
+		});
+
+		const playlist = await resp.json();
+
+		if (playlist.ok) {
+			createPlaylistModalOpen = false;
+		}
+	};
 </script>
 
 <Header />
@@ -91,22 +119,7 @@
 		</div>
 	</div>
 	<div class="column">
-		<div
-			class="button primary"
-			on:click={() => {
-				fetch('https://api.huelet.net/users/interact/playlist', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						title: newPlaylistTitle,
-						description: newPlaylistDescription,
-						image: newPlaylistImage[0]
-					})
-				});
-			}}
-		>
+		<div class="button primary" on:click={() => createPlaylist()}>
 			<Typography size="lg" weight={600} class="center">Create</Typography>
 		</div>
 		<div class="button secondary" on:click={() => (createPlaylistModalOpen = false)}>
