@@ -18,7 +18,9 @@
 	import Avatar from './avatar.svelte';
 	import Portal from './portal.svelte';
 	import Typography from './typography.svelte';
+	import Callout from './callout.svelte';
 
+	let showMenu: boolean;
 	let loggedIn: boolean = false;
 	let user: any = null;
 	let query: string;
@@ -54,9 +56,16 @@
 		</div>
 	</div>
 	<div class="actions row center">
-		<a href="https://dash.huelet.net">
-			<Inbox fill="white" width={28} height={28} />
-		</a>
+		<span>
+			<Callout open={showMenu} location="bottom">
+				<span on:click={() => (showMenu = !showMenu)} slot="target">
+					<Inbox fill="white" width={28} height={28} class="cursor" />
+				</span>
+				<Typography size="xl">
+					We're still working on this feature. Please check back later!
+				</Typography>
+			</Callout>
+		</span>
 		<a href="https://dash.huelet.net">
 			<VideoCamera fill="white" width={28} height={28} />
 		</a>
