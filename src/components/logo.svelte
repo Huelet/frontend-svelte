@@ -7,7 +7,14 @@
 	export { className as class };
 </script>
 
-<img src={logo} alt="Huelet" width={dimensions} height={dimensions} class={className} />
+<img
+	src={logo}
+	alt="Huelet"
+	width={dimensions}
+	height={dimensions}
+	class={className}
+	{...$$restProps}
+/>
 
 <style>
 	img {
