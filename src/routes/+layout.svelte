@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { navigating } from '$app/stores';
+	import Header from '../components/header.svelte';
+
+	import { navigating, page } from '$app/stores';
 	import '@fontsource/red-hat-display/400.css';
 	import NProgress from 'nprogress';
 
 	import 'normalize.css';
 	import '../styles/progress.css';
-	import { onMount } from 'svelte';
 
 	NProgress.configure({
 		showSpinner: false,
@@ -55,6 +56,11 @@
 	</script>
 </svelte:head>
 
+{#if $page.url.href === '/auth/in/'}
+	{null}
+{:else}
+	<Header />
+{/if}
 <slot />
 
 <style>
