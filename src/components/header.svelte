@@ -214,6 +214,7 @@
 		background-color: #303245;
 		border: 2px solid rgba(15, 119, 255, 0.733);
 		border-radius: 0.7em;
+		color: #fff;
 	}
 	.search-button {
 		height: auto !important;
