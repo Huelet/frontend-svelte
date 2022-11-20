@@ -50,155 +50,167 @@
 </script>
 
 <div class="header-global row center {className}">
-	<a href={loggedIn ? '/explore' : '/'}><Logo dimensions={32} /></a>
-	<div class="row center">
-		<input type="text" placeholder="Search" bind:value={query} class="search" />
-		<div class="search-button button primary">
-			<Search fill="white" width={16} height={16} />
+	<header class="row">
+		<a href={loggedIn ? '/explore' : '/'}><Logo dimensions={32} /></a>
+		<div class="row center">
+			<input type="text" placeholder="Search" bind:value={query} class="search" />
+			<div class="search-button button primary">
+				<Search fill="white" width={16} height={16} />
+			</div>
 		</div>
-	</div>
-	<div class="actions row center">
-		<span>
-			<Callout open={showMenu} location="bottom">
-				<span on:click={() => (showMenu = !showMenu)} slot="target">
-					<Inbox fill="white" width={28} height={28} class="cursor" />
-				</span>
-				<Typography size="xl">
-					We're still working on this feature. Please check back later!
-				</Typography>
-			</Callout>
-		</span>
-		<a href="https://dash.huelet.net" aria-label="Video publishing dashboard">
-			<VideoCamera fill="white" width={28} height={28} />
-		</a>
-		<a href="/collection" aria-label="Your collection">
-			<GridAlt fill="white" width={28} height={28} />
-		</a>
-		{#if loggedIn}
-			<span class="avatar-menu-toggle" on:click={() => (menu = !menu)} id={menuTargetId}>
-				<Avatar
-					url={user?.avatar ||
-						`https://cdn.huelet.net/assets/avatars/1916688602623198526477735532393069233691739314463003${Math.round(
-							Math.random() * 15
-						)}.png`}
-					forceAltText="{user?.username}'s avatar"
-					dimensions={32}
-				/>
+	</header>
+	<nav>
+		<div class="actions row center">
+			<span>
+				<Callout open={showMenu} location="bottom">
+					<span on:click={() => (showMenu = !showMenu)} slot="target">
+						<Inbox fill="white" width={28} height={28} class="cursor" />
+					</span>
+					<Typography size="xl">
+						We're still working on this feature. Please check back later!
+					</Typography>
+				</Callout>
 			</span>
-		{:else}
-			<a href="/auth/in">
-				<div class="button-sign-in">
-					<Typography size="sm" weight={700}>Sign In</Typography>
-				</div>
+			<a href="https://dash.huelet.net" aria-label="Video publishing dashboard">
+				<VideoCamera fill="white" width={28} height={28} />
 			</a>
-		{/if}
-		{#if menu && loggedIn}
-			<Portal>
-				<div
-					class="avatar-menu"
-					style="
+			<a href="/collection" aria-label="Your collection">
+				<GridAlt fill="white" width={28} height={28} />
+			</a>
+			{#if loggedIn}
+				<span class="avatar-menu-toggle" on:click={() => (menu = !menu)} id={menuTargetId}>
+					<Avatar
+						url={user?.avatar ||
+							`https://cdn.huelet.net/assets/avatars/1916688602623198526477735532393069233691739314463003${Math.round(
+								Math.random() * 15
+							)}.png`}
+						forceAltText="{user?.username}'s avatar"
+						dimensions={32}
+					/>
+				</span>
+			{:else}
+				<a href="/auth/in">
+					<div class="button-sign-in">
+						<Typography size="sm" weight={700}>Sign In</Typography>
+					</div>
+				</a>
+			{/if}
+			{#if menu && loggedIn}
+				<Portal>
+					<div
+						class="avatar-menu"
+						style="
 					top: {menuLocation?.top}px;
 					left: {menuLocation?.left}px;
 				"
-				>
-					<div class="avatar-menu__inner">
-						<div class="avatar-menu__label">
-							<Typography color="rgb(144, 146, 150)" size="lg" weight={700}>
-								Hello, {user?.username}
-							</Typography>
-							<Typography color="rgb(144, 146, 150)" size="sm" weight={400}>
-								It's {DateTime.local().toLocaleString(DateTime.TIME_SIMPLE)}
-							</Typography>
+					>
+						<div class="avatar-menu__inner">
+							<div class="avatar-menu__label">
+								<Typography color="rgb(144, 146, 150)" size="lg" weight={700}>
+									Hello, {user?.username}
+								</Typography>
+								<Typography color="rgb(144, 146, 150)" size="sm" weight={400}>
+									It's {DateTime.local().toLocaleString(DateTime.TIME_SIMPLE)}
+								</Typography>
+							</div>
+							<div class="avatar-menu__label">
+								<Typography color="rgb(144, 146, 150)" size="sm" weight={600}>
+									Your account
+								</Typography>
+							</div>
+							<a href="/auth/settings/">
+								<div class="avatar-menu__item-container">
+									<div class="avatar-menu__item">
+										<div class="avatar-menu__item--icon">
+											<Settings fill="white" />
+										</div>
+										<Typography>Settings</Typography>
+									</div>
+								</div>
+							</a>
+							<a href="/auth/invite/">
+								<div class="avatar-menu__item-container">
+									<div class="avatar-menu__item">
+										<div class="avatar-menu__item--icon">
+											<Send fill="white" />
+										</div>
+										<Typography>Invite</Typography>
+									</div>
+								</div>
+							</a>
+							<a href="/auth/settings/view/">
+								<div class="avatar-menu__item-container">
+									<div class="avatar-menu__item">
+										<div class="avatar-menu__item--icon">
+											<PaintBrush fill="white" />
+										</div>
+										<Typography>Customization</Typography>
+									</div>
+								</div>
+							</a>
+							<a href="/auth/settings/accessibility">
+								<div class="avatar-menu__item-container">
+									<div class="avatar-menu__item">
+										<div class="avatar-menu__item--icon">
+											<Accessibility fill="white" />
+										</div>
+										<Typography>Accessibility</Typography>
+									</div>
+								</div>
+							</a>
+							<div class="avatar-menu__label">
+								<Typography color="rgb(144, 146, 150)" size="sm" weight={600}>Help</Typography>
+							</div>
+							<a href="https://docs.huelet.net">
+								<div class="avatar-menu__item-container">
+									<div class="avatar-menu__item">
+										<div class="avatar-menu__item--icon">
+											<Help fill="white" />
+										</div>
+										<Typography>Help Center</Typography>
+									</div>
+								</div>
+							</a>
+							<a href="/s/report">
+								<div class="avatar-menu__item-container">
+									<div class="avatar-menu__item">
+										<div class="avatar-menu__item--icon">
+											<Notepad fill="white" />
+										</div>
+										<Typography>Report a problem</Typography>
+									</div>
+								</div>
+							</a>
+							<div class="avatar-menu__label">
+								<Typography color="rgb(144, 146, 150)" size="sm" weight={600}>Your Data</Typography>
+							</div>
+							<a href="/auth/settings/data/">
+								<div class="avatar-menu__item-container">
+									<div class="avatar-menu__item">
+										<div class="avatar-menu__item--icon">
+											<All fill="white" />
+										</div>
+										<Typography>Your data in Huelet</Typography>
+									</div>
+								</div>
+							</a>
 						</div>
-						<div class="avatar-menu__label">
-							<Typography color="rgb(144, 146, 150)" size="sm" weight={600}>
-								Your account
-							</Typography>
-						</div>
-						<a href="/auth/settings/">
-							<div class="avatar-menu__item-container">
-								<div class="avatar-menu__item">
-									<div class="avatar-menu__item--icon">
-										<Settings fill="white" />
-									</div>
-									<Typography>Settings</Typography>
-								</div>
-							</div>
-						</a>
-						<a href="/auth/invite/">
-							<div class="avatar-menu__item-container">
-								<div class="avatar-menu__item">
-									<div class="avatar-menu__item--icon">
-										<Send fill="white" />
-									</div>
-									<Typography>Invite</Typography>
-								</div>
-							</div>
-						</a>
-						<a href="/auth/settings/view/">
-							<div class="avatar-menu__item-container">
-								<div class="avatar-menu__item">
-									<div class="avatar-menu__item--icon">
-										<PaintBrush fill="white" />
-									</div>
-									<Typography>Customization</Typography>
-								</div>
-							</div>
-						</a>
-						<a href="/auth/settings/accessibility">
-							<div class="avatar-menu__item-container">
-								<div class="avatar-menu__item">
-									<div class="avatar-menu__item--icon">
-										<Accessibility fill="white" />
-									</div>
-									<Typography>Accessibility</Typography>
-								</div>
-							</div>
-						</a>
-						<div class="avatar-menu__label">
-							<Typography color="rgb(144, 146, 150)" size="sm" weight={600}>Help</Typography>
-						</div>
-						<a href="https://docs.huelet.net">
-							<div class="avatar-menu__item-container">
-								<div class="avatar-menu__item">
-									<div class="avatar-menu__item--icon">
-										<Help fill="white" />
-									</div>
-									<Typography>Help Center</Typography>
-								</div>
-							</div>
-						</a>
-						<a href="/s/report">
-							<div class="avatar-menu__item-container">
-								<div class="avatar-menu__item">
-									<div class="avatar-menu__item--icon">
-										<Notepad fill="white" />
-									</div>
-									<Typography>Report a problem</Typography>
-								</div>
-							</div>
-						</a>
-						<div class="avatar-menu__label">
-							<Typography color="rgb(144, 146, 150)" size="sm" weight={600}>Your Data</Typography>
-						</div>
-						<a href="/auth/settings/data/">
-							<div class="avatar-menu__item-container">
-								<div class="avatar-menu__item">
-									<div class="avatar-menu__item--icon">
-										<All fill="white" />
-									</div>
-									<Typography>Your data in Huelet</Typography>
-								</div>
-							</div>
-						</a>
 					</div>
-				</div>
-			</Portal>
-		{/if}
-	</div>
+				</Portal>
+			{/if}
+		</div>
+	</nav>
 </div>
 
 <style>
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between !important;
+
+		width: 50%;
+	}
+
 	.header-global {
 		position: fixed;
 		width: 100vw;
