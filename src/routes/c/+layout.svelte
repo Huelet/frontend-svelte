@@ -5,11 +5,10 @@
 	import { DateTime } from 'luxon';
 	import Typography from '../../components/typography.svelte';
 	import Avatar from '../../components/avatar.svelte';
+	import Header from '../../components/header.svelte';
 	import Card from '../../components/card.svelte';
 	import Skeleton from '../../components/skeleton.svelte';
 	import Follow from '../../components/buttons/follow.svelte';
-	import Root from '../../components/root.svelte';
-	import VideoCard from '../../components/video-card.svelte';
 	import { Notepad, Avatar as AvatarIcon, Calendar, Location } from '../../components/icons';
 
 	let user: any;
@@ -35,6 +34,7 @@
 	$: loading = typeof user?.videos === 'undefined';
 </script>
 
+<Header />
 <slot />
 <a href="./header/">
 	{#if user?.header}
@@ -51,16 +51,6 @@
 		/>
 	{/if}
 </a>
-<div class="user-header center-vertically row" style={userHeaderStyles}>
-	<div class="user-header__username">
-		<Typography size="xl" weight={700} color="#ffffff">
-			@{username}
-		</Typography>
-	</div>
-	<div class="user-header__follow">
-		<Follow {username} />
-	</div>
-</div>
 <Card padding={0}>
 	<main class="row">
 		<section class="row">
