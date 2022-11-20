@@ -47,7 +47,10 @@
 									<Typography>@{playlistOwner?.username}</Typography>
 
 									{#if playlistOwner?.approved}
-										<a href="https://docs.huelet.net/users/verified">
+										<a
+											href="https://docs.huelet.net/users/verified"
+											aria-label="Learn more about about the approved checkmark"
+										>
 											<Check fill="green" />
 										</a>
 									{/if}</span

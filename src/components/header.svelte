@@ -68,10 +68,10 @@
 				</Typography>
 			</Callout>
 		</span>
-		<a href="https://dash.huelet.net">
+		<a href="https://dash.huelet.net" aria-label="Video publishing dashboard">
 			<VideoCamera fill="white" width={28} height={28} />
 		</a>
-		<a href="/collection">
+		<a href="/collection" aria-label="Your collection">
 			<GridAlt fill="white" width={28} height={28} />
 		</a>
 		{#if loggedIn}
