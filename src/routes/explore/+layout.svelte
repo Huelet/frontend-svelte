@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Logo from '../../components/logo.svelte';
-	import Header from '../../components/header.svelte';
 	import Divider from '../../components/divider.svelte';
 	import Typography from '../../components/typography.svelte';
 	import { onMount } from 'svelte';
@@ -50,7 +49,6 @@
 </script>
 
 <main>
-	<Header />
 	<div class="page-content">
 		<div class="hello row">
 			<Logo />
@@ -88,10 +86,6 @@
 	main {
 		height: 100vh;
 		width: 100vw;
-	}
-
-	.page-content {
-		padding: 32px 0 0 0;
 	}
 
 	.hello {

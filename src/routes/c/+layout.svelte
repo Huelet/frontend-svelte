@@ -5,7 +5,6 @@
 	import { DateTime } from 'luxon';
 	import Typography from '../../components/typography.svelte';
 	import Avatar from '../../components/avatar.svelte';
-	import Header from '../../components/header.svelte';
 	import Card from '../../components/card.svelte';
 	import Skeleton from '../../components/skeleton.svelte';
 	import Follow from '../../components/buttons/follow.svelte';
@@ -34,7 +33,6 @@
 	$: loading = typeof user?.videos === 'undefined';
 </script>
 
-<Header />
 <slot />
 <a href="./header/">
 	{#if user?.header}
