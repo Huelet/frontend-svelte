@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Typography from '../../components/typography.svelte';
-	import Header from '../../components/header.svelte';
 	import IconButton from '../../components/icon-button.svelte';
 	import Modal from '../../components/modal.svelte';
 	import { Add, Video } from '../../components/icons';
@@ -46,7 +45,6 @@
 	};
 </script>
 
-<Header />
 <div class="body full page">
 	<div class="side-bar">
 		<Typography size="xl" weight={600} class="center">Your Collection</Typography>
