@@ -33,7 +33,9 @@
 	let menuLocation: { top: number; left: number } = { top: 0, left: 0 };
 
 	onMount(() => {
-		localStorage.getItem('huelet:auth:token') !== null ? (loggedIn = true) : (loggedIn = false);
+		if (localStorage.getItem('huelet:auth:token') !== null) {
+			loggedIn = true;
+		}
 
 		loggedIn
 			? (user = JSON.parse(localStorage.getItem('huelet:auth:user') as string))
@@ -72,17 +74,25 @@
 		<a href="/collection">
 			<GridAlt fill="white" width={28} height={28} />
 		</a>
-		<span class="avatar-menu-toggle" on:click={() => (menu = !menu)} id={menuTargetId}>
-			<Avatar
-				url={user?.avatar ||
-					`https://cdn.huelet.net/assets/avatars/1916688602623198526477735532393069233691739314463003${Math.round(
-						Math.random() * 15
-					)}.png`}
-				forceAltText="{user?.username}'s avatar"
-				dimensions={32}
-			/>
-		</span>
-		{#if menu}
+		{#if loggedIn}
+			<span class="avatar-menu-toggle" on:click={() => (menu = !menu)} id={menuTargetId}>
+				<Avatar
+					url={user?.avatar ||
+						`https://cdn.huelet.net/assets/avatars/1916688602623198526477735532393069233691739314463003${Math.round(
+							Math.random() * 15
+						)}.png`}
+					forceAltText="{user?.username}'s avatar"
+					dimensions={32}
+				/>
+			</span>
+		{:else}
+			<a href="/auth/in">
+				<div class="button-sign-in">
+					<Typography size="sm" weight={700}>Sign In</Typography>
+				</div>
+			</a>
+		{/if}
+		{#if menu && loggedIn}
 			<Portal>
 				<div
 					class="avatar-menu"
@@ -211,6 +221,24 @@
 		padding: 0.2em !important;
 		border-radius: 50%;
 		margin-top: 0 !important;
+	}
+
+	.button-sign-in {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		padding-left: 1em;
+		padding-right: 1em;
+
+		background-color: transparent;
+		border: 1px solid var(--accent-primary-dark);
+		border-radius: 5px;
+	}
+
+	.button-sign-in:hover {
+		background-color: rgba(0, 0, 0, 0.1);
 	}
 
 	.avatar-menu-toggle {
