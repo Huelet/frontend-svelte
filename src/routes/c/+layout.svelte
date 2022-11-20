@@ -35,112 +35,105 @@
 	$: loading = typeof user?.videos === 'undefined';
 </script>
 
-<Root>
-	<slot />
-	<a href="./header/">
-		{#if user?.header}
-			<div
-				title="header"
-				class="header"
-				style="background-image: url({user?.header});{headerPhotoStyles || ''}"
-			/>
-		{:else}
-			<div
-				title="header"
-				class="header"
-				style="background-image: url({user?.avatar});{headerPhotoStyles || ''}"
-			/>
-		{/if}
-	</a>
-	<div class="user-header center-vertically row" style={userHeaderStyles}>
-		<div class="user-header__username">
-			<Typography size="xl" weight={700} color="#ffffff">
-				@{username}
-			</Typography>
-		</div>
-		<div class="user-header__follow">
-			<Follow {username} />
-		</div>
+<slot />
+<a href="./header/">
+	{#if user?.header}
+		<div
+			title="header"
+			class="header"
+			style="background-image: url({user?.header});{headerPhotoStyles || ''}"
+		/>
+	{:else}
+		<div
+			title="header"
+			class="header"
+			style="background-image: url({user?.avatar});{headerPhotoStyles || ''}"
+		/>
+	{/if}
+</a>
+<div class="user-header center-vertically row" style={userHeaderStyles}>
+	<div class="user-header__username">
+		<Typography size="xl" weight={700} color="#ffffff">
+			@{username}
+		</Typography>
 	</div>
-	<Card padding={0}>
-		<main class="row">
-			<section class="row">
-				<div class="avatar-container">
-					{#if loading}
-						<Skeleton circle={true} width={100} height={64} />
-					{:else}
-						<a href="./avatar/1/">
-							{#key user?.avatar}
-								<Avatar
-									url={user?.avatar}
-									forceAltText="{username}'s profile image"
-									dimensions={128}
-								/>
-							{/key}
-						</a>
-					{/if}
-				</div>
-				<div class="column center-horizontally">
+	<div class="user-header__follow">
+		<Follow {username} />
+	</div>
+</div>
+<Card padding={0}>
+	<main class="row">
+		<section class="row">
+			<div class="avatar-container">
+				{#if loading}
+					<Skeleton circle={true} width={100} height={64} />
+				{:else}
+					<a href="./avatar/1/">
+						{#key user?.avatar}
+							<Avatar
+								url={user?.avatar}
+								forceAltText="{username}'s profile image"
+								dimensions={128}
+							/>
+						{/key}
+					</a>
+				{/if}
+			</div>
+			<div class="column center-horizontally">
+				{#if loading}
+					<Skeleton width={100} height={15} />
+				{:else}
+					<Typography size={'xl'} weight={900}>@{user?.username}</Typography>
+				{/if}
+				<span class="row">
 					{#if loading}
 						<Skeleton width={100} height={15} />
 					{:else}
-						<Typography size={'xl'} weight={900}>@{user?.username}</Typography>
+						<Notepad fill="white" />
+						<Typography size={'sm'}
+							><p class="bio">
+								{@html user?.bio}
+							</p></Typography
+						>
 					{/if}
-					<span class="row">
-						{#if loading}
-							<Skeleton width={100} height={15} />
-						{:else}
-							<Notepad fill="white" />
-							<Typography size={'sm'}
-								><p class="bio">
-									{@html user?.bio}
-								</p></Typography
-							>
-						{/if}
-					</span>
-					<span class="row">
-						{#if loading}
-							<Skeleton width={100} height={15} />
-						{:else}
-							<AvatarIcon fill="white" />
-							<Typography size={'sm'}>{user.pronouns?.join('/') || 'Any pronouns'}</Typography>
-						{/if}
-					</span>
-					<span class="row">
-						{#if loading}
-							<Skeleton width={100} height={15} />
-						{:else}
-							<Location fill="white" />
-							<Typography size={'sm'}>{user?.location}</Typography>
-						{/if}
-					</span>
-					<span class="row">
-						{#if loading}
-							<Skeleton width={100} height={15} />
-						{:else}
-							<Calendar fill="white" />
-							<Typography size={'sm'}>
-								Joined {typeof user === 'undefined'
-									? 'loading...'
-									: DateTime.fromMillis(Math.round(user?.createdAt * 1000)).toRelative()}
-							</Typography>
-						{/if}
-					</span>
-				</div>
-			</section>
-			<section class="column center">
-				<Follow {username} />
-			</section>
-		</main>
-	</Card>
-</Root>
+				</span>
+				<span class="row">
+					{#if loading}
+						<Skeleton width={100} height={15} />
+					{:else}
+						<AvatarIcon fill="white" />
+						<Typography size={'sm'}>{user.pronouns?.join('/') || 'Any pronouns'}</Typography>
+					{/if}
+				</span>
+				<span class="row">
+					{#if loading}
+						<Skeleton width={100} height={15} />
+					{:else}
+						<Location fill="white" />
+						<Typography size={'sm'}>{user?.location}</Typography>
+					{/if}
+				</span>
+				<span class="row">
+					{#if loading}
+						<Skeleton width={100} height={15} />
+					{:else}
+						<Calendar fill="white" />
+						<Typography size={'sm'}>
+							Joined {typeof user === 'undefined'
+								? 'loading...'
+								: DateTime.fromMillis(Math.round(user?.createdAt * 1000)).toRelative()}
+						</Typography>
+					{/if}
+				</span>
+			</div>
+		</section>
+		<section class="column center">
+			<Follow {username} />
+		</section>
+	</main>
+</Card>
 
 <style>
-	:global(.root) {
-		display: flex;
-		flex-direction: column;
-	}
-
 	:global(.card-outer) {
 		display: flex !important;
 		flex-direction: column !important;
