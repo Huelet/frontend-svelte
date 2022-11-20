@@ -61,7 +61,9 @@
 {:else}
 	<Header />
 {/if}
-<slot />
+<div class="layout-content">
+	<slot />
+</div>
 
 <style>
 	/* global styles */
@@ -216,5 +218,9 @@
 	:global(::-webkit-scrollbar-thumb) {
 		background: #4b4b4b;
 		border-radius: 2px;
+	}
+
+	.layout-content {
+		padding: 32px 0 0 0;
 	}
 </style>
