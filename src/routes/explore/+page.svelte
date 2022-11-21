@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import VideoCard from '../../components/video-card.svelte';
+	import Loading from '../../components/loading.svelte';
+	import Typography from '../../components/typography.svelte';
 	import '@fontsource/red-hat-display/300.css';
 
 	export let data: PageData;
@@ -16,6 +18,9 @@
 					{#each videoList as video}
 						<VideoCard {video} />
 					{/each}
+				{:else}
+					<Loading dimensions={256} />
+					<Typography size="xl">Loading videos</Typography>
 				{/if}
 			</div>
 		</div>
