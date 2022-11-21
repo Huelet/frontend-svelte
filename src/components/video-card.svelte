@@ -5,12 +5,17 @@
 	import '@fontsource/red-hat-display/300.css';
 	import '@fontsource/red-hat-display/500.css';
 	import { Check } from './icons';
+	import Loading from './loading.svelte';
+	import VideoCamera from './icons/VideoCamera.svelte';
 
 	export let vuid = '';
 	export let video: any = {};
 	let videoData: any;
 	let creatorData: any;
 	let className = '';
+	let image: boolean;
+	let imageLoading = true;
+	let imageURL = '';
 	export { className as class };
 
 	if (video) {
@@ -22,6 +27,18 @@
 			.then((creator) => {
 				creatorData = creator.data;
 			});
+		if (typeof video.thumbnail !== 'undefined') {
+			image = true;
+			fetch(videoData.thumbnail)
+				.then((res) => res.blob())
+				.then((blob) => {
+					imageURL = URL.createObjectURL(blob);
+					imageLoading = false;
+				});
+		} else {
+			image = false;
+			imageLoading = false;
+		}
 	}
 
 	if (vuid) {
@@ -42,26 +59,23 @@
 
 <a href={`/w/${videoData?.vuid}`}>
 	<div class="video-card column cursor {className}">
-		{#if videoData?.thumbnail}
-			<div
-				class="thumbnail center column"
-				style={`background-image: url(${!videoData ? '' : videoData?.thumbnail});
+		{#if image === true}
+			{#if imageLoading === false}
+				<div
+					class="thumbnail center column"
+					style={`background-image: url(${!videoData ? '' : imageURL});
 				${videoData.flags.length >= 1 ? 'filter: blur(1.2em)' : ''}
 			`}
-			/>
-		{:else}
-			<div
-				class="thumbnail center column"
-				style={`background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAAAAXNSR0IArs4c6QAABGhJREFUeF7t1IEJACAMA0G7tOtXcIuH6wThUjL37B5HgACBgMAYrEBLIhIg8AUMlkcgQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEDBYfoAAgYyAwcpUJSgBAgbLDxAgkBEwWJmqBCVAwGD5AQIEMgIGK1OVoAQIGCw/QIBARsBgZaoSlAABg+UHCBDICBisTFWCEiBgsPwAAQIZAYOVqUpQAgQMlh8gQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEDBYfoAAgYyAwcpUJSgBAgbLDxAgkBEwWJmqBCVAwGD5AQIEMgIGK1OVoAQIGCw/QIBARsBgZaoSlAABg+UHCBDICBisTFWCEiBgsPwAAQIZAYOVqUpQAgQMlh8gQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEDBYfoAAgYyAwcpUJSgBAgbLDxAgkBEwWJmqBCVAwGD5AQIEMgIGK1OVoAQIGCw/QIBARsBgZaoSlAABg+UHCBDICBisTFWCEiBgsPwAAQIZAYOVqUpQAgQMlh8gQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEDBYfoAAgYyAwcpUJSgBAgbLDxAgkBEwWJmqBCVAwGD5AQIEMgIGK1OVoAQIGCw/QIBARsBgZaoSlAABg+UHCBDICBisTFWCEiBgsPwAAQIZAYOVqUpQAgQMlh8gQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEDBYfoAAgYyAwcpUJSgBAgbLDxAgkBEwWJmqBCVAwGD5AQIEMgIGK1OVoAQIGCw/QIBARsBgZaoSlAABg+UHCBDICBisTFWCEiBgsPwAAQIZAYOVqUpQAgQMlh8gQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEDBYfoAAgYyAwcpUJSgBAgbLDxAgkBEwWJmqBCVAwGD5AQIEMgIGK1OVoAQIGCw/QIBARsBgZaoSlAABg+UHCBDICBisTFWCEiBgsPwAAQIZAYOVqUpQAgQMlh8gQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEDBYfoAAgYyAwcpUJSgBAgbLDxAgkBEwWJmqBCVAwGD5AQIEMgIGK1OVoAQIGCw/QIBARsBgZaoSlAABg+UHCBDICBisTFWCEiBgsPwAAQIZAYOVqUpQAgQMlh8gQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEDBYfoAAgYyAwcpUJSgBAgbLDxAgkBEwWJmqBCVAwGD5AQIEMgIGK1OVoAQIGCw/QIBARsBgZaoSlAABg+UHCBDICBisTFWCEiBgsPwAAQIZAYOVqUpQAgQMlh8gQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEDBYfoAAgYyAwcpUJSgBAgbLDxAgkBEwWJmqBCVAwGD5AQIEMgIGK1OVoAQIGCw/QIBARsBgZaoSlAABg+UHCBDICBisTFWCEiBgsPwAAQIZAYOVqUpQAgQMlh8gQCAjYLAyVQlKgIDB8gMECGQEDFamKkEJEHjH03Ce+XXyMwAAAABJRU5ErkJggg==);`}
-			>
-				<img
-					src="https://cdn.huelet.net/assets/emojis/Crying%20face/3D/crying_face_3d.png?raw=true"
-					alt="Sad face with a single tear"
-					class="emoji"
-					width={64}
-					height={64}
 				/>
-				<Typography size="lg">We couldn't load this thumbnail</Typography>
+			{:else}
+				<div class="thumbnail center column full">
+					<Loading dimensions={128} />
+				</div>
+			{/if}
+		{:else}
+			<div class="thumbnail-no-image center column full">
+				<VideoCamera fill="#b3b3b3" width={32} height={32} />
+				<Typography size="xl">No thumbnail</Typography>
 			</div>
 		{/if}
 		<div class="video-info">
@@ -170,6 +184,18 @@
 		background-position: center center;
 		background-repeat: no-repeat;
 		border-radius: 1.5em;
+	}
+
+	.thumbnail-no-image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 100%;
+		height: 50%;
+		border-radius: 0.5rem;
+
+		filter: drop-shadow(1px 2px 1em #858585);
 	}
 
 	h1 {
