@@ -122,7 +122,7 @@
 	:global(*:focus) {
 		outline: none;
 		border: 2px solid rgb(0, 134, 223);
-		border-radius: 1em;
+		border-radius: 0.5em;
 	}
 
 	:global(img) {
