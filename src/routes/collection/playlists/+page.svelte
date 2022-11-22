@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PlaylistCard from '../../../components/playlist-card.svelte';
+	import Meta from '../../../components/meta.svelte';
 	import type { Playlist } from '../../../types/playlist';
 	import { onMount } from 'svelte';
 
@@ -14,6 +15,15 @@
 		playlists = (await resp.json()).data;
 	});
 </script>
+
+<svelte:head>
+	<meta name="robots" content="noindex,nofollow" />
+</svelte:head>
+
+<Meta
+	title={playlists.length > 0 ? 'Your Playlists' : 'No Playlists'}
+	description="Your playlists on Huelet"
+/>
 
 <main>
 	<div class="playlists-grid">

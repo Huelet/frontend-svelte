@@ -3,12 +3,18 @@
 	import VideoCard from '../../components/video-card.svelte';
 	import Loading from '../../components/loading.svelte';
 	import Typography from '../../components/typography.svelte';
+	import Meta from '../../components/meta.svelte';
 	import '@fontsource/red-hat-display/300.css';
 
 	export let data: PageData;
 
 	let videoList: any[] | undefined = data.videoList;
 </script>
+
+<Meta
+	title="Explore | Huelet"
+	description="Explore videos on Huelet, the Video Platform for Humans"
+/>
 
 <main>
 	<div class="fyp-container">

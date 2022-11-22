@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import Logo from '../components/logo.svelte';
 	import Typography from '../components/typography.svelte';
+	import Meta from '../components/meta.svelte';
 	import '@fontsource/red-hat-display/700.css';
 
 	onMount(() => {
@@ -10,6 +11,8 @@
 		}
 	});
 </script>
+
+<Meta />
 
 <main>
 	<div class="hero">

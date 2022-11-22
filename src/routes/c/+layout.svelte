@@ -8,6 +8,7 @@
 	import Card from '../../components/card.svelte';
 	import Skeleton from '../../components/skeleton.svelte';
 	import Follow from '../../components/buttons/follow.svelte';
+	import Meta from '../../components/meta.svelte';
 	import { Notepad, Avatar as AvatarIcon, Calendar, Location } from '../../components/icons';
 
 	let user: any;
@@ -32,6 +33,11 @@
 	$: user = data.user;
 	$: loading = typeof user?.videos === 'undefined';
 </script>
+
+<Meta
+	title="{data.user.username} on Huelet"
+	description="Watch videos by {data.user.username} on Huelet, the Video Platform for Humans"
+/>
 
 <slot />
 <a href="./header/">

@@ -6,6 +6,7 @@
 	import InviteOverlay from '../invite-overlay.svelte';
 	import SignUp from '../sign-up.svelte';
 	import Complete from '../complete.svelte';
+	import Meta from 'src/components/meta.svelte';
 
 	export let data: PageData;
 
@@ -51,6 +52,11 @@
 			});
 	};
 </script>
+
+<Meta
+	title="Your invite to Huelet"
+	description="Join Huelet, the best place to share your videos and watch your favorite creators."
+/>
 
 <Card full={true} title="Use an invite">
 	<div class="invite-container">

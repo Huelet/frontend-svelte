@@ -10,6 +10,7 @@
 	import Follow from '../../../components/buttons/follow.svelte';
 	import Chip from '../../../components/chip.svelte';
 	import Typography from '../../../components/typography.svelte';
+	import Meta from '../../../components/meta.svelte';
 	import { WarningFilled, ChevronDown } from '../../../components/icons';
 
 	let description = false;
@@ -23,6 +24,12 @@
 	$: video = data.video;
 	$: creator = data.creator;
 </script>
+
+<Meta
+	title="{video.title} by {creator.username} on Huelet"
+	description="Watch videos by {creator.username} on Huelet, the Video Platform for Humans"
+	image={video.thumbnail}
+/>
 
 <div class="content">
 	<main>

@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import Toast from '../../../components/toast.svelte';
 	import Card from '../../../components/card.svelte';
+	import Meta from '../../../components/meta.svelte';
 
 	let username: string;
 	let password: string;
@@ -72,6 +73,8 @@
 		loading = false;
 	};
 </script>
+
+<Meta title="Log in to Huelet, the video platform for humans" />
 
 <Card full={true} title="Sign in">
 	<div class="form-container">
