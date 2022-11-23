@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import Plyr, { type MarkersPoints } from 'plyr';
 	import 'plyr/dist/plyr.css';
+	import type { AccessibilitySettings } from '../types/accessibility';
 
 	let player: any;
 	let location: any;
@@ -9,6 +10,10 @@
 	export { className as class };
 
 	onMount(async () => {
+		const accessibility: AccessibilitySettings = JSON.parse(
+			localStorage.getItem('huelet:auth:accessibility') as string
+		);
+
 		player = new Plyr(location.firstChild, {
 			controls: [
 				'play-large',
@@ -54,6 +59,10 @@
 				enabled: intervals ? true : false,
 				points: intervals ? intervals : null
 			}
+		});
+
+		player.on('ready', () => {
+			if (accessibility.autoplay) player.play();
 		});
 	});
 
