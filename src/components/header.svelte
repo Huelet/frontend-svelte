@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { navigating } from '$app/stores';
 	import { DateTime } from 'luxon';
 	import {
 		Search,
@@ -47,6 +48,12 @@
 			left: targetLocation?.left - 200 || 100
 		};
 	});
+
+	$: {
+		if ($navigating) {
+			menu = false;
+		}
+	}
 </script>
 
 <div class="header-global row center {className}">
