@@ -35,6 +35,11 @@
 		const action: string = e.path[3].getAttribute('data-action');
 		const value: boolean = e.checked ? true : false;
 
+		accessibility = {
+			...accessibility,
+			[action]: value
+		};
+
 		const req = await fetch(
 			`https://api.huelet.net/auth/accessibility?username=${(user as User).username}`,
 			{
@@ -44,7 +49,7 @@
 					Authorization: `Bearer ${token}`
 				},
 				body: JSON.stringify({
-					"settings": {
+					settings: {
 						[action]: value
 					}
 				})
@@ -53,6 +58,8 @@
 
 		if (req.status === 200) success = true;
 		else failure = true;
+
+		localStorage.setItem('huelet:auth:accessibility', JSON.stringify(accessibility));
 	};
 </script>
 
@@ -209,7 +216,7 @@
 	heading="Success!"
 	type="success"
 	body="Your accessibility settings were saved."
-    duration={2.5}
+	duration={2.5}
 >
 	<Check slot="icon" fill="white" />
 </Toast>
@@ -220,7 +227,7 @@
 	heading="Error!"
 	type="error"
 	body="There was an error saving your accessibility settings."
-    duration={2.5}
+	duration={2.5}
 >
 	<WarningFilled slot="icon" fill="white" />
 </Toast>
