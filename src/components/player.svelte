@@ -39,7 +39,7 @@
 			},
 			storage: {
 				enabled: true,
-				key: 'huelet-player'
+				key: 'huelet:player'
 			},
 			speed: {
 				selected: 1,
