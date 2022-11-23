@@ -7,6 +7,8 @@
 
 	import 'normalize.css';
 	import '../styles/progress.css';
+	import { onMount } from 'svelte';
+	import type { AccessibilitySettings } from '../types/accessibility';
 
 	NProgress.configure({
 		showSpinner: false,
@@ -23,6 +25,31 @@
 			NProgress.done();
 		}
 	}
+
+	onMount(() => {
+		const accessibility: AccessibilitySettings | null = JSON.parse(
+			localStorage.getItem('huelet:auth:accessibility') as string
+		);
+
+		if (accessibility === null)
+			localStorage.setItem(
+				'huelet:auth:accessibility',
+				JSON.stringify({
+					sounds: true,
+					captions: false,
+					motion: true,
+					highContrast: false,
+					zoom: 'x1',
+					invertColors: false,
+					grayscale: false,
+					autoplay: true
+				})
+			);
+
+		if (accessibility?.grayscale === true) document.body.classList.add('a11y-grayscale');
+		if (accessibility?.highContrast === true) document.body.classList.add('a11y-contrast');
+		if (accessibility?.invertColors === true) document.body.classList.add('a11y-invert');
+	});
 
 	// someone figure this out because i dont care enough
 
@@ -224,6 +251,18 @@
 	:global(::-webkit-scrollbar-thumb) {
 		background: #4b4b4b;
 		border-radius: 2px;
+	}
+
+	:global(.a11y-grayscale) {
+		filter: grayscale(100%);
+	}
+
+	:global(.a11y-invert) {
+		filter: invert(100%);
+	}
+
+	:global(.a11y-contrast) {
+		filter: contrast(200%);
 	}
 
 	.layout-content {
