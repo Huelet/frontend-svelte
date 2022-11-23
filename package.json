@@ -46,6 +46,7 @@
 		"luxon": "^3.0.4",
 		"normalize.css": "^8.0.1",
 		"nprogress": "^0.2.0",
-		"sass": "^1.54.9"
+		"sass": "^1.54.9",
+		"svelte-toggle": "^3.1.0"
 	}
 }
