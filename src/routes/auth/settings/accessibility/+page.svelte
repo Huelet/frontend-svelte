@@ -26,6 +26,9 @@
 
 	onMount(async () => {
 		user = JSON.parse(localStorage.getItem('huelet:auth:user') as string) as User;
+		accessibility = JSON.parse(
+			localStorage.getItem('huelet:auth:accessibility') as string
+		) as AccessibilitySettings;
 		token = localStorage.getItem('huelet:auth:token') as string;
 
 		if (!user || !token) return;
@@ -35,10 +38,7 @@
 		const action: string = e.path[3].getAttribute('data-action');
 		const value: boolean = e.checked ? true : false;
 
-		accessibility = {
-			...accessibility,
-			[action]: value
-		};
+		localStorage.setItem('huelet:auth:accessibility', JSON.stringify(accessibility));
 
 		const req = await fetch(
 			`https://api.huelet.net/auth/accessibility?username=${(user as User).username}`,
@@ -58,8 +58,6 @@
 
 		if (req.status === 200) success = true;
 		else failure = true;
-
-		localStorage.setItem('huelet:auth:accessibility', JSON.stringify(accessibility));
 	};
 </script>
 
