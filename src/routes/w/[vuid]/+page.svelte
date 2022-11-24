@@ -13,17 +13,26 @@
 	import Chip from '../../../components/chip.svelte';
 	import Typography from '../../../components/typography.svelte';
 	import Meta from '../../../components/meta.svelte';
+	import Portal from '../../../components/portal.svelte';
 	import {
 		WarningFilled,
 		ChevronDown,
 		ThumbsDown,
 		ThumbsUp,
 		CalendarMonths,
-		Share
+		Share,
+		Copy,
+		Javascript,
+		Tag,
+		TagAlt
 	} from '../../../components/icons';
 
 	let description = false;
 	let user: User;
+	let menuTargetId: string = `menu-target-${Math.random().toString(36).substr(2, 9)}`;
+	let targetLocation: DOMRect | null = null;
+	let menuLocation: { top: number; left: number } = { top: 0, left: 0 };
+	let menu: boolean = false;
 	let vuid: string;
 	let video: any;
 	let creator: any;
@@ -36,6 +45,12 @@
 
 	onMount(() => {
 		user = JSON.parse(localStorage.getItem('huelet:auth:user') as string);
+
+		targetLocation = document.querySelector(`#${menuTargetId}`)?.getBoundingClientRect() as DOMRect;
+		menuLocation = {
+			top: targetLocation?.top + 32 || 32,
+			left: targetLocation?.left - 200 || 100
+		};
 	});
 
 	const addLike = async () => {
@@ -104,8 +119,73 @@
 					<ThumbsUp fill="none" />
 					<Typography weight={600}>{video.upvotes}</Typography>
 				</div>
-				<div class="action share" aria-label="Share" tabindex={0}>
+				<div
+					class="action share"
+					aria-label="Share"
+					tabindex={0}
+					id={menuTargetId}
+					on:click={() => (menu = !menu)}
+				>
 					<Share fill="white" />
+					{#if menu}
+						<Portal>
+							<div
+								class="share-menu"
+								style="
+						top: {menuLocation?.top}px;
+						left: {menuLocation?.left}px;
+					"
+							>
+								<div class="share-menu__inner">
+									<a
+										href="https://twitter.com/intent/tweet?original_referer={encodeURIComponent(
+											$page.url.origin
+										)}&related=TeamHuelet&text=I%20just%20watched%20this%20video%20by%20%5B%5D.%20You%20should%20check%20it%20out!&url={encodeURIComponent(
+											$page.url.href
+										)}&via=TeamHuelet"
+									>
+										<div class="share-menu__item-container">
+											<div class="share-menu__item">
+												<div class="share-menu__item--icon">
+													<svg
+														viewBox="0 0 24 24"
+														width="16"
+														height="16"
+														stroke="white"
+														stroke-width="2.5"
+														fill="none"
+														stroke-linecap="round"
+														stroke-linejoin="round"
+													>
+														<path
+															d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+														/>
+													</svg>
+												</div>
+												<Typography weight={600}>Tweet it</Typography>
+											</div>
+										</div>
+									</a>
+									<div class="share-menu__item-container" tabindex={0}>
+										<div class="share-menu__item">
+											<div class="share-menu__item--icon">
+												<Copy fill="white" />
+											</div>
+											<Typography>Copy to clipboard</Typography>
+										</div>
+									</div>
+									<div class="share-menu__item-container" tabindex={0}>
+										<div class="share-menu__item">
+											<div class="share-menu__item--icon">
+												<TagAlt fill="white" />
+											</div>
+											<Typography>Embed</Typography>
+										</div>
+									</div>
+								</div>
+							</div>
+						</Portal>
+					{/if}
 				</div>
 				<div
 					class="action forlater {video.saved?.includes('forlater') ? 'active' : 'inactive'}"
@@ -291,6 +371,60 @@
 		border: rgba(255, 0, 0, 0.4) solid 0.5px;
 	}
 
+	.share-menu {
+		position: absolute;
+
+		width: 200px;
+
+		background-color: rgb(37, 38, 43);
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+		border: 1px solid rgb(55, 58, 64);
+		border-radius: 4px;
+
+		padding: 0.25em;
+
+		animation: share-menu-toggle 100ms ease-in-out;
+	}
+
+	.share-menu__inner {
+		display: flex;
+		flex-direction: column;
+
+		outline: 0px;
+	}
+
+	.share-menu__item-container {
+		width: 100%;
+
+		border-radius: 4px;
+
+		cursor: pointer;
+	}
+
+	.share-menu__item {
+		display: flex;
+		align-items: center;
+
+		width: 50%;
+		padding: 0.25em 0.5em;
+
+		border-radius: 4px;
+
+		cursor: pointer;
+	}
+
+	.share-menu__item--icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		margin: 0 10px 0 0;
+	}
+
+	.share-menu__item-container:hover {
+		background-color: rgba(92, 95, 102, 0.35);
+	}
+
 	.details {
 		padding: 1em;
 	}
@@ -409,6 +543,17 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			grid-gap: 0.5em;
+		}
+	}
+
+	@keyframes share-menu-toggle {
+		0% {
+			opacity: 0;
+			transform: scale(0.9);
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1);
 		}
 	}
 </style>
