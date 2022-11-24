@@ -115,7 +115,11 @@
 							</div>
 						</div>
 						<div class="meta_item center">
-							<div class="description-toggle" on:click={() => (description = !description)}>
+							<div
+								class="description-toggle"
+								on:click={() => (description = !description)}
+								aria-label="Toggle description"
+							>
 								<ChevronDown
 									fill="white"
 									class="description-toggle__icon {description ? 'description-toggle--open' : null}"

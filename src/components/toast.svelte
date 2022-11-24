@@ -31,7 +31,7 @@
 			} ${type === 'neutral' ? 'toast-neutral' : null} ${className}`}
 		>
 			<div class="close-icon-container">
-				<div class="close-icon">
+				<div class="close-icon" aria-label="Close">
 					<Close fill="white" on:click={onClose} />
 				</div>
 			</div>

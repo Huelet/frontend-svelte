@@ -36,13 +36,13 @@
 						<Typography size="lg" weight={700}>
 							{title}
 						</Typography>
-						<div class="close" on:click={onClose}>
+						<div class="close" on:click={onClose} aria-label="Close">
 							<Close fill="white" />
 						</div>
 					</div>
 					<div class="divider" />
 				{:else}
-					<div class="close without-title" on:click={onClose}>
+					<div class="close without-title" on:click={onClose} aria-label="Close">
 						<Close fill="white" />
 					</div>
 				{/if}

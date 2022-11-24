@@ -70,7 +70,7 @@
 		<div class="actions row center">
 			<span>
 				<Callout open={showMenu} location="bottom">
-					<span on:click={() => (showMenu = !showMenu)} slot="target">
+					<span on:click={() => (showMenu = !showMenu)} slot="target" aria-label="Toggle inbox">
 						<Inbox fill="white" width={28} height={28} class="cursor" />
 					</span>
 					<Typography size="xl">
@@ -85,7 +85,12 @@
 				<GridAlt fill="white" width={28} height={28} />
 			</a>
 			{#if loggedIn}
-				<span class="avatar-menu-toggle" on:click={() => (menu = !menu)} id={menuTargetId}>
+				<span
+					class="avatar-menu-toggle"
+					on:click={() => (menu = !menu)}
+					id={menuTargetId}
+					aria-label="Toggle avatar menu"
+				>
 					<Avatar
 						url={user?.avatar ||
 							`https://cdn.huelet.net/assets/avatars/1916688602623198526477735532393069233691739314463003${Math.round(

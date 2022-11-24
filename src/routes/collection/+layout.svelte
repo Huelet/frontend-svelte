@@ -52,13 +52,13 @@
 			<div class="divider center" />
 		</div>
 		<div class="icon-grid center full-width">
-			<div class="icon-grid__item">
+			<div class="icon-grid__item" aria-label="Open create playlist modal">
 				<IconButton onPress={() => (createPlaylistModalOpen = true)}>
 					<Add fill="white" />
 				</IconButton>
 			</div>
 			<div class="icon-grid__item">
-				<a href="/collection/liked/">
+				<a href="/collection/liked/" aria-label="Your liked videos">
 					<IconButton>
 						<svg height="16" width="16" viewBox="0 0 16 16" fill="white">
 							<path
@@ -69,7 +69,7 @@
 				</a>
 			</div>
 			<div class="icon-grid__item">
-				<a href="/collection/forlater/">
+				<a href="/collection/forlater/" aria-label="Your saved videos for later">
 					<IconButton>
 						<Video fill="white" />
 					</IconButton>

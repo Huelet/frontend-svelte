@@ -25,7 +25,7 @@
 
 <Portal class="portal full page center">
 	<div class="full page center header-viewer" style="background-color: {backgroundColor}e1">
-		<div class="close cursor" on:click={() => history.back()}>
+		<div class="close cursor" on:click={() => history.back()} aria-label="Go back">
 			<Close fill="white" />
 		</div>
 		<div class="header" style={styles} />

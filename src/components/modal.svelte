@@ -20,7 +20,7 @@
 	<div class="modal-outer {open || 'closed'}">
 		<div class="modal-inner">
 			{#if withCloseIcon}
-				<div class="close-icon center" on:click={onClose}>
+				<div class="close-icon center" on:click={onClose} aria-label="Close">
 					<span class="close-icon-inner">
 						<Close fill="white" />
 					</span>

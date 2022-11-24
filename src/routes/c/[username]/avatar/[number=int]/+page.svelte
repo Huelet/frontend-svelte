@@ -13,7 +13,7 @@
 
 <Portal class="portal full page center">
 	<div class="full page center avatar-viewer" style="background-color: {backgroundColor}e1">
-		<div class="close cursor" on:click={() => history.back()}>
+		<div class="close cursor" on:click={() => history.back()} aria-label="Go back">
 			<Close fill="white" />
 		</div>
 		<Avatar url={data.user.avatar} dimensions={256} />
