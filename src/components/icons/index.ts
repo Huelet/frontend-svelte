@@ -155,6 +155,8 @@ import TagAlt from './TagAlt.svelte';
 import TagAltFilled from './TagAltFilled.svelte';
 import TagFilled from './TagFilled.svelte';
 import Terminal from './Terminal.svelte';
+import ThumbsDown from './ThumbsDown.svelte';
+import ThumbsUp from './ThumbsUp.svelte';
 import Train from './Train.svelte';
 import Trash from './Trash.svelte';
 import Tv from './Tv.svelte';
@@ -310,6 +312,8 @@ export {
 	Waveform,
 	Lightbulb,
 	Terminal,
+	ThumbsDown,
+	ThumbsUp,
 	Share,
 	Microphone,
 	WifiFull,
