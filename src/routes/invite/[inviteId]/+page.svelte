@@ -3,10 +3,10 @@
 	import { page } from '$app/stores';
 	import Card from '../../../components/card.svelte';
 	import Typography from '../../../components/typography.svelte';
+	import Meta from '../../../components/meta.svelte';
 	import InviteOverlay from '../invite-overlay.svelte';
 	import SignUp from '../sign-up.svelte';
 	import Complete from '../complete.svelte';
-	import Meta from 'src/components/meta.svelte';
 
 	export let data: PageData;
 
