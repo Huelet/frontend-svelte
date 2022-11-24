@@ -1,7 +1,9 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 	import { DateTime } from 'luxon';
+	import type { User } from '../../../types/account';
 	import type { Error } from '../../../types/error';
 	import Avatar from '../../../components/avatar.svelte';
 	import Toast from '../../../components/toast.svelte';
@@ -21,6 +23,7 @@
 	} from '../../../components/icons';
 
 	let description = false;
+	let user: User;
 	let vuid: string;
 	let video: any;
 	let creator: any;
@@ -30,6 +33,38 @@
 
 	$: video = data.video;
 	$: creator = data.creator;
+
+	onMount(() => {
+		user = JSON.parse(localStorage.getItem('huelet:auth:user') as string);
+	});
+
+	const addLike = async () => {
+		const res = await fetch(
+			`https://api.huelet.net/videos/interact/upvote/${video.vuid}?userID=${user.uid}`,
+			{
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('huelet:auth:token')}`
+				}
+			}
+		);
+
+		video.upvotes++;
+	};
+
+	const addDislike = async () => {
+		const res = await fetch(
+			`https://api.huelet.net/videos/interact/downvote/${video.vuid}?userID=${user.uid}`,
+			{
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('huelet:auth:token')}`
+				}
+			}
+		);
+
+		video.downvotes++;
+	};
 </script>
 
 <Meta
@@ -60,20 +95,33 @@
 				{/if}
 			</div>
 			<div class="actions">
-				<div class="action like {video.liked ? 'active' : 'inactive'}" tabindex={0}>
+				<div
+					class="action like {video.liked ? 'active' : 'inactive'}"
+					tabindex={0}
+					aria-label="Like"
+					on:click={() => addLike()}
+				>
 					<ThumbsUp fill="none" />
+					<Typography weight={600}>{video.upvotes}</Typography>
 				</div>
-				<div class="action share" tabindex={0}>
+				<div class="action share" aria-label="Share" tabindex={0}>
 					<Share fill="white" />
 				</div>
 				<div
 					class="action forlater {video.saved?.includes('forlater') ? 'active' : 'inactive'}"
+					aria-label="Save to watch later"
 					tabindex={0}
 				>
 					<CalendarMonths fill="white" />
 				</div>
-				<div class="action dislike {video.dislike ? 'active' : 'inactive'}" tabindex={0}>
+				<div
+					class="action dislike {video.dislike ? 'active' : 'inactive'}"
+					tabindex={0}
+					aria-label="Dislike"
+					on:click={() => addDislike()}
+				>
 					<ThumbsDown fill="none" />
+					<Typography weight={600}>{video.downvotes}</Typography>
 				</div>
 			</div>
 		</div>
@@ -197,7 +245,7 @@
 
 	.action {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 
