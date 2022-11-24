@@ -11,7 +11,14 @@
 	import Chip from '../../../components/chip.svelte';
 	import Typography from '../../../components/typography.svelte';
 	import Meta from '../../../components/meta.svelte';
-	import { WarningFilled, ChevronDown } from '../../../components/icons';
+	import {
+		WarningFilled,
+		ChevronDown,
+		ThumbsDown,
+		ThumbsUp,
+		CalendarMonths,
+		Share
+	} from '../../../components/icons';
 
 	let description = false;
 	let vuid: string;
@@ -52,6 +59,23 @@
 					<Skeleton width={36} height={350} />
 				{/if}
 			</div>
+			<div class="actions">
+				<div class="action like {video.liked ? 'active' : 'inactive'}" tabindex={0}>
+					<ThumbsUp fill="none" />
+				</div>
+				<div class="action share" tabindex={0}>
+					<Share fill="white" />
+				</div>
+				<div
+					class="action forlater {video.saved?.includes('forlater') ? 'active' : 'inactive'}"
+					tabindex={0}
+				>
+					<CalendarMonths fill="white" />
+				</div>
+				<div class="action dislike {video.dislike ? 'active' : 'inactive'}" tabindex={0}>
+					<ThumbsDown fill="none" />
+				</div>
+			</div>
 		</div>
 		<div class="details">
 			{#if video}
@@ -78,7 +102,7 @@
 							</div>
 						</a>
 						<div class="meta_item center">
-							<div class="chip-grid">
+							<div class="chip-grid in-meta_items">
 								<Chip>
 									{video.views}
 									{video.views === 1 ? 'view' : 'views'}
@@ -103,6 +127,19 @@
 					{/if}
 				</div>
 				<div class="description{description ? ' null' : '--closed'}">
+					<div class="meta_item center">
+						<div class="chip-grid in-description_menu">
+							<Chip>
+								{video.views}
+								{video.views === 1 ? 'view' : 'views'}
+							</Chip>
+							<Chip>
+								{video?.videoUploaded
+									? DateTime.fromMillis(video?.videoUploaded).toRelative()
+									: DateTime.fromMillis(Math.round(1637779853 * 1000)).toRelative()}
+							</Chip>
+						</div>
+					</div>
 					{#if video}
 						{@html video.description}
 					{:else}
@@ -131,10 +168,75 @@
 		display: flex;
 		flex-direction: column;
 
-		width: 40vw;
+		width: 60vw;
 	}
 	.content {
 		padding: 1em;
+	}
+
+	.flask {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+
+	.actions {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+
+		border: rgb(50, 49, 48) solid 0.1em;
+		border-radius: 0.5em;
+		padding: 1em;
+	}
+
+	.action {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		border: transparent solid 1px;
+		border-radius: 4px;
+
+		margin: 0.1em 0 0 0;
+		padding: 1em;
+
+		transition: 0.1s ease-in-out;
+		cursor: pointer;
+	}
+
+	.action:focus {
+		outline: none;
+	}
+
+	.action.like:hover,
+	.action.like:focus,
+	.action.like.active {
+		background-color: rgba(115, 255, 0, 0.15);
+		border: rgba(0, 255, 0, 0.4) solid 1px;
+	}
+
+	.action.share:hover,
+	.action.share:focus,
+	.action.share.active {
+		background-color: rgba(0, 0, 255, 0.15);
+		border: rgba(0, 0, 255, 0.4) solid 1px;
+	}
+
+	.action.forlater:hover,
+	.action.forlater:focus,
+	.action.forlater.active {
+		background-color: rgba(160, 160, 160, 0.15);
+		border: rgba(160, 160, 160, 0.4) solid 1px;
+	}
+
+	.action.dislike:hover,
+	.action.dislike:focus,
+	.action.dislike.active {
+		background-color: rgba(255, 118, 118, 0.15);
+		border: rgba(255, 0, 0, 0.4) solid 0.5px;
 	}
 
 	.details {
@@ -171,6 +273,10 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-gap: 0.5em;
+	}
+
+	.chip-grid.in-description_menu {
+		display: none;
 	}
 
 	.description {
@@ -232,6 +338,25 @@
 
 		.content {
 			padding: 0;
+		}
+
+		.flask {
+			flex-direction: column;
+		}
+
+		.actions {
+			flex-direction: row;
+			justify-content: space-evenly;
+		}
+
+		.chip-grid.in-meta_items {
+			display: none;
+		}
+
+		.chip-grid.in-description_menu {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 0.5em;
 		}
 	}
 </style>
