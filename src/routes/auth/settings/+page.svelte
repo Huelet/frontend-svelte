@@ -4,16 +4,15 @@
 
 
 
-import type { NextPage } from "next";
+
 import styles from "../../styles/Settings.module.css";
-import { SetStateAction, useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+
+
 import { Header } from "../../components/header";
 import { Modal, RingProgress } from "@mantine/core";
 	
 
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+
 import { Avatar, BulletList, Upload, Location } from "@fdn-ui/icons-react";
 import { Avatar as AvatarImage } from "../../components/avatar";
 import Loader from "../../components/loader";
