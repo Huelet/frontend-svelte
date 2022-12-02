@@ -275,7 +275,7 @@
 	}
 
 	.avatar-menu {
-		position: absolute;
+		position: right;
 
 		width: 200px;
 
