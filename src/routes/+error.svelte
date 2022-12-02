@@ -9,9 +9,9 @@
 	<div class="page-content">
 		{#if $page.status === 404}
 			<Typography size="xl">
-				Could not find page <code>{$page.url.pathname}</code>
+				Uh-oh This page doesen't seem exist <code>{$page.url.pathname}</code>
 			</Typography>
-			you're in the wrong place
+			404 that's an error
 		{:else}
 			<Typography>Something went wrong</Typography>
 			<Typography>Try refreshing the page</Typography>
