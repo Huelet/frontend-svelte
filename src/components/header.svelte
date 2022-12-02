@@ -202,7 +202,7 @@
 										<div class="avatar-menu__item--icon">
 											<All fill="white" />
 										</div>
-										<Typography>Your data in Huelet</Typography>
+										<Typography>Your data within Huelet</Typography>
 									</div>
 								</div>
 							</a>
