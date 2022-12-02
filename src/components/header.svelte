@@ -112,9 +112,10 @@
 					<div
 						class="avatar-menu"
 						style="
-					top: {menuLocation?.top}px;
-					right: {menuLocation?.right}px;
-				"
+							top: {menuLocation?.top}px;
+							left: 80%;
+							
+						"
 					>
 						<div class="avatar-menu__inner">
 							<div class="avatar-menu__label">
