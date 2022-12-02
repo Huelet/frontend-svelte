@@ -113,7 +113,7 @@
 						class="avatar-menu"
 						style="
 					top: {menuLocation?.top}px;
-					Right: {menuLocation?.Right}px;
+					right: {menuLocation?.right}px;
 				"
 					>
 						<div class="avatar-menu__inner">
