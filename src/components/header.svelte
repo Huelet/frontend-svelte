@@ -189,7 +189,7 @@
 										<div class="avatar-menu__item--icon">
 											<Notepad fill="white" />
 										</div>
-										<Typography>Report a problem</Typography>
+										<Typography> So many Problems </Typography>
 									</div>
 								</div>
 							</a>
