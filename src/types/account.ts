@@ -26,7 +26,7 @@ interface User {
 	private: boolean;
 	pronouns: string[];
 	creator: boolean;
-	approved: boolean;
+	approved: string;
 	followers: string[] | number;
 	following: string[];
 	userCreated: number;
