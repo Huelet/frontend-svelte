@@ -1,14 +1,25 @@
 <script lang="ts">
-import styles from "../../styles/Settings.module.css";
-import { Header } from "../../components/header";
-import { Modal, RingProgress } from "@mantine/core";
-import { Avatar, BulletList, Upload, Location } from "@fdn-ui/icons-react";
-import { Avatar as AvatarImage } from "../../components/avatar";
-import Loader from "../../components/loader";
-import { Card } from "@huelet/foundation-ui";
-	
- 
- };
+	import { onMount } from 'svelte';
+	import Card from '../../../components/card.svelte';
+	import Meta from '../../../components/meta.svelte';
+	import type { AccessibilitySettings } from '../../../types/accessibility';
+	import type { User } from '../../../types/account';
+
+	let success: boolean = false;
+	let failure: boolean = false;
+	let user: User;
+	let token: string;
+	let accessibility: AccessibilitySettings = {
+		sounds: true,
+		captions: false,
+		motion: true,
+		highContrast: false,
+		zoom: 'x1',
+		invertColors: false,
+		grayscale: false,
+		autoplay: true
+	};
+
 	onMount(async () => {
 		user = JSON.parse(localStorage.getItem('huelet:auth:user') as string) as User;
 		accessibility = JSON.parse(
@@ -22,6 +33,5 @@ import { Card } from "@huelet/foundation-ui";
 
 <Meta title=" Settings | User Settings | Huelet" />
 	
-        <Card full={true} title="User Settings">
-		
-		
+<Card full={true} title="User Settings" />
+	
