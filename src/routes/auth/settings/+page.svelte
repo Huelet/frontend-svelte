@@ -34,4 +34,18 @@
 <Meta title=" Settings | User Settings | Huelet" />
 	
 <Card full={true} title="User Settings" />
+
+
+>
+		</div>
+		<div class="center">
+			<div class="fyp-tags">
+				{#each ['Trending', 'For You', 'New', 'Music', 'Podcasts', 'Example', 'Movies', 'Books', 'News'] as tag}
+					<a href={`/explore/${tag.toLowerCase().replaceAll(' ', '')}`} class="tag">
+						<div class="fyp-tag-item center cursor">
+							<Typography truncated={true} size="lg">{tag}</Typography>
+						</div>
+					</a>
+				{/each}
+			</div>
 	
