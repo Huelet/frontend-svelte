@@ -32,6 +32,8 @@
 
 	$: user = data.user;
 	$: loading = typeof user?.videos === 'undefined';
+
+	if (username=="dkravec") console.log(user);
 </script>
 
 <Meta
