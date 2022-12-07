@@ -473,7 +473,7 @@ const AuthSettings: NextPage = () => {
 														</div>
 													</Modal>
 													<p>{location}</p>
-												</span>
+											</span>
 											)}
 										</div>
 									</div>
