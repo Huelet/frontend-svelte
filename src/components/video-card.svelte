@@ -66,7 +66,7 @@
 		{/if}
 		<div class="video-info">
 			{#if videoData}
-				<Typography truncated={true} weight={600} fontSize={2}>{videoData.title}</Typography>
+				<Typography truncated={true} weight={600} fontSize={1}>{videoData.title}</Typography>
 			{:else}
 				<Skeleton width={50} />
 			{/if}
@@ -145,7 +145,7 @@
 	.video-card > .video-info > .viewcount {
 		font-family: 'Red Hat Display', sans-serif;
 		font-weight: 400;
-		font-size: 1.5em;
+		font-size: 1.1em;
 		color: #b3b3b3;
 	}
 
