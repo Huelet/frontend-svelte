@@ -85,7 +85,7 @@
 				<Skeleton width={50} />
 			{/if}
 			{#if videoData}
-				<Typography class="viewcount" fontSize={0.50} color="#b3b3b3"
+				<Typography class="viewcount" fontSize={0.90} color="#b3b3b3"
 					>{videoData.views} views</Typography
 				>
 			{:else}
