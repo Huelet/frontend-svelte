@@ -85,11 +85,11 @@
 				<Skeleton width={50} />
 			{/if}
 			{#if videoData}
-				<Typography class="viewcount" fontSize={1.5} color="#b3b3b3"
+				<Typography class="viewcount" fontSize={1.2} color="#b3b3b3"
 					>{videoData.views} views</Typography
 				>
 			{:else}
-				<Typography class="viewcount" fontSize={1.5} color="#b3b3b3">Loading views...</Typography>
+				<Typography class="viewcount" fontSize={1} color="#b3b3b3">Loading views...</Typography>
 			{/if}
 			<a href={`/c/@${creatorData?.username}`}>
 				<div class="row">
@@ -117,7 +117,7 @@
 							>
 							<div class="creator-bio">
 								<Typography truncated={true} fontSize={0.8} weight={300}>
-									{creatorData?.bio?.length > 50
+									{creatorData?.bio?.length > 30
 										? creatorData.bio.substring(0, 50) + '...'
 										: creatorData?.bio}
 								</Typography>
