@@ -112,8 +112,14 @@
 										aria-label="Learn more about about the approved checkmark"
 									>
 										<Check fill="green" />
-									</a>
-							
+									</a>	
+								{/if}</span
+							>
+							<div class="creator-bio">
+								<Typography truncated={true} fontSize={0.8} weight={300}>
+									{creatorData?.bio?.length > 30
+										? creatorData.bio.substring(0, 50) + '...'
+										: creatorData?.bio}
 								</Typography>
 							</div>
 						</div>
