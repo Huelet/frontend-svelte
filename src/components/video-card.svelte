@@ -85,7 +85,7 @@
 				<Skeleton width={50} />
 			{/if}
 			{#if videoData}
-				<Typography class="viewcount" fontSize={1.2} color="#b3b3b3"
+				<Typography class="viewcount" fontSize={0.50} color="#b3b3b3"
 					>{videoData.views} views</Typography
 				>
 			{:else}
@@ -117,7 +117,7 @@
 							>
 							<div class="creator-bio">
 								<Typography truncated={true} fontSize={0.8} weight={300}>
-									{creatorData?.bio?.length > 30
+									{creatorData?.bio?.length > 15
 										? creatorData.bio.substring(0, 50) + '...'
 										: creatorData?.bio}
 								</Typography>
