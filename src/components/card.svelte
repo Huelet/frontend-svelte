@@ -19,7 +19,7 @@
 	>
 		{#if title}
 			<div>
-				<Typography class="card-title" fontSize={1.5} weight={800} element="h1">
+				<Typography class="card-title" fontSize={1.5} weight={500} element="h1">
 					{title}
 				</Typography>
 				{#if sub}
@@ -58,7 +58,7 @@
 	}
 
 	.card-title {
-		font-size: 1.5em;
+		font-size: 3em;
 	}
 
 	.card-sub {
