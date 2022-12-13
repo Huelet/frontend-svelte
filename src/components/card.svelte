@@ -58,7 +58,7 @@
 	}
 
 	.card-title {
-		font-size: 3em;
+		font-size: 1.5em;
 	}
 
 	.card-sub {
