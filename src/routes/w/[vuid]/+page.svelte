@@ -207,7 +207,7 @@
 		</div>
 		<div class="details">
 			{#if video}
-				<Typography fontSize={3} weight={800}>{video.title}</Typography>
+				<Typography fontSize={2} weight={800}>{video.title}</Typography>
 			{:else}
 				<Skeleton width={15} />
 			{/if}
