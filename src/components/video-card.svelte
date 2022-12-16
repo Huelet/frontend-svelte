@@ -80,7 +80,7 @@
 		{/if}
 		<div class="video-info">
 			{#if videoData}
-				<Typography truncated={true} weight={600} fontSize={1}>{videoData.title}</Typography>
+				<Typography truncated={true} weight={600} fontSize={1.2}>{videoData.title}</Typography>
 			{:else}
 				<Skeleton width={50} />
 			{/if}
