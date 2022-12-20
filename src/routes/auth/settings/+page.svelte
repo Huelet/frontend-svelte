@@ -33,7 +33,7 @@
 
 <Meta title=" Settings | User Settings | Huelet" />
 	
-<Card full={true} title="This C is currently unavailable" />
+<Card full={true} title="This page is currently unavailable" />
 
 
 >
