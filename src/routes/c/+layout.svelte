@@ -32,10 +32,6 @@
 
 	$: user = data.user;
 	$: loading = typeof user?.videos === 'undefined';
-	const loggoman = (e: any) => {
-		console.log("logging")
-		console.log(user);
-	}
 </script>
 
 <Meta
@@ -66,11 +62,6 @@
 				{#if loading}
 					<Skeleton circle={true} width={100} height={64} />
 				{:else}
-					{#if user?.username=="dkravec"}
-						<div on:click={(e) => loggoman(e)}>
-							<p>click me</p>
-						</div>
-					{/if}
 					<a href="./avatar/1/">
 						{#key user?.avatar}
 							<Avatar

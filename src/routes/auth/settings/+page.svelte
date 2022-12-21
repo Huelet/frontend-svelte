@@ -33,8 +33,4 @@
 
 <Meta title=" Settings | User Settings | Huelet" />
 	
-<Card full={true} title="This page is currently unavailable" />
-
-
->
-		
+<Card full={true} title="This page is temporarily unavailable." sub="Currently under construction."/>
