@@ -29,7 +29,7 @@
 		}
 
 		loading = true;
-		const res = await fetch('https://api.huelet.net/auth/in', {
+		const res = await fetch('https://api-production-3cf9.up.railway.app/auth/in', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -47,7 +47,7 @@
 
 			localStorage.setItem('huelet:auth:token', data.token);
 
-			fetch(`https://api.huelet.net/auth/user?username=${username}`, {
+			fetch(`https://api-production-3cf9.up.railway.app/auth/user?username=${username}`, {
 				headers: {
 					'Content-Type': 'application/json',
 					Authorization: `Bearer ${data.token}`
