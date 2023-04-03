@@ -27,7 +27,7 @@
 			</span>
 		</div>
 		<Typography>
-			Huelet is the free and open-source video platform for everyone. Huelet is currently in Alpha and is not stable 
+			Huelet is the free and open-source video platform for everyone. Huelet is currently in Alpha (This bulid is not stable) 
 			
 			
 		</Typography>
