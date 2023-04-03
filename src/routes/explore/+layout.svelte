@@ -25,7 +25,7 @@
 			: (user = null);
 
 		user?.following.forEach((user: any) => {
-			fetch(`https://api.huelet.net/auth/user?username=${user}`)
+			fetch(`https://api-production-3cf9.up.railway.app/auth/user?username=${user}`)
 				.then((res) => res.json())
 				.then((data) => {
 					following.push(data.data);
