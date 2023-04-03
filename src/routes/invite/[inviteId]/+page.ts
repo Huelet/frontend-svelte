@@ -1,4 +1,5 @@
 import type { PageLoad } from './$types';
+import {api_url} from '../../../env';
 
 export const load: PageLoad = async ({ fetch, params }) => {
 	const { inviteId } = params;
@@ -7,7 +8,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	let invitedBy: any | undefined;
 
 	try {
-		invite = await fetch(`https://api.huelet.net/auth/invite/?inviteId=${inviteId}`)
+		invite = await fetch(`${api_url}/auth/invite/?inviteId=${inviteId}`)
 			.then((r) => r.json())
 			.then((d) => d.data.inviteInformation);
 
@@ -22,7 +23,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 				error: new Error('Invite has expired')
 			};
 
-		invitedBy = await fetch(`https://api.huelet.net/auth/user?uid=${invite.userId}`)
+		invitedBy = await fetch(`${api_url}/auth/user?uid=${invite.userId}`)
 			.then((r) => r.json())
 			.then((d) => d.data);
 	} catch (e) {

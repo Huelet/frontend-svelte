@@ -3,6 +3,7 @@
 	import IconButton from '../../components/icon-button.svelte';
 	import Modal from '../../components/modal.svelte';
 	import { Add, Video } from '../../components/icons';
+	import {api_url} from '../../env';
 
 	let createPlaylistModalOpen = false;
 	let newPlaylistTitle: string;
@@ -29,7 +30,7 @@
 		);
 		formData.append('image', newPlaylistImage);
 
-		const resp = await fetch(`https://api.huelet.net/users/interact/playlists?userID=${user.uid}`, {
+		const resp = await fetch(`${api_url}/users/interact/playlists?userID=${user.uid}`, {
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('huelet:auth:token')}`

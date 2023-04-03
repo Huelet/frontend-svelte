@@ -2,11 +2,12 @@
 	import { page } from '$app/stores';
 	import Meta from '../../../components/meta.svelte';
 	import VideoCard from '../../../components/video-card.svelte';
+	import {api_url} from '../../../env';
 
 	export let videos: any[] = [];
 	export let tag: string = $page.params.tag;
 
-	fetch(`https://api.huelet.net/videos/search/fromtags?tags=${tag}`)
+	fetch(`${api_url}/videos/search/fromtags?tags=${tag}`)
 		.then((res) => res.json())
 		.then((response: any) => {
 			videos = response.data;

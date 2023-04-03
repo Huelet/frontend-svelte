@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Toast from '../toast.svelte';
 	import Typography from '../typography.svelte';
+    import {api_url} from '../../env';
 
 	export let username: string;
 
@@ -20,7 +21,7 @@
 			: (user = null);
 
 		fetch(
-			`https://api.huelet.net/users/interact/follow?username=${user.username}&userToFollow=${username}`,
+			`${api_url}/users/interact/follow?username=${user.username}&userToFollow=${username}`,
 			{
 				method: 'POST'
 			}

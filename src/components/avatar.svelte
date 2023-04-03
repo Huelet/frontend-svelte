@@ -1,4 +1,5 @@
 <script lang="ts">
+    import {api_url} from '../env';
 	export let username = '';
 	export let userID = '';
 	export let url = '';
@@ -8,13 +9,13 @@
 
 	if (url === '') {
 		if (userID === '') {
-			fetch(`https://api.huelet.net/auth/pfp?username=${username}`)
+			fetch(`${api_url}/auth/pfp?username=${username}`)
 				.then((response) => response.json())
 				.then((data) => {
 					url = data.pfp;
 				});
 		} else if (username === '') {
-			fetch(`https://api.huelet.net/auth/pfp?uid=${userID}`)
+			fetch(`${api_url}/auth/pfp?uid=${userID}`)
 				.then((response) => response.json())
 				.then((data) => {
 					url = data.pfp;

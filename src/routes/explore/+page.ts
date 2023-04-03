@@ -1,9 +1,10 @@
 import type { PageLoad } from './$types';
+import {api_url} from '../../env';
 
 export const load: PageLoad = async ({ fetch }) => {
 	let videoList: any[] | undefined;
 
-	const videosFetch = await fetch(' https://api-production-3cf9.up.railway.app/videos/get?bulk=true      ');
+	const videosFetch = await fetch(`${api_url}/videos/get?bulk=true`);
 	videoList = (await videosFetch.json()).data;
 
 	return {

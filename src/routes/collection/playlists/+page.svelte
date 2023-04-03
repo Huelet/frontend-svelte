@@ -3,6 +3,7 @@
 	import Meta from '../../../components/meta.svelte';
 	import type { Playlist } from '../../../types/playlist';
 	import { onMount } from 'svelte';
+	import {api_url} from '../../../env';
 
 	let playlists: Playlist[] = [];
 
@@ -10,7 +11,7 @@
 		const user = JSON.parse(localStorage.getItem('huelet:auth:user') as string);
 
 		const resp = await fetch(
-			`https://api.huelet.net/users/interact/playlists/fromuser?target=${user.uid}`
+			`${api_url}/users/interact/playlists/fromuser?target=${user.uid}`
 		);
 		playlists = (await resp.json()).data;
 	});

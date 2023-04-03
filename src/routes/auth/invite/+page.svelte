@@ -4,6 +4,7 @@
 	// import Meta from '../../../components/meta.svelte';
 	import type { AccessibilitySettings } from '../../../types/accessibility';
 	import type { User } from '../../../types/account';
+    import {api_url} from '../../../env';
 
     let success: boolean = false;
 	let failure: boolean = false;
@@ -33,7 +34,7 @@
     });
 
     const handleChange = async (e: any) => {
-        fetch(`https://api.huelet.net/auth/invite?username=${user.username}`, {
+        fetch(`${api_url}/auth/invite?username=${user.username}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

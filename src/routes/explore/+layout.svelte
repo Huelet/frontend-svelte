@@ -4,6 +4,7 @@
 	import Typography from '../../components/typography.svelte';
 	import { onMount } from 'svelte';
 	import { News, Refresh, Stocks } from '../../components/icons';
+	import {api_url} from '../../env';
 
 	let timeOfDay: string;
 	let weather: string;
@@ -25,7 +26,7 @@
 			: (user = null);
 
 		user?.following.forEach((user: any) => {
-			fetch(`https://api-production-3cf9.up.railway.app/auth/user?username=${user}`)
+			fetch(`${api_url}/auth/user?username=${user}`)
 				.then((res) => res.json())
 				.then((data) => {
 					following.push(data.data);

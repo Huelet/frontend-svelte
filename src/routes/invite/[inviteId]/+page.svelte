@@ -7,6 +7,7 @@
 	import InviteOverlay from '../invite-overlay.svelte';
 	import SignUp from '../sign-up.svelte';
 	import Complete from '../complete.svelte';
+	import {api_url} from '../../../env';
 
 	export let data: PageData;
 
@@ -17,7 +18,7 @@
 	let creator: boolean;
 
 	const submit = async () => {
-		fetch(`https://api.huelet.net/v2/auth/up?inviteId=${data.invite.inviteId}`, {
+		fetch(`${api_url}/v2/auth/up?inviteId=${data.invite.inviteId}`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -31,7 +32,7 @@
 		})
 			.then((res) => res.json())
 			.then((user) => {
-				fetch(`https://api.huelet.net/auth/user?username=${username}`, {
+				fetch(`${api_url}/auth/user?username=${username}`, {
 					headers: {
 						'Content-Type': 'application/json',
 						Authorization: `Bearer ${user.data.token}`

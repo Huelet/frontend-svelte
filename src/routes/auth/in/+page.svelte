@@ -3,6 +3,7 @@
 	import Toast from '../../../components/toast.svelte';
 	import Card from '../../../components/card.svelte';
 	import Meta from '../../../components/meta.svelte';
+    import {api_url} from '../../../env';
 
 	let username: string;
 	let password: string;
@@ -29,7 +30,7 @@
 		}
 
 		loading = true;
-		const res = await fetch('https://api-production-3cf9.up.railway.app/auth/in', {
+		const res = await fetch(`${api_url}/auth/in`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -47,7 +48,7 @@
 
 			localStorage.setItem('huelet:auth:token', data.token);
 
-			fetch(`https://api-production-3cf9.up.railway.app/auth/user?username=${username}`, {
+			fetch(`${api_url}/auth/user?username=${username}`, {
 				headers: {
 					'Content-Type': 'application/json',
 					Authorization: `Bearer ${data.token}`

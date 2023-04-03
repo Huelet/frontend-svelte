@@ -14,6 +14,7 @@
 	import Typography from '../../../components/typography.svelte';
 	import Meta from '../../../components/meta.svelte';
 	import Portal from '../../../components/portal.svelte';
+	import {api_url} from '../../../env';
 	import {
 		WarningFilled,
 		ChevronDown,
@@ -55,7 +56,7 @@
 
 	const addLike = async () => {
 		const res = await fetch(
-			`https://api.huelet.net/videos/interact/upvote/${video.vuid}?userID=${user.uid}`,
+			`${api_url}/videos/interact/upvote/${video.vuid}?userID=${user.uid}`,
 			{
 				method: 'POST',
 				headers: {
@@ -69,7 +70,7 @@
 
 	const addDislike = async () => {
 		const res = await fetch(
-			`https://api.huelet.net/videos/interact/downvote/${video.vuid}?userID=${user.uid}`,
+			`${api_url}/videos/interact/downvote/${video.vuid}?userID=${user.uid}`,
 			{
 				method: 'POST',
 				headers: {

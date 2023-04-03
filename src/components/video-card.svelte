@@ -7,7 +7,8 @@
 	import { Check } from './icons';
 	import Loading from './loading.svelte';
 	import VideoCamera from './icons/VideoCamera.svelte';
-
+    import {api_url} from '../env';
+	
 	export let vuid = '';
 	export let video: any = {};
 	let videoData: any;
@@ -22,7 +23,7 @@
 		videoData = video;
 		creatorData = video.creator;
 
-		fetch(`https://api.huelet.net/auth/user?uid=${videoData.authorId}`)
+		fetch(`${api_url}/auth/user?uid=${videoData.authorId}`)
 			.then((response) => response.json())
 			.then((creator) => {
 				creatorData = creator.data;
@@ -42,13 +43,13 @@
 	}
 
 	if (vuid) {
-		fetch(`https://api.huelet.net/videos/get?vuid=${vuid}`)
+		fetch(`${api_url}/videos/get?vuid=${vuid}`)
 			.then((response) => response.json())
 			.then((video) => {
 				videoData = video.data;
 				creatorData = video.data.creator;
 
-				fetch(`https://api.huelet.net/auth/user?uid=${videoData.authorId}`)
+				fetch(`${api_url}/auth/user?uid=${videoData.authorId}`)
 					.then((response) => response.json())
 					.then((creator) => {
 						creatorData = creator.data;

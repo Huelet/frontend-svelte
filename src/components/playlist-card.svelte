@@ -5,12 +5,13 @@
 	import Avatar from './avatar.svelte';
 	import Typography from './typography.svelte';
 	import { Check, Video } from './icons';
-
+    import {api_url} from '../env';
+	
 	export let playlistId: string = '';
 	export let playlist: Playlist | undefined = undefined;
 	let playlistOwner: User | undefined = undefined;
 
-	fetch(`https://api.huelet.net/auth/user?uid=${playlist?.owner}`)
+	fetch(`${api_url}/auth/user?uid=${playlist?.owner}`)
 		.then((resp) => resp.json())
 		.then((data) => (playlistOwner = data.data));
 
