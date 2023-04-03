@@ -27,10 +27,11 @@
 			</span>
 		</div>
 		<Typography>
-			Huelet is the free and open-source video platform for everyone. Sign up and immediately start
-			posting videos, gain an audience, and grow your community!
+			Huelet is the free and open-source video platform for everyone. Huelet is currently in Alfa and is not stable 
+			
+			
 		</Typography>
-		<a href="https://dsc.gg/huelet"><div class="button primary">Join Our Community</div></a>
+		<a href="https://dsc.gg/huelet"><div class="button primary">Join the Alfa tester program!</div></a>
 		<a href="/auth/in"><div class="button secondary">I already have an account</div></a>
 	</div>
 </main>
