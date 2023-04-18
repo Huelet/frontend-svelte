@@ -41,7 +41,7 @@
 		localStorage.setItem('huelet:auth:accessibility', JSON.stringify(accessibility));
 
 		const req = await fetch(
-			`api.huelet.wip.la/auth/accessibility?username=${(user as User).username}`,
+			`https://api.huelet.wip.la/auth/accessibility?username=${(user as User).username}`,
 			{
 				method: 'PATCH',
 				headers: {
