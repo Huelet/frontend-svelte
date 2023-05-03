@@ -6,9 +6,9 @@
 <h1>Creator dashboard</h1>
 
     <h2>
-        The Creator dashboard is currenly unavalible,
+        The Creator dashboard is currenly unavailable,
         Check back later.
         
     </h2>
-   
+   </div>
 export default IndexPage;
