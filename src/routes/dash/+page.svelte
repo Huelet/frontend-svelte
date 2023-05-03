@@ -3,7 +3,7 @@
 </script>
 
 <style>
-  /* Center the content of the div */
+
   div {
     display: flex;
     flex-direction: column;
@@ -12,13 +12,11 @@
     height: 100vh;
     font-family: 'Red Hat Text', sans-serif;
   }
-
   h1, h2 {
     text-align: center;
     font-weight: bold;
   }
 
-  /* Style the button */
   button {
     background-color: #4CAF50;
     border: none;
@@ -40,7 +38,6 @@
 </div>
 
 <script>
-  // Export the component
   export default {
     name: "IndexPage",
   };
