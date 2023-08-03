@@ -55,6 +55,7 @@
 		background-color: #d3e200; // Set the background color of the warning icon to a shade of yellow (#d3e200)
 
 		border-radius: 50%; // Make the warning icon circular by setting border-radius to 50%
+/* Styling for button */
 	}
 
 	a.button-link {
