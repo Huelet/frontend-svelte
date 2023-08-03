@@ -56,7 +56,7 @@
 
 		border-radius: 50%; // Make the warning icon circular by setting border-radius to 50%
 	}
-
+/* Styling for the component */
 	a.button-link {
 		text-decoration: none; // Remove underline from the link text
 	}
