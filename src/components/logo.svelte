@@ -9,7 +9,7 @@
 
 <img
 	src={logo}
-	alt="Huelet"
+	alt="Shards logo"
 	width={dimensions}
 	height={dimensions}
 	class={className}
