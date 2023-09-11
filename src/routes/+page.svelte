@@ -33,9 +33,37 @@
       </a>
     </div>
   </div>
+<footer>
+    <div class="footer-content">
+      <!-- Add your footer content here, e.g., links, copyright info, etc. -->
+    </div>
+  </footer>
 </main>
 
 <style>
+
+ main {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  /* Add styles for the footer */
+  footer {
+    background-color: #f0f2f5; /* Background color for the footer */
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-content {
+    max-width: 1200px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center-align content */
+    color: #333; /* Text color for the footer */
+  }
+
   main {
     display: flex;
     justify-content: center;
