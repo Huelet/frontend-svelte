@@ -37,29 +37,84 @@
 </main>
 
 <style>
-	main {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		width: 100vw;
-	}
+	/* Reset some default browser styles */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, ol, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 
-	a {
-		text-decoration: none;
-	}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
 
-	a:visited {
-		color: var(--text-primary-dark);
-	}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
 
-	.hero {
-		padding: 1rem;
-	}
+a {
+  text-decoration: none;
+  color: var(--text-primary-dark);
+}
 
-	@media (min-width: 768px) {
-		.hero {
-			padding: 2rem;
-		}
-	}
+.hero {
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 2rem;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.column {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+/* Styling for buttons */
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.primary {
+  background-color: #007BFF;
+  color: white;
+}
+
+.secondary {
+  background-color: #6C757D;
+  color: white;
+}
+
+/* Styling for Typography component */
+.typography {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Styling for the logo */
+.logo {
+  width: 128px;
+  height: 128px;
+  /* Add any other necessary styles for your logo here */
+}
+
 </style>
