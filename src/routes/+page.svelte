@@ -22,8 +22,8 @@
       </span>
     </div>
     <div class="text-container">
-      <Typography weight={800} fontSize={2}>The Video Platform for Humans.</Typography>
-      <Typography>
+      <Typography weight={800} fontSize={2} class="center-text">The Video Platform for Humans.</Typography>
+      <Typography class="center-text">
         Please note that Huelet is currently in alpha and might not be stable or secure.
       </Typography>
     </div>
@@ -74,19 +74,24 @@
 
   .button {
     padding: 0.5rem 1rem;
-    border-radius: 25px; /* Adjust the border-radius to control button roundness */
+    border-radius: 25px;
     margin: 0.5rem;
     cursor: pointer;
+    text-align: center;
   }
 
   .primary {
-    background-color: #007bff; /* Change to your primary button color */
-    color: #fff; /* Change to your primary button text color */
+    background-color: #00bfff; /* Light blue color for primary button */
+    color: #fff;
   }
 
   .secondary {
-    background-color: #6c757d; /* Change to your secondary button color */
-    color: #fff; /* Change to your secondary button text color */
+    background-color: #00bfff; /* Light blue color for secondary button */
+    color: #fff;
+  }
+
+  .center-text {
+    text-align: center; /* Center-align text */
   }
 
   @media (min-width: 768px) {
@@ -95,4 +100,5 @@
     }
   }
 </style>
+
 
