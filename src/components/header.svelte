@@ -216,142 +216,123 @@
 </div>
 
 <style>
-	header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between !important;
+	
+	/* Define common styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
 
-		width: 50%;
-	}
+.header-global {
+    position: fixed;
+    width: 100vw;
+    height: 32px;
+    background-color: #1a1b1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-	.header-global {
-		position: fixed;
-		width: 100vw;
-		height: 32px;
-		background-color: #1a1b1e;
-		justify-content: space-between !important;
-	}
+.search {
+    width: 12em;
+    height: 80%;
+    padding: 0.1em;
+    background-color: #303245;
+    border: 2px solid rgba(15, 119, 255, 0.733);
+    border-radius: 0.7em;
+    color: #fff;
+}
 
-	.search {
-		width: 12em;
-		height: 80%;
-		padding: 0.1em;
-		background-color: #303245;
-		border: 2px solid rgba(15, 119, 255, 0.733);
-		border-radius: 0.7em;
-		color: #fff;
-	}
-	.search-button {
-		height: auto !important;
-		width: auto !important;
-		padding: 0.2em !important;
-		border-radius: 50%;
-		margin-top: 0 !important;
-	}
+.search-button {
+    height: auto;
+    width: auto;
+    padding: 0.2em;
+    border-radius: 50%;
+    margin-top: 0;
+}
 
-	.button-sign-in {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
+.button-sign-in {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    background-color: transparent;
+    border: 1px solid var(--accent-primary-dark);
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-		padding-left: 1em;
-		padding-right: 1em;
+.button-sign-in:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
-		background-color: transparent;
-		border: 1px solid var(--accent-primary-dark);
-		border-radius: 5px;
-	}
+.avatar-menu-toggle {
+    display: inline-flex;
+    height: 32px;
+    cursor: pointer;
+}
 
-	.button-sign-in:hover {
-		background-color: rgba(0, 0, 0, 0.1);
-	}
+.avatar-menu {
+    position: absolute;
+    width: 200px;
+    background-color: rgb(37, 38, 43);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid rgb(55, 58, 64);
+    border-radius: 4px;
+    padding: 0.25em;
+    animation: avatar-menu-toggle 100ms linear;
+}
 
-	.avatar-menu-toggle {
-		display: inline-flex;
+.avatar-menu__inner {
+    display: flex;
+    flex-direction: column;
+    outline: 0;
+}
 
-		height: 32px;
+.avatar-menu__label {
+    padding: calc(5px) 12px;
+}
 
-		cursor: pointer;
-	}
+.avatar-menu__item-container {
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-	.avatar-menu {
-		position: Absolute;
+.avatar-menu__item {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-		width: 200px;
+.avatar-menu__item--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
 
-		background-color: rgb(37, 38, 43);
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-		border: 1px solid rgb(55, 58, 64);
-		border-radius: 4px;
+.avatar-menu__item-container:hover {
+    background-color: rgba(92, 95, 102, 0.35);
+}
 
-		padding: 0.25em;
+a {
+    color: white;
+    text-decoration: none;
+}
 
-		animation: avatar-menu-toggle 100ms linear;
-	}
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .search {
+        width: 8em;
+    }
+}
 
-	.avatar-menu__inner {
-		display: flex;
-		flex-direction: column;
-
-		outline: 0px;
-	}
-
-	.avatar-menu__label {
-		padding: calc(5px) 12px;
-	}
-
-	.avatar-menu__item-container {
-		width: 100%;
-
-		border-radius: 4px;
-
-		cursor: pointer;
-	}
-
-	.avatar-menu__item {
-		display: flex;
-		align-items: center;
-
-		width: 50%;
-		padding: 0.25em 0.5em;
-
-		border-radius: 4px;
-
-		cursor: pointer;
-	}
-
-	.avatar-menu__item--icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		margin: 0 10px 0 0;
-	}
-
-	.avatar-menu__item-container:hover {
-		background-color: rgba(92, 95, 102, 0.35);
-	}
-
-	a {
-		color: white;
-		text-decoration: none;
-	}
-
-	@keyframes avatar-menu-toggle {
-		0% {
-			opacity: 0;
-			transform: scale(0.9);
-		}
-		100% {
-			opacity: 1;
-			transform: scale(1);
-		}
-	}
-
-	@media (max-width: 600px) {
-		.search {
-			width: 8em;
-		}
-	}
+	
 </style>
