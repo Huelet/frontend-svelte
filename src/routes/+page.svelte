@@ -35,7 +35,12 @@
   </div>
 <footer>
     <div class="footer-content">
-      <!-- Add your footer content here, e.g., links, copyright info, etc. -->
+      <p>&copy; 2023 Shards Social</p>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
     </div>
   </footer>
 </main>
