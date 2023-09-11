@@ -22,10 +22,7 @@
       </span>
     </div>
     <div class="text-container">
-      <Typography weight={800} fontSize={2} class="center-text">The Video Platform for Humans.</Typography>
-      <Typography class="center-text">
-        Please note that Huelet is currently in alpha and might not be stable or secure.
-      </Typography>
+      <Typography weight={800} fontSize={2} class="center-text"> Welcome to Shards Social! </Typography>
     </div>
     <div class="button-container">
       <a href="https://dsc.gg/huelet">
