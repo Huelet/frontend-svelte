@@ -26,7 +26,7 @@
     </div>
     <div class="button-container">
       <a href="https://dsc.gg/huelet">
-        <div class="button primary rounded">Join the Alpha tester program!</div>
+        <div class="button primary rounded">Alpha tester Sign up</div>
       </a>
       <a href="/auth/in">
         <div class="button secondary rounded">I already have an account</div>
@@ -61,7 +61,7 @@
   }
 
   footer {
-    background-color: #f0f2f5;
+    background-color: #181718;
     padding: 1rem;
     text-align: center;
     width: 100%;
