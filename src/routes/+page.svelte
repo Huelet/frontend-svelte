@@ -1,120 +1,98 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import Logo from '../components/logo.svelte';
-	import Typography from '../components/typography.svelte';
-	import Meta from '../components/meta.svelte';
-	import '@fontsource/red-hat-display/700.css';
+  import { onMount } from 'svelte';
+  import Logo from '../components/logo.svelte';
+  import Typography from '../components/typography.svelte';
+  import Meta from '../components/meta.svelte';
+  import '@fontsource/red-hat-display/700.css';
 
-	onMount(() => {
-		if (localStorage.getItem('huelet:auth:token') !== null) {
-			location.assign('/explore/');
-		}
-	});
+  onMount(() => {
+    if (localStorage.getItem('huelet:auth:token') !== null) {
+      location.assign('/explore/');
+    }
+  });
 </script>
 
 <Meta />
 
 <main>
-	<div class="hero">
-		<div class="row center">
-			<span
-				on:contextmenu={(event) => {
-					event.preventDefault();
-				}}><Logo dimensions={128} /></span
-			>
-			<span class="column">
-				<Typography weight={800} fontSize={2}>The Video Platform for Humans.</Typography>
-			</span>
-		</div>
-		<Typography>
-			Please note that Huelet is currently in alpha and might not be stable or secure.
-			
-			
-		</Typography>
-		<a href="https://dsc.gg/huelet"><div class="button primary">Join the Alpha tester program!</div></a>
-		<a href="/auth/in"><div class="button secondary">I already have an account</div></a>
-	</div>
+  <div class="hero">
+    <div class="logo-container">
+      <span on:contextmenu={(event) => { event.preventDefault(); }}>
+        <Logo dimensions={128} />
+      </span>
+    </div>
+    <div class="text-container">
+      <Typography weight={800} fontSize={2}>The Video Platform for Humans.</Typography>
+      <Typography>
+        Please note that Huelet is currently in alpha and might not be stable or secure.
+      </Typography>
+    </div>
+    <div class="button-container">
+      <a href="https://dsc.gg/huelet">
+        <div class="button primary rounded">Join the Alpha tester program!</div>
+      </a>
+      <a href="/auth/in">
+        <div class="button secondary rounded">I already have an account</div>
+      </a>
+    </div>
+  </div>
 </main>
 
 <style>
-	/* Reset some default browser styles */
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, ol, li {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-}
-
-a {
-  text-decoration: none;
-  color: var(--text-primary-dark);
-}
-
-.hero {
-  padding: 1rem;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .hero {
-    padding: 2rem;
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
   }
-}
 
-.row {
-  display: flex;
-  align-items: center;
-}
+  a {
+    text-decoration: none;
+  }
 
-.column {
-  flex: 1;
-  margin-left: 1rem;
-}
+  a:visited {
+    color: var(--text-primary-dark);
+  }
 
-/* Styling for buttons */
-.button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
 
-.primary {
-  background-color: #007BFF;
-  color: white;
-}
+  .logo-container {
+    margin-bottom: 1rem;
+  }
 
-.secondary {
-  background-color: #6C757D;
-  color: white;
-}
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* Styling for Typography component */
-.typography {
-  font-weight: 800;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
+  .button {
+    padding: 0.5rem 1rem;
+    border-radius: 25px; /* Adjust the border-radius to control button roundness */
+    margin: 0.5rem;
+    cursor: pointer;
+  }
 
-/* Styling for the logo */
-.logo {
-  width: 128px;
-  height: 128px;
-  /* Add any other necessary styles for your logo here */
-}
+  .primary {
+    background-color: #007bff; /* Change to your primary button color */
+    color: #fff; /* Change to your primary button text color */
+  }
 
+  .secondary {
+    background-color: #6c757d; /* Change to your secondary button color */
+    color: #fff; /* Change to your secondary button text color */
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      padding: 2rem;
+    }
+  }
 </style>
+
