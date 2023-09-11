@@ -46,27 +46,31 @@
 </main>
 
 <style>
-
- main {
+  body {
     display: flex;
-    flex-direction: column; /* Change to column layout */
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+    margin: 0; /* Remove default margin */
   }
 
-  /* Add styles for the footer */
+  main {
+    flex-grow: 1; /* Allow the main content to grow and fill available space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   footer {
-    background-color: #f0f2f5; /* Background color for the footer */
+    background-color: #f0f2f5;
     padding: 1rem;
     text-align: center;
     width: 100%;
   }
 
   .footer-content {
-    max-width: 1200px; /* Adjust the maximum width as needed */
-    margin: 0 auto; /* Center-align content */
-    color: #333; /* Text color for the footer */
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #333;
   }
 
   main {
