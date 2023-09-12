@@ -14,6 +14,8 @@
 
 <Meta />
 
+
+
 <main>
   <div class="container-box">
     <div class="hero">
@@ -34,32 +36,40 @@
         </a>
       </div>
     </div>
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2023 Shards Social</p>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </footer>
   </div> <!-- Closing the container-box div -->
 </main>
 
-<footer>
-  <div class="footer-content">
-    <p>&copy; 2023 Shards Social</p>
-    <ul>
-      <li><a href="/about">About Us</a></li>
-      <li><a href="/contact">Contact Us</a></li>
-      <li><a href="/privacy">Privacy Policy</a></li>
-    </ul>
-  </div>
-</footer>
 
 
 
 
 <style>
- /* Add this CSS to style the container box */
+/* container box */
 .container-box {
+  position: absolute;
+  left: 732px;
+  top: 158px;
+  width: 473px;
+  height: 701px;
+  background-color: #252525;
   border-radius: 8px;
-  padding: 20px; /* You can adjust the padding as needed */
-  width: 100%;
-  max-width: 536px; /* Setting a maximum width */
-  margin: 0 auto; /* Center the box horizontally */
+  padding: 20px; /* Adjust padding as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
+
 
 /* Position the "Welcome to Shards Social!" text at the top */
 .center-text {
