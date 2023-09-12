@@ -56,48 +56,48 @@
 <style>
 /* Modify the CSS for the container-box */
 .container-box {
-  position: relative; /* Keep it relative to its parent */
-  width: 100%;
-  max-width: 473px; /* Adjust the max-width as needed */
-  margin: 0 auto; /* Center horizontally */
+  position: relative;
+  width: 473px; /* Set the width to 473px */
+  height: 485px; /* Set the height to 485px */
+  margin: 0 auto;
   background-color: #252525;
   border-radius: 8px;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center vertically */
-  text-align: center; /* Center text within the container */
+  justify-content: center;
+  text-align: center;
 }
 
 /* Add CSS for the footer */
 footer {
-  margin-top: 24px; /* Space between the footer and container-box (adjust as needed) */
+  margin-top: 24px;
   text-align: center;
-  width: 100%; /* Full width within the container-box */
+  width: 536px; /* Set the width to 536px */
+  height: 43px; /* Set the height to 43px */
 }
 
 /* Add CSS for mobile responsiveness */
 @media screen and (max-width: 768px) {
   .container-box {
-    max-width: 100%; /* Take up full width on smaller screens */
-    padding: 10px; /* Adjust padding for smaller screens */
+    max-width: 100%;
+    width: auto; /* Adjust width for smaller screens */
+    height: auto; /* Adjust height for smaller screens */
+    padding: 10px;
   }
 }
-
 
 /* Position the "Welcome to Shards Social!" text at the top */
 .center-text {
   text-align: center;
 }
 
-/* Position the footer as specified */
+/* Remove the absolute positioning for the footer */
 footer {
-  position: absolute;
+  /* position: absolute;
   left: 697px;
-  top: 1114px;
-  width: 536px;
-  height: 43px;
+  top: 1114px; */
 }
 
 </style>
