@@ -71,6 +71,13 @@
 }
 
 
+/* Add CSS for the footer */
+footer {
+  margin-top: 246px; /* Space between the footer and container-box */
+  text-align: center;
+  width: 100%; /* Full width within the container-box */
+}
+
 /* Position the "Welcome to Shards Social!" text at the top */
 .center-text {
   text-align: center;
