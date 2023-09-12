@@ -54,29 +54,37 @@
 
 
 <style>
-/* container box */
+/* Modify the CSS for the container-box */
 .container-box {
-  position: absolute;
-  left: 732px;
-  top: 158px;
-  width: 473px;
-  height: 701px;
+  position: relative; /* Keep it relative to its parent */
+  width: 100%;
+  max-width: 473px; /* Adjust the max-width as needed */
+  margin: 0 auto; /* Center horizontally */
   background-color: #252525;
   border-radius: 8px;
   padding: 20px; /* Adjust padding as needed */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Center vertically */
+  text-align: center; /* Center text within the container */
 }
-
 
 /* Add CSS for the footer */
 footer {
-  margin-top: 246px; /* Space between the footer and container-box */
+  margin-top: 24px; /* Space between the footer and container-box (adjust as needed) */
   text-align: center;
   width: 100%; /* Full width within the container-box */
 }
+
+/* Add CSS for mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .container-box {
+    max-width: 100%; /* Take up full width on smaller screens */
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+}
+
 
 /* Position the "Welcome to Shards Social!" text at the top */
 .center-text {
