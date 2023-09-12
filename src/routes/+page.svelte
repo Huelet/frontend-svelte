@@ -36,16 +36,18 @@
         </a>
       </div>
     </div>
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2023 Shards Social</p>
-        <ul>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-          <li><a href="/privacy">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </footer>
+
+   <footer>
+  <div class="footer-content">
+    <ul>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+    </ul>
+    <p>&copy; 2023 Shards Social</p>
+  </div>
+</footer>
+
   </div> <!-- Closing the container-box div -->
 </main>
 
@@ -74,8 +76,24 @@
 footer {
   margin-top: 24px;
   text-align: center;
-  width: 536px; /* Set the width to 536px */
-  height: 43px; /* Set the height to 43px */
+  width: 100%; /* Full width within the container-box */
+}
+
+/* Style the list items */
+.footer-content ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content li {
+  margin: 0 10px; /* Add spacing between list items */
+}
+
+/* Style the copyright text */
+.footer-content p {
+  margin: 0; /* Remove default margin */
 }
 
 /* Add CSS for mobile responsiveness */
