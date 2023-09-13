@@ -1,71 +1,63 @@
 <script>
-	import { page } from '$app/stores';
-	import Typography from '../components/typography.svelte';
+    import { page } from '$app/stores';
+    import Typography from '../components/typography.svelte';
 
-	console.log($page.error);
+    console.log($page.error);
 </script>
 
+<main>
+    <div class="page-content">
+        {#if $page.status === 404}
+            <Typography size="xl">
+                Uh-oh, ShardsSocial.com <code>{$page.url.pathname}</code> doesn't seem to exist
+            </Typography>
+            <p class="error-message">404 Page not found</p>
+        {:else}
+            <Typography>Something went wrong</Typography>
+            <Typography>Please try refreshing the page</Typography>
+            <Typography>If that doesn't work, please report it to a Developer</Typography>
+
+            <section>
+                <Typography class="section-title">Details</Typography>
+                <pre class="error-stack">
+                    {$page.error.stack}
+                </pre>
+            </section>
+        {/if}
+    </div>
+</main>
+
 <style>
-	main {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		width: 100vw;
-		
-	}
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
 
-	.page-content {
-		text-align: center;
-		padding: 20px;
-		border: 1px solid #ccc;
-		background-color: #fff; /* Add your preferred background color */
-		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-		border-radius: 5px; /* Add rounded corners */
-	}
+    .page-content {
+        text-align: center;
+    }
 
-	.error-message {
-		font-size: 24px;
-		font-weight: bold;
-		color: #ff0000; /* Red color for error messages */
-		margin-bottom: 20px;
-	}
+    .error-message {
+        font-size: 24px;
+        color: red;
+    }
 
-	.error-description {
-		font-size: 18px;
-		color: #333; /* Dark text color for descriptions */
-		margin-bottom: 20px;
-	}
+    .section-title {
+        font-weight: bold;
+    }
 
-	code {
-		background-color: #f0f0f0; /* Background color for code elements */
-		padding: 4px 8px;
-		border-radius: 4px;
-	}
-
-	section {
-		margin-top: 32px;
-	}
+    .error-stack {
+        background-color: #f8f8f8;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: auto;
+        max-height: 300px;
+        font-size: 12px;
+        white-space: pre-wrap;
+    }
 </style>
 
-<main>
-	<div class="page-content">
-		{#if $page.status === 404}
-			<div class="error-message">
-				Uh-oh, ShardsSocial.com <code>{$page.url.pathname}</code> doesn't seem to exist
-			</div>
-			<div class="error-description">404 Page not found</div>
-		{:else}
-			<div class="error-description">Something went wrong</div>
-			<div class="error-description">Please try refreshing the page</div>
-			<div class="error-description">If that doesn't work, please report it to a Developer</div>
-
-			<section>
-				<div class="error-description">Details</div>
-				<pre>
-					{$page.error.stack}
-				</pre>
-			</section>
-		{/if}
-	</div>
-</main>
