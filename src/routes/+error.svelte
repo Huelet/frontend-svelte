@@ -50,7 +50,7 @@
     }
 
     .error-stack {
-        background-color: #f8f8f8;
+        background-color: #363636;
         padding: 10px;
         border: 1px solid #ddd;
         border-radius: 4px;
