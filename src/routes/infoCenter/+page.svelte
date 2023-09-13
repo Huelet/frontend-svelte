@@ -1,15 +1,14 @@
 
-<script>
-  // No script logic is needed for this simple example
-</script>
 
 <style>
-  /* You can add custom styles here */
+  /* Button Styles */
   .button-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 8px;
+    margin-top: 20px; /* Adjust the margin to position the buttons */
   }
 
   button {
@@ -22,7 +21,17 @@
     margin-top: 20px;
     color: #888;
   }
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
 </style>
+
+<div class="title">
+  Shards Social Information Center
+</div>
 
 <div class="button-container">
   <button>Button 1</button>
