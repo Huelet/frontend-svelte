@@ -1,14 +1,21 @@
 
 
+
 <style>
-  /* Button Styles */
+  /* You can add custom styles here */
   .button-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-top: 20px; /* Adjust the margin to position the buttons */
+    margin-top: 20px;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
   }
 
   button {
@@ -34,11 +41,15 @@
 </div>
 
 <div class="button-container">
-  <button>Button 1</button>
-  <button>Button 2</button>
-  <button>Button 3</button>
-  <button>Button 4</button>
-  <button>Button 5</button>
+  <div class="button-row">
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+  </div>
+  <div class="button-row">
+    <button>Button 4</button>
+    <button>Button 5</button>
+  </div>
 </div>
 
 <div class="footer">
