@@ -34,4 +34,10 @@
     <p class="counter">Counter: {count}</p>
     <button class="button" on:click={increment}>+</button>
   </div>
-  
+
+<!-- App.svelte -->
+<script>
+  import Router from './Router.svelte';
+</script>
+
+<Router />
