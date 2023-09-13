@@ -1,6 +1,3 @@
-<script>
-  // No script logic is needed for this simple example
-</script>
 
 <style>
   /* You can add custom styles here */
@@ -49,18 +46,23 @@
 
   <div class="button-container">
     <div class="button-row">
-      <button>Button 1</button>
-      <button>Button 2</button>
-      <button>Button 3</button>
+      <button>TERMS & CONDITIONS
+ </button>
+
+      <button>Privacy Policy</button>
+
+      <button>What do the verified badges mean?</button>
+
     </div>
     <div class="button-row">
-      <button>Button 4</button>
-      <button>Button 5</button>
+      <button>Content policies</button>
+
+      <button>Getting Started as a Creator</button>
     </div>
   </div>
 
   <div class="footer">
-    This is the footer.
+    © 2023 Shards Social Inc.
   </div>
 </div>
 
