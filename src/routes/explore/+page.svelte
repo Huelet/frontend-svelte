@@ -12,8 +12,8 @@
 </script>
 
 <Meta
-	title="Explore | Huelet"
-	description="Explore videos on Huelet, the Video Platform for Humans"
+	title="Explore | Shards"
+	description=" Shards a better social media Experience"
 />
 
 <main>
@@ -26,7 +26,7 @@
 					{/each}
 				{:else}
 					<Loading dimensions={256} />
-					<Typography size="xl">Loading videos</Typography>
+					<Typography size="xl">Loading Fyp</Typography>
 				{/if}
 			</div>
 		</div>
