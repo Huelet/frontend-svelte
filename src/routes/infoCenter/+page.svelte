@@ -1,15 +1,20 @@
 
 
-
 <style>
   /* You can add custom styles here */
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make the container take up the full viewport height */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
   .button-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 8px;
-    margin-top: 20px;
   }
 
   .button-row {
@@ -24,34 +29,36 @@
   }
 
   .footer {
-    text-align: center;
-    margin-top: 20px;
+    margin-top: auto; /* Push the footer to the bottom */
     color: #888;
   }
 
   .title {
-    text-align: center;
     font-size: 24px;
     font-weight: bold;
   }
 </style>
 
-<div class="title">
-  Shards Social Information Center
+<div class="container">
+  <div class="title">
+    Shards Social Information Center
+  </div>
+
+  <div class="button-container">
+    <div class="button-row">
+      <button>Button 1</button>
+      <button>Button 2</button>
+      <button>Button 3</button>
+    </div>
+    <div class="button-row">
+      <button>Button 4</button>
+      <button>Button 5</button>
+    </div>
+  </div>
+  <div class="footer">
+  © 2023 Shards Social Inc.
+</div>
 </div>
 
-<div class="button-container">
-  <div class="button-row">
-    <button>Button 1</button>
-    <button>Button 2</button>
-    <button>Button 3</button>
-  </div>
-  <div class="button-row">
-    <button>Button 4</button>
-    <button>Button 5</button>
-  </div>
-</div>
 
-<div class="footer">
-  © 2023 Shards Social inc.
-</div>
+
