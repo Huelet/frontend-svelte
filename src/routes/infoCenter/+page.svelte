@@ -38,9 +38,6 @@
   .title {
     font-size: 24px;
     font-weight: bold;
-    position: absolute;
-    top: 50%; /* Center title vertically */
-    transform: translateY(-50%); /* Correct for vertical offset */
   }
 </style>
 
