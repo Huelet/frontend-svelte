@@ -40,7 +40,7 @@
    <footer>
   <div class="footer-content">
     <ul>
-      <li><a href="/InfoCenter">Info Center</a></li>
+      <li><a href="/infoCenter">Info Center</a></li>
       <li><a href="/contact">Contact Us</a></li>
       <li><a href="/privacy">Privacy Policy</a></li>
     </ul>
