@@ -37,7 +37,33 @@
     font-size: 24px;
     font-weight: bold;
   }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .button-container {
+      align-items: center; /* Center-align buttons on mobile */
+    }
+
+    .button-row {
+      flex-direction: column; /* Stack buttons vertically on mobile */
+      gap: 12px; /* Adjust spacing between buttons on mobile */
+    }
+
+    button {
+      width: 100%; /* Make buttons full width on mobile */
+      height: auto; /* Allow buttons to adjust their height based on content */
+    }
+
+    .footer {
+      margin-top: 10px; /* Reduce margin on mobile */
+    }
+
+    .title {
+      font-size: 20px; /* Reduce title font size on mobile */
+    }
+  }
 </style>
+
 
 <div class="container">
   <div class="title">
