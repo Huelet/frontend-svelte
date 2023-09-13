@@ -9,7 +9,7 @@
     min-height: 100vh; /* Make the container take up the full viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Distribute space between title and buttons, and between buttons and footer */
     align-items: center;
     text-align: center;
   }
@@ -17,7 +17,7 @@
   .button-container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px; /* Add more space between title and buttons */
   }
 
   .button-row {
@@ -33,6 +33,7 @@
 
   .footer {
     color: #888;
+    margin-top: 20px; /* Move the footer back to the bottom */
   }
 
   .title {
