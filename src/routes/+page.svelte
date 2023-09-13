@@ -53,26 +53,6 @@
 
 
 
-
-
-/* Modify the CSS for the container-box */
-.container-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 473px; /* Set the width to 473px */
-  height: 485px; /* Set the height to 485px */
-  background-color: #252525;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
 <style>
 /* Modify the CSS for the container-box */
 .container-box {
