@@ -5,9 +5,10 @@
 <style>
   /* You can add custom styles here */
   .container {
+    position: relative;
+    min-height: 100vh; /* Make the container take up the full viewport height */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Make the container take up the full viewport height */
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -17,7 +18,6 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex-grow: 1; /* Push the buttons to the center */
   }
 
   .button-row {
@@ -38,6 +38,9 @@
   .title {
     font-size: 24px;
     font-weight: bold;
+    position: absolute;
+    top: 50%; /* Center title vertically */
+    transform: translateY(-50%); /* Correct for vertical offset */
   }
 </style>
 
