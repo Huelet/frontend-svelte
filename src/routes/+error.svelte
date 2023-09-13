@@ -12,7 +12,7 @@
 		align-items: center;
 		height: 100vh;
 		width: 100vw;
-		background-color: #f0f0f0; /* Add your preferred background color */
+		
 	}
 
 	.page-content {
