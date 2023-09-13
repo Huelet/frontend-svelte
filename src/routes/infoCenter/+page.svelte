@@ -1,4 +1,6 @@
-
+<script>
+  // No script logic is needed for this simple example
+</script>
 
 <style>
   /* You can add custom styles here */
@@ -15,6 +17,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    flex-grow: 1; /* Push the buttons to the center */
   }
 
   .button-row {
@@ -29,7 +32,6 @@
   }
 
   .footer {
-    margin-top: auto; /* Push the footer to the bottom */
     color: #888;
   }
 
@@ -55,10 +57,10 @@
       <button>Button 5</button>
     </div>
   </div>
-  <div class="footer">
-  © 2023 Shards Social Inc.
-</div>
-</div>
 
+  <div class="footer">
+    This is the footer.
+  </div>
+</div>
 
 
