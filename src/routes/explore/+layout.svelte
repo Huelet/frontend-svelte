@@ -52,12 +52,14 @@
 </main>
 
 
+
 <style>
     main {
         height: 100vh;
         width: 100vw;
         display: flex;
-        justify-content: space-between; /* Move content to the left */
+        flex-direction: column; /* Change to column layout */
+        align-items: center; /* Center horizontally */
     }
 
     .hello {
@@ -69,7 +71,6 @@
         flex-grow: 1;
     }
 
-    .fyp-tags,
     .fyp-tags-top {
         display: flex;
         flex-direction: row;
@@ -79,10 +80,9 @@
         background-color: #343333;
         padding: 0.5em 0 0.5em 0;
         border-radius: 0.5em;
-        margin: 0 auto; /* Center horizontally */
+        margin-top: 1em; /* Add margin to push it down */
     }
 
-    .fyp-tags > * > .fyp-tag-item,
     .fyp-tags-top .tag .fyp-tag-item {
         width: 100px; /* Adjust button width */
         background-color: #646464;
@@ -134,14 +134,13 @@
     }
 
     @media (max-width: 600px) {
-        .fyp-tags,
         .fyp-tags-top {
             margin: 0;
         }
 
-        .fyp-tags > * > .fyp-tag-item,
         .fyp-tags-top .tag .fyp-tag-item {
             margin: 0 0.25em 0 0.25em;
         }
     }
 </style>
+
