@@ -75,9 +75,9 @@
         </div>
         <div class="center">
             <div class="fyp-tags">
-                <a href="/explore/mainfyp" class="tag">
+                <a href="/explore" class="tag">
                     <div class="fyp-tag-item center cursor">
-                        <Typography truncated={true} size="lg">Main fyp</Typography>
+                        <Typography truncated={true} size="lg">Explore</Typography>
                     </div>
                 </a>
                 <a href="/explore/videosfyp" class="tag">
@@ -190,6 +190,12 @@
         .fyp-tags > .fyp-tag-item {
             margin: 0 0.25em 0 0.25em;
         }
+
+
+ .sidebar-buttons button:active {
+        background-color: #796AD7; /* Change color when clicked */
+    }
+
     }
 </style>
 
