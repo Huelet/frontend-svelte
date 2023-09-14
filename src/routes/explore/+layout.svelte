@@ -91,6 +91,11 @@
         border-radius: 0.25em;
     }
 
+    /* Add this CSS for the active state */
+    .fyp-tags-top .tag:active .fyp-tag-item {
+        background-color: #796AD7; /* Change color when clicked */
+    }
+
     .sidebar {
         position: fixed;
         top: 1in; /* Lowered by an inch */
@@ -143,4 +148,5 @@
         }
     }
 </style>
+
 
