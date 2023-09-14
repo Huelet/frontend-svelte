@@ -69,19 +69,22 @@
         flex-grow: 1;
     }
 
-    .fyp-tags {
+    .fyp-tags,
+    .fyp-tags-top {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         overflow-x: auto;
-        width: 90%;
+        width: 100%; /* Take full width */
         background-color: #343333;
         padding: 0.5em 0 0.5em 0;
         border-radius: 0.5em;
+        margin: 0 auto; /* Center horizontally */
     }
 
-    .fyp-tags > * > .fyp-tag-item {
-        width: 80px;
+    .fyp-tags > * > .fyp-tag-item,
+    .fyp-tags-top .tag .fyp-tag-item {
+        width: 100px; /* Adjust button width */
         background-color: #646464;
         padding: 0.5em;
         margin: 0 0.5em 0 0.5em;
@@ -117,6 +120,10 @@
         cursor: pointer;
     }
 
+    .sidebar-buttons button:active {
+        background-color: #796AD7; /* Change color when clicked */
+    }
+
     a {
         text-decoration: none;
         color: inherit;
@@ -127,45 +134,14 @@
     }
 
     @media (max-width: 600px) {
-        .fyp-tags {
+        .fyp-tags,
+        .fyp-tags-top {
             margin: 0;
         }
 
-        .fyp-tags > .fyp-tag-item {
+        .fyp-tags > * > .fyp-tag-item,
+        .fyp-tags-top .tag .fyp-tag-item {
             margin: 0 0.25em 0 0.25em;
         }
     }
-
-    .sidebar-buttons button:active {
-        background-color: #796AD7; /* Change color when clicked */
-    }
-
-    .fyp-tags-top {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        overflow-x: auto;
-        width: 90%;
-        background-color: #343333;
-        padding: 0.5em 0 0.5em 0;
-        border-radius: 0.5em;
-    }
-
-    .fyp-tags-top .tag {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .fyp-tags-top .tag:hover .fyp-tag-item {
-        background-color: #796AD7; /* Change color on hover */
-    }
-
-    .fyp-tags-top .tag .fyp-tag-item {
-        width: 80px;
-        background-color: #646464;
-        padding: 0.5em;
-        margin: 0 0.5em 0 0.5em;
-        border-radius: 0.25em;
-    }
 </style>
-
