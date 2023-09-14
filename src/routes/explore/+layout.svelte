@@ -50,6 +50,7 @@
 </script>
 
 
+
 <main>
     <div class="page-content">
         <div class="hello row">
@@ -76,20 +77,21 @@
         </div>
         <slot />
     </div>
-    <!-- Sidebar -->
-    <div class="sidebar column center">
-        <div class="sidebar-button">
-            <Stocks fill="white" />
-        </div>
-        <div class="sidebar-button">
-            <News fill="white" />
-        </div>
-        <div class="sidebar-button">
-            <Refresh fill="white" />
-        </div>
-        <Divider />
-    </div>
 </main>
+
+<!-- New Sidebar on the Right -->
+<div class="sidebar">
+    <div class="sidebar-button">
+        <Stocks fill="white" />
+    </div>
+    <div class="sidebar-button">
+        <News fill="white" />
+    </div>
+    <div class="sidebar-button">
+        <Refresh fill="white" />
+    </div>
+    <Divider />
+</div>
 
 <style>
     main {
@@ -122,16 +124,16 @@
         border-radius: 0.25em;
     }
 
-    /* Sidebar styles */
+    /* New Sidebar styles on the right */
     .sidebar {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         position: fixed;
         top: 0;
-        left: 0; /* Position on the left */
+        right: 0; /* Position on the right */
         width: 55px; /* Width of the sidebar */
-        height: 100vh;
+        height: 245px; /* Height of the sidebar */
         background-color: #333; /* Sidebar background color */
     }
 
@@ -140,8 +142,7 @@
         text-align: center;
     }
 
-    
-
+ 
 	a {
 		text-decoration: none;
 		color: inherit;
