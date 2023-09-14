@@ -132,6 +132,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 0.5em;
+        order: 2; /* Move sidebar to the right */
     }
 
     .sidebar-buttons {
@@ -168,5 +169,6 @@
         }
     }
 </style>
+
 
 
