@@ -82,15 +82,20 @@
 <!-- New Sidebar on the Right -->
 <div class="sidebar">
     <div class="sidebar-button">
-        <Stocks fill="white" />
+        Buttons
     </div>
     <div class="sidebar-button">
-        <News fill="white" />
+        Buttons
     </div>
     <div class="sidebar-button">
-        <Refresh fill="white" />
+        Buttons
     </div>
-    <Divider />
+    <div class="sidebar-button">
+        Buttons
+    </div>
+    <div class="sidebar-button">
+        Buttons
+    </div>
 </div>
 
 <style>
@@ -130,11 +135,12 @@
         flex-direction: column;
         justify-content: space-evenly;
         position: fixed;
-        top: 0;
+        top: 50px; /* Lowered position */
         right: 0; /* Position on the right */
         width: 55px; /* Width of the sidebar */
         height: 245px; /* Height of the sidebar */
         background-color: #333; /* Sidebar background color */
+        border-radius: 8px; /* Border radius */
     }
 
     .sidebar-button {
