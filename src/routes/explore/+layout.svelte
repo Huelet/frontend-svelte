@@ -75,17 +75,37 @@
         </div>
         <div class="center">
             <div class="fyp-tags">
-                {#each ['Trending', 'For You', 'New', 'Music', 'Podcasts', 'Example', 'Movies', 'Books', 'News'] as tag}
-                <a href={`/explore/${tag.toLowerCase().replaceAll(' ', '')}`} class="tag">
+                <a href="/explore/mainfyp" class="tag">
                     <div class="fyp-tag-item center cursor">
-                        <Typography truncated={true} size="lg">{tag}</Typography>
+                        <Typography truncated={true} size="lg">Main fyp</Typography>
                     </div>
                 </a>
-                {/each}
+                <a href="/explore/videosfyp" class="tag">
+                    <div class="fyp-tag-item center cursor">
+                        <Typography truncated={true} size="lg">Videos fyp</Typography>
+                    </div>
+                </a>
+                <a href="/explore/forumsfyp" class="tag">
+                    <div class="fyp-tag-item center cursor">
+                        <Typography truncated={true} size="lg">Forums fyp</Typography>
+                    </div>
+                </a>
+                <a href="/explore/postfyp" class="tag">
+                    <div class="fyp-tag-item center cursor">
+                        <Typography truncated={true} size="lg">Post fyp</Typography>
+                    </div>
+                </a>
+                <a href="/explore/newsfyp" class="tag">
+                    <div class="fyp-tag-item center cursor">
+                        <Typography truncated={true} size="lg">News fyp</Typography>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 </main>
+
+
 
 
 <style>
