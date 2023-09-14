@@ -64,6 +64,15 @@
                 </Typography>
             </span>
         </div>
+        <div class="sidebar">
+            <div class="sidebar-buttons">
+                <button class="sidebar-button">Button 1</button>
+                <button class="sidebar-button">Button 2</button>
+                <button class="sidebar-button">Button 3</button>
+                <button class="sidebar-button">Button 4</button>
+                <button class="sidebar-button">Button 5</button>
+            </div>
+        </div>
         <div class="center">
             <div class="fyp-tags">
                 {#each ['Trending', 'For You', 'New', 'Music', 'Podcasts', 'Example', 'Movies', 'Books', 'News'] as tag}
@@ -79,25 +88,6 @@
     </div>
 </main>
 
-<!-- New Sidebar on the Right -->
-<div class="sidebar">
-    <div class="sidebar-button">
-        Buttons
-    </div>
-    <div class="sidebar-button">
-        Buttons
-    </div>
-    <div class="sidebar-button">
-        Buttons
-    </div>
-    <div class="sidebar-button">
-        Buttons
-    </div>
-    <div class="sidebar-button">
-        Buttons
-    </div>
-</div>
-
 <style>
     main {
         height: 100vh;
@@ -108,6 +98,37 @@
     .hello {
         padding: 1em;
         height: 64px;
+    }
+
+    .sidebar {
+        width: 55px;
+        height: 245px;
+        background-color: #343333;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em;
+    }
+
+    .sidebar-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sidebar-button {
+        background-color: #646464;
+        border-radius: 4px;
+        padding: 0.5em 1em;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .center {
+        flex-grow: 1;
     }
 
     .fyp-tags {
@@ -129,42 +150,23 @@
         border-radius: 0.25em;
     }
 
-    /* New Sidebar styles on the right */
-    .sidebar {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        position: fixed;
-        top: 50px; /* Lowered position */
-        right: 0; /* Position on the right */
-        width: 55px; /* Width of the sidebar */
-        height: 245px; /* Height of the sidebar */
-        background-color: #333; /* Sidebar background color */
-        border-radius: 8px; /* Border radius */
+    a {
+        text-decoration: none;
+        color: inherit;
     }
 
-    .sidebar-button {
-        padding: 10px;
-        text-align: center;
+    a:visited {
+        color: inherit;
     }
 
- 
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
+    @media (max-width: 600px) {
+        .fyp-tags {
+            margin: 0;
+        }
 
-	a:visited {
-		color: inherit;
-	}
-
-	@media (max-width: 600px) {
-		.fyp-tags {
-			margin: 0;
-		}
-
-		.fyp-tags > .fyp-tag-item {
-			margin: 0 0.25em 0 0.25em;
-		}
-	}
+        .fyp-tags > .fyp-tag-item {
+            margin: 0 0.25em 0 0.25em;
+        }
+    }
 </style>
+
