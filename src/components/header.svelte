@@ -231,8 +231,8 @@
 
 .header-global {
     position: fixed;
-    top: 0; /* Place it at the top of the viewport */
-    left: 0; /* Center it horizontally */
+    top: 0;
+    left: 0;
     width: 100%;
     height: 32px;
     background-color: #1a1b1e;
@@ -242,10 +242,10 @@
 }
 
 .search-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center horizontally */
-    flex-grow: 1; /* Take up available space to center the search */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the element both horizontally and vertically */
 }
 
 .search {
@@ -347,4 +347,5 @@ a {
     }
 }
 </style>
+
 
