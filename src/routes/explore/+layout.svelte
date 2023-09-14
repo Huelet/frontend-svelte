@@ -48,20 +48,8 @@
                 </a>
             </div>
         </div>
-        <div class="hello row">
-            <Logo />
-            <span class="column">
-                <Typography fontSize={1.95} weight={500} element="h1">
-                    Good {timeOfDay}!
-                </Typography>
-                <Typography>
-                    It's {!weather ? 'Rainy' : weather} in {!locationData ? 'Seattle' : locationData.city}.
-                </Typography>
-            </span>
-        </div>
     </div>
 </main>
-
 
 <style>
     main {
