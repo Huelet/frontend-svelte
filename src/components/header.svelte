@@ -78,7 +78,7 @@
 					</Typography>
 				</Callout>
 			</span>
-			<a href="https://new.huelet.wip.la/dash/" aria-label="Video publishing dashboard">
+			<a href="https://socialmain-production-7e89.up.railway.app/dash/" aria-label="Video publishing dashboard">
 				<VideoCamera fill="white" width={28} height={28} />
 			</a>
 			<a href="/collection" aria-label="Your collection">
