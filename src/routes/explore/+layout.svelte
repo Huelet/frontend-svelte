@@ -127,7 +127,7 @@
     .sidebar {
         position: fixed;
         top: 1in; /* Lowered by an inch */
-        right: -0.5cm; /* Moved half a centimeter to the left */
+        left: -0.5cm; /* Moved half a centimeter to the left */
         width: 55px;
         height: 245px;
         background-color: #343333;
