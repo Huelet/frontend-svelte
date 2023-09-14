@@ -64,15 +64,6 @@
                 </Typography>
             </span>
         </div>
-        <div class="sidebar">
-            <div class="sidebar-buttons">
-                <button class="sidebar-button">Button 1</button>
-                <button class="sidebar-button">Button 2</button>
-                <button class="sidebar-button">Button 3</button>
-                <button class="sidebar-button">Button 4</button>
-                <button class="sidebar-button">Button 5</button>
-            </div>
-        </div>
         <div class="center">
             <div class="fyp-tags">
                 {#each ['Trending', 'For You', 'New', 'Music', 'Podcasts', 'Example', 'Movies', 'Books', 'News'] as tag}
@@ -84,7 +75,15 @@
                 {/each}
             </div>
         </div>
-        <slot />
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-buttons">
+            <button class="sidebar-button">Button 1</button>
+            <button class="sidebar-button">Button 2</button>
+            <button class="sidebar-button">Button 3</button>
+            <button class="sidebar-button">Button 4</button>
+            <button class="sidebar-button">Button 5</button>
+        </div>
     </div>
 </main>
 
@@ -98,6 +97,29 @@
     .hello {
         padding: 1em;
         height: 64px;
+    }
+
+    .center {
+        flex-grow: 1;
+    }
+
+    .fyp-tags {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow-x: auto;
+        width: 90%;
+        background-color: #343333;
+        padding: 0.5em 0 0.5em 0;
+        border-radius: 0.5em;
+    }
+
+    .fyp-tags > * > .fyp-tag-item {
+        width: 80px;
+        background-color: #646464;
+        padding: 0.5em;
+        margin: 0 0.5em 0 0.5em;
+        border-radius: 0.25em;
     }
 
     .sidebar {
@@ -127,29 +149,6 @@
         cursor: pointer;
     }
 
-    .center {
-        flex-grow: 1;
-    }
-
-    .fyp-tags {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        overflow-x: auto;
-        width: 90%;
-        background-color: #343333;
-        padding: 0.5em 0 0.5em 0;
-        border-radius: 0.5em;
-    }
-
-    .fyp-tags > * > .fyp-tag-item {
-        width: 80px;
-        background-color: #646464;
-        padding: 0.5em;
-        margin: 0 0.5em 0 0.5em;
-        border-radius: 0.25em;
-    }
-
     a {
         text-decoration: none;
         color: inherit;
@@ -169,4 +168,5 @@
         }
     }
 </style>
+
 
