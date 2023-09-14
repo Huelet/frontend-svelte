@@ -127,11 +127,11 @@
     .sidebar {
         position: fixed;
         top: 1in; /* Lowered by an inch */
-        right: 0;
+        right: -0.5cm; /* Moved half a centimeter to the left */
         width: 55px;
-        height: 245px; /* Set to 245px */
+        height: 245px;
         background-color: #343333;
-        border-radius: 0 8px 8px 0;
+        border-radius: 8px; /* All corners have a radius of 8 */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -146,7 +146,7 @@
 
     .sidebar-button {
         background-color: #646464;
-        border-radius: 4px;
+        border-radius: 8px; /* All corners have a radius of 8 */
         padding: 0.25em 0.5em; /* Reduced button size */
         color: white;
         border: none;
@@ -172,9 +172,6 @@
         }
     }
 </style>
-
-
-
 
 
 
