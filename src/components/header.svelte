@@ -243,9 +243,11 @@
 
 .search-wrapper {
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center the element both horizontally and vertically */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
 }
 
 .search {
@@ -263,7 +265,8 @@
     width: auto;
     padding: 0.2em;
     border-radius: 50%;
-    margin-top: 0;
+    margin-left: 0.2em; /* Add some spacing between the search bar and button */
+    cursor: pointer;
 }
 
 .button-sign-in {
