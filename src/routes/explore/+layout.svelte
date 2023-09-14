@@ -51,6 +51,7 @@
     </div>
 </main>
 
+
 <style>
     main {
         height: 100vh;
@@ -133,13 +134,11 @@
         .fyp-tags > .fyp-tag-item {
             margin: 0 0.25em 0 0.25em;
         }
-
-
- .sidebar-buttons button:active {
-        background-color: #796AD7; /* Change color when clicked */
     }
 
-
+    .sidebar-buttons button:active {
+        background-color: #796AD7; /* Change color when clicked */
+    }
 
     .fyp-tags-top {
         display: flex;
