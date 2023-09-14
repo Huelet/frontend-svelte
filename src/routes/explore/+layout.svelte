@@ -87,6 +87,7 @@
     </div>
 </main>
 
+
 <style>
     main {
         height: 100vh;
@@ -125,10 +126,10 @@
 
     .sidebar {
         position: fixed;
-        top: 0;
+        top: 1in; /* Lowered by an inch */
         right: 0;
         width: 55px;
-        height: 100vh;
+        height: 245px; /* Set to 245px */
         background-color: #343333;
         border-radius: 0 8px 8px 0;
         display: flex;
