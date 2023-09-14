@@ -76,22 +76,23 @@
             </div>
         </div>
     </div>
-    <div class="sidebar">
-        <div class="sidebar-buttons">
-            <button class="sidebar-button">Button 1</button>
-            <button class="sidebar-button">Button 2</button>
-            <button class="sidebar-button">Button 3</button>
-            <button class="sidebar-button">Button 4</button>
-            <button class="sidebar-button">Button 5</button>
-        </div>
-    </div>
 </main>
+<div class="sidebar">
+    <div class="sidebar-buttons">
+        <button class="sidebar-button">Button 1</button>
+        <button class="sidebar-button">Button 2</button>
+        <button class="sidebar-button">Button 3</button>
+        <button class="sidebar-button">Button 4</button>
+        <button class="sidebar-button">Button 5</button>
+    </div>
+</div>
 
 <style>
     main {
         height: 100vh;
         width: 100vw;
         display: flex;
+        justify-content: space-between; /* Move content to the left */
     }
 
     .hello {
@@ -131,8 +132,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        padding: 0.5em;
-        order: 2; /* Move sidebar to the right */
     }
 
     .sidebar-buttons {
@@ -169,6 +168,7 @@
         }
     }
 </style>
+
 
 
 
