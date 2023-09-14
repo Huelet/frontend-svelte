@@ -217,9 +217,11 @@
 	</nav>
 </div>
 
+
+
+
 <style>
-	
-	/* Define common styles */
+/* Define common styles */
 .header {
     display: flex;
     align-items: center;
@@ -229,7 +231,9 @@
 
 .header-global {
     position: fixed;
-    width: 100vw;
+    top: 0; /* Place it at the top of the viewport */
+    left: 0; /* Center it horizontally */
+    width: 100%;
     height: 32px;
     background-color: #1a1b1e;
     display: flex;
@@ -239,7 +243,9 @@
 
 .search-wrapper {
     display: flex;
-    align-items: center; /* Center vertically */
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    flex-grow: 1; /* Take up available space to center the search */
 }
 
 .search {
@@ -340,6 +346,5 @@ a {
         width: 8em;
     }
 }
-
-	
 </style>
+
