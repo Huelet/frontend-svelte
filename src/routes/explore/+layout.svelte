@@ -92,7 +92,6 @@
         height: 100vh;
         width: 100vw;
         display: flex;
-        justify-content: space-between; /* Move content to the left */
     }
 
     .hello {
@@ -168,6 +167,7 @@
         }
     }
 </style>
+
 
 
 
