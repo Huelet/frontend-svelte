@@ -1,44 +1,167 @@
 <script lang="ts">
-  import type { PageData, Video } from './$types';
-  import VideoCard from '../../components/video-card.svelte';
-  import Loading from '../../components/loading.svelte';
-  import Typography from '../../components/typography.svelte';
-  import Meta from '../../components/meta.svelte';
-  import '@fontsource/red-hat-display/300.css';
+    import Logo from '../../components/logo.svelte';
+    import Divider from '../../components/divider.svelte';
+    import Typography from '../../components/typography.svelte';
+    import { onMount } from 'svelte';
+    import { News, Refresh, Stocks } from '../../components/icons';
+    import { api_url } from '../../env';
+    import type { PageData, Video } from './$types'; // Make sure to import the types from your first code block.
 
-  export let data: PageData;
+    export let data: PageData;
 
-  let videoList: Video[] | undefined = data.videoList;
+    let videoList: Video[] | undefined = data.videoList;
 </script>
 
 <Meta
-  title="Explore | Shards"
-  description="Shards: A Better Social Media Experience"
+    title="Explore | Shards"
+    description="Shards: A Better Social Media Experience"
 />
 
 <main>
-  <div class="explore-container">
-    <div class="explore-videos">
-      <div class="explore-videos-grid">
-        {#if videoList}
-          {#each videoList as video}
-            <VideoCard {video} />
-          {/each}
-        {:else}
-          <Loading dimensions={256} />
-          <Typography size="xl">Loading Explore</Typography>
-        {/if}
-      </div>
+    <div class="sidebar">
+        <div class="sidebar-buttons">
+            <button class="sidebar-button">1</button>
+            <button class="sidebar-button">2</button>
+            <button class="sidebar-button">3</button>
+            <button class="sidebar-button">4</button>
+            <button class="sidebar-button">5</button>
+        </div>
     </div>
-  </div>
+    <div class="page-content">
+        <div class="center">
+            <div class="fyp-tags-top">
+                <a href="/explore" class="tag">
+                    <div class="fyp-tag-item center cursor">
+                        <Typography truncated={true} size="lg">Explore</Typography>
+                    </div>
+                </a>
+                <a href="/explore/videosfyp" class="tag">
+                    <div class="fyp-tag-item center cursor">
+                        <Typography truncated={true} size="lg">Videos fyp</Typography>
+                    </div>
+                </a>
+                <a href="/explore/forumsfyp" class="tag">
+                    <div class="fyp-tag-item center cursor">
+                        <Typography truncated={true} size="lg">Forums fyp</Typography>
+                    </div>
+                </a>
+                <a href="/explore/postfyp" class="tag">
+                    <div class="fyp-tag-item center cursor">
+                        <Typography truncated={true} size="lg">Post fyp</Typography>
+                    </div>
+                </a>
+                <a href="/explore/newsfyp" class="tag">
+                    <div class="fyp-tag-item center cursor">
+                        <Typography truncated={true} size="lg">News fyp</Typography>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="fyp-container">
+            <div class="fyp-videos">
+                <div class="fyp-videos-grid">
+                    {#if videoList}
+                        {#each videoList as video}
+                            <VideoCard {video} />
+                        {/each}
+                    {:else}
+                        <Loading dimensions={256} />
+                        <Typography size="xl">Loading Fyp</Typography>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+
+
 
 <style>
   main {
-    height: 96vh;
-    width: 96vw;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
+  .hello {
+    padding: 1em;
+    height: 64px;
+  }
+
+  .center {
+    flex-grow: 1;
+  }
+
+  .fyp-tags-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow-x: auto;
+    width: 100%; /* Take full width */
+    background-color: #343333;
+    padding: 0.5em 0 0.5em 0;
+    border-radius: 0.5em;
+    margin-top: 1em; /* Add margin to push it down */
+  }
+
+  .fyp-tags-top .tag .fyp-tag-item {
+    width: 100px; /* Adjust button width */
+    background-color: #646464;
+    padding: 0.5em;
+    margin: 0 0.5em 0 0.5em;
+    border-radius: 0.25em;
+  }
+
+  /* Add this CSS for the active state */
+  .fyp-tags-top .tag:active .fyp-tag-item {
+    background-color: #796AD7; /* Change color when clicked */
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 1in; /* Lowered by an inch */
+    right: 0.5cm; /* Moved 0.5cm away from the right edge */
+    width: 55px;
+    height: 245px; /* Set to 245px */
+    background-color: #343333;
+    border-radius: 8px; /* All corners with radius 8 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidebar-button {
+    background-color: #646464;
+    border-radius: 8px; /* All corners with radius 8 */
+    padding: 0.25em 0.5em; /* Reduced button size */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .sidebar-buttons button:active {
+    background-color: #796AD7; /* Change color when clicked */
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:visited {
+    color: inherit;
+  }
+
+  /* Styles from +page.svelte */
   .explore-container {
     height: 100%;
     width: 100%;
@@ -56,5 +179,15 @@
     place-items: center;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 1em;
+  }
+
+  @media (max-width: 600px) {
+    .fyp-tags-top {
+      margin: 0;
+    }
+
+    .fyp-tags-top .tag .fyp-tag-item {
+      margin: 0 0.25em 0 0.25em;
+    }
   }
 </style>
