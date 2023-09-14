@@ -141,7 +141,7 @@
 
 
 
-.fyp-tags-top {
+    .fyp-tags-top {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -152,11 +152,21 @@
         border-radius: 0.5em;
     }
 
-    .fyp-tags-top .tag:active .fyp-tag-item {
-        background-color: #796AD7; /* Change color when clicked */
+    .fyp-tags-top .tag {
+        text-decoration: none;
+        color: inherit;
     }
 
+    .fyp-tags-top .tag:hover .fyp-tag-item {
+        background-color: #796AD7; /* Change color on hover */
+    }
+
+    .fyp-tags-top .tag .fyp-tag-item {
+        width: 80px;
+        background-color: #646464;
+        padding: 0.5em;
+        margin: 0 0.5em 0 0.5em;
+        border-radius: 0.25em;
     }
 </style>
-
 
