@@ -62,19 +62,8 @@
         </div>
     </div>
     <div class="page-content">
-        <div class="hello row">
-            <Logo />
-            <span class="column">
-                <Typography fontSize={1.95} weight={500} element="h1">
-                    Good {timeOfDay}!
-                </Typography>
-                <Typography>
-                    It's {!weather ? 'Rainy' : weather} in {!locationData ? 'Seattle' : locationData.city}.
-                </Typography>
-            </span>
-        </div>
         <div class="center">
-            <div class="fyp-tags">
+            <div class="fyp-tags-top">
                 <a href="/explore" class="tag">
                     <div class="fyp-tag-item center cursor">
                         <Typography truncated={true} size="lg">Explore</Typography>
@@ -101,6 +90,17 @@
                     </div>
                 </a>
             </div>
+        </div>
+        <div class="hello row">
+            <Logo />
+            <span class="column">
+                <Typography fontSize={1.95} weight={500} element="h1">
+                    Good {timeOfDay}!
+                </Typography>
+                <Typography>
+                    It's {!weather ? 'Rainy' : weather} in {!locationData ? 'Seattle' : locationData.city}.
+                </Typography>
+            </span>
         </div>
     </div>
 </main>
@@ -193,6 +193,23 @@
 
 
  .sidebar-buttons button:active {
+        background-color: #796AD7; /* Change color when clicked */
+    }
+
+
+
+.fyp-tags-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow-x: auto;
+        width: 90%;
+        background-color: #343333;
+        padding: 0.5em 0 0.5em 0;
+        border-radius: 0.5em;
+    }
+
+    .fyp-tags-top .tag:active .fyp-tag-item {
         background-color: #796AD7; /* Change color when clicked */
     }
 
