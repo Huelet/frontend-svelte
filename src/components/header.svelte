@@ -57,15 +57,17 @@
 </script>
 
 <div class="header-global row center {className}">
-	<header class="row">
-		<a href={loggedIn ? '/explore' : '/'}><Logo dimensions={32} /></a>
-		<div class="row center">
-			<input type="text" placeholder="Search" bind:value={query} class="search" />
-			<div class="search-button button primary">
-				<Search fill="white" width={16} height={16} />
-			</div>
-		</div>
-	</header>
+    <header class="row">
+        <a href={loggedIn ? '/explore' : '/'}><Logo dimensions={32} /></a>
+        <div class="row center">
+            <div class="search-wrapper">
+                <input type="text" placeholder="Search" bind:value={query} class="search" />
+                <div class="search-button button primary">
+                    <Search fill="white" width={16} height={16} />
+                </div>
+            </div>
+        </div>
+    </header>
 	<nav>
 		<div class="actions row center">
 			<span>
@@ -233,6 +235,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center; /* Center vertically */
 }
 
 .search {
