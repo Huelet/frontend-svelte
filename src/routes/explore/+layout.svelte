@@ -52,6 +52,15 @@
 
 
 <main>
+    <div class="sidebar">
+        <div class="sidebar-buttons">
+            <button class="sidebar-button">1</button>
+            <button class="sidebar-button">2</button>
+            <button class="sidebar-button">3</button>
+            <button class="sidebar-button">4</button>
+            <button class="sidebar-button">5</button>
+        </div>
+    </div>
     <div class="page-content">
         <div class="hello row">
             <Logo />
@@ -77,21 +86,13 @@
         </div>
     </div>
 </main>
-<div class="sidebar">
-    <div class="sidebar-buttons">
-        <button class="sidebar-button">Button 1</button>
-        <button class="sidebar-button">Button 2</button>
-        <button class="sidebar-button">Button 3</button>
-        <button class="sidebar-button">Button 4</button>
-        <button class="sidebar-button">Button 5</button>
-    </div>
-</div>
 
 <style>
     main {
         height: 100vh;
         width: 100vw;
         display: flex;
+        justify-content: space-between; /* Move content to the left */
     }
 
     .hello {
@@ -123,10 +124,13 @@
     }
 
     .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
         width: 55px;
-        height: 245px;
+        height: 100vh;
         background-color: #343333;
-        border-radius: 8px;
+        border-radius: 0 8px 8px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -142,7 +146,7 @@
     .sidebar-button {
         background-color: #646464;
         border-radius: 4px;
-        padding: 0.5em 1em;
+        padding: 0.25em 0.5em; /* Reduced button size */
         color: white;
         border: none;
         cursor: pointer;
@@ -167,6 +171,7 @@
         }
     }
 </style>
+
 
 
 
