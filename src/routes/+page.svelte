@@ -25,11 +25,11 @@
         </span>
       </div>
       <div class="text-container">
-        <Typography weight={800} fontSize={2} class="center-text"> Welcome to Shards Social! </Typography>
+        <Typography weight={800} fontSize={2} class="center-text"> Welcome to Huelet! </Typography>
       </div>
       <div class="button-container">
-        <a href="https://dsc.gg/huelet">
-          <div class="button primary rounded">Alpha tester Sign up</div>
+        <a href="/auth/up">
+          <div class="button primary rounded">Sign up</div>
         </a>
         <a href="/auth/in">
           <div class="button secondary rounded">I already have an account</div>
